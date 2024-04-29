@@ -28,7 +28,7 @@ class Contenido{
                 $pagina= "vistas/administrador/libros/addlibros.php";
             }
             elseif($url[0]=="prestamos"){
-                $pagina= "vistas/administrador/prestamos/addprestamos.php";
+                $pagina=  "vistas/administrador/prestamos/addprestamo.php";
             }
             else{
                 $pagina="vistas/e404.php";
