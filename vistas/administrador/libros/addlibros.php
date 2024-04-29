@@ -1,6 +1,6 @@
 <?php
 
-$libros_controller = new $libros_controller();
+$libros_controller = new LibrosController();
 
 if(isset($_POST['ok1'])){
 
