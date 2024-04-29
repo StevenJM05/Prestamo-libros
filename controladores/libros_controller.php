@@ -17,6 +17,7 @@ class LibrosController extends Conexion{
 
         return $resultado;
      }
+     //Prueba
     public function update($libros, $id) {
         $sql = "UPDATE libros
                 SET
