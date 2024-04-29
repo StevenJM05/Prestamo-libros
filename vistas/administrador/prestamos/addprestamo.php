@@ -6,13 +6,9 @@ if(isset($_POST['ok1'])){
     $fecha_prestamo = $_POST['fecha_prestamo'];
     $fecha_devolucion = $_POST['fecha_devolucion'];
     $estado = $_POST['estado'];
-
-  
+ 
     $prestamo = new Prestamos();
-
-    $prestamosController = new PrestamosController();
-
-    
+    $prestamosController = new PrestamosController();   
     $prestamosController->agregar($prestamo);
 }
 ?>

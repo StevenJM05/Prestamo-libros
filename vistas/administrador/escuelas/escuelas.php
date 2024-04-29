@@ -1,9 +1,15 @@
 <?php
 $escuelas_controller = new escuelas_controller();
 
-if(isset($_POST['ok1'])){
-    $escuelas = new escuelas("", $_POST['nombre'], $_POST['director']);
-    $escuelas_controller->agregar($idescuela, $nombre, $director);
+if(isset($_POST['del'])){
+
+    if(isset($_POST['eliminar']) && is_array($_POST['eliminar'])) {
+        foreach($_POST['eliminar'] as $idescuelas) {
+            $escuelas_controller->delete(intval($idescuelas)); 
+            
+        }
+    }
+
 }
 ?>
 <body style="background-color: #f0f0f0;">
@@ -37,7 +43,7 @@ if(isset($_POST['ok1'])){
 
             echo "
                         <tr  >
-                            <td  > <input type='checkbox'  name='eliminar[]' value=' ' title=' ' > </td>
+                            <td  > <input type='checkbox'  name='eliminar[]' value='". $aggal->getIdescuelas() ." ' title='Eliminar ' > </td>
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombre() . "</td>
                             <td>" . $aggal->getDirector() . "</td>
