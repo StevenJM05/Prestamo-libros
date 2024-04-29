@@ -1,6 +1,6 @@
 <?php
 
-$alumnos_controller = new alumnos_controller();
+$libros_controller = new $libros_controller();
 
 if(isset($_POST['ok1'])){
 

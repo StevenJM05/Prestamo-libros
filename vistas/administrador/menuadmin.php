@@ -65,7 +65,7 @@
                     <a class="nav-link" href="prestamos">Prestamos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="libros/libros.php">Libros</a>
+                    <a class="nav-link" href="libros">Libros</a>
                 </li>
             </ul>
             <form class="d-flex my-2 my-lg-0">
