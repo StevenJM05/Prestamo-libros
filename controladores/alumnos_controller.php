@@ -17,6 +17,17 @@ class alumnos_controller extends Conexion{
         }
         return $resultado;
     }
+
+    public function listarCarreras(){
+        $sql = "SELECT * FROM carreras";
+        $rs= $this->ejecutarSQL($sql);
+        $resultado = array();
+
+        while($fila = $rs->fetch_assoc()){
+            $resultado[] = new Carreras($fila["id_carrera"], $fila["id_escuelas"], $fila["nombre_carrera"], $fila["asignaturas"]);
+        }
+        return $resultado;
+    }
 }
 
 ?>
