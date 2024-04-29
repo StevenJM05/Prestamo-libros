@@ -7,22 +7,48 @@ if(isset($_POST['ok1'])){
     $carreras_controller->agregar($carreras);
 }
 ?>
-     <div class="container mt-5 text-center">
+     <div class="container mt-5 text-center bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin 20px 0 0 0; font-size: 0.8em; border-radius: 100px; bacground: #3c3c3c: color: #fff;">
         <h1 class="fw-bold">AGREGAR CARRERAS</h1>
      </div>
     
 
 
-     <div class="container mt-5">
-        <form method="post">
-            <div class="col-md-4">
-                <div class="form-group mt-3">
-                    <label for="">
-                        Nombre de la Carrera:
-                        <input type="text" class="form-control" name="nombre_carrera" placeholder="Ingrese el nombre de la carrera">
-                    </label>
-                </div>
+    <div class="container mt-7 bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin 20px 0 0 0; font-size: 0.8em; border-radius: 100px; bacground: #3c3c3c: color: #fff;">
+        <form method="post" class="m-5 mx-auto">
+        <div class="mb-3 row">
+            <label for="inputName" class="col-4 col-form-label">
+                Nombre de la escuela
+            </label>
+            <div class="col-8">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="nombre_carrera"
+                    id="nombre_carrera"
+                    placeholder="Ingrese el nombre de la carrera"
+                />
             </div>
+            <br>
+        </div>
+
+        <div class=" mb-3 row">
+            <label for="inputName" class="col-4 col-form-label">
+                Escuelas 
+            </label>
+            <div class="col-8">
+                <select name="escuelas" id="">
+                    <option value="all">Seleccione una escuela:</option>
+                    <?php
+   $carreras = $carreras_controller->listarescuelas();
+    foreach ($carreras as $item) {
+        echo "<option value='" . $item->getIdescuelas() . "'>" . $item->getNombre() . "</option>";
+    }
+    ?>                    
+                </select>
+            </div>
+        </div>
+
+
         </form>
      </div>
 
@@ -40,7 +66,7 @@ if(isset($_POST['ok1'])){
 <select name="escuelas" id="">
     <option value="all">Seleccione una escuela:</option>
     <?php
-   /* $carreras = $carreras_controller->listarescuelas();
+   /*$carreras = $carreras_controller->listarescuelas();
     foreach ($carreras as $item) {
         echo "<option value='" . $item->getIdescuelas() . "'>" . $item->getNombre() . "</option>";
     }*/
