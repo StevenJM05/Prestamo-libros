@@ -10,7 +10,7 @@
         $this->nombre_carrera = $nombre_carrera;
         $this->asignaturas = $asignaturas;
     }
-
+//prueba
     public function getIdCarrera() {
         return $this->id_carrera;
     }
