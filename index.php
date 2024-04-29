@@ -7,6 +7,8 @@ require_once("controladores/contenido.php");
 <!doctype html>
 <html lang="en">
 
+//HOLA Cracks
+
 <head>
     <title>Libros</title>
     <meta charset="utf-8" />
