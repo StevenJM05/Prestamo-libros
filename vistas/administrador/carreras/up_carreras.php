@@ -2,11 +2,12 @@
 $carreras_controller = new carreras_controller();
 
 if(isset($_POST['ok1'])){
-       
-    $carreras = new carreras("",1, $_POST['nombre_carrera'], $_POST['asignaturas']);
-    $carreras_controller->agregar($carreras);
+    
+    $carreras = new carreras("","", $_POST['nombre_carrera'], $_POST['asignaturas']);
+    $carreras_controller->update($carreras, $id);
 }
 ?>
+
 <div class="container mt-5 text-center">
         <h1 class="fw-bold">AGREGAR CARRERAS</h1>
     </div>
@@ -46,18 +47,3 @@ if(isset($_POST['ok1'])){
     </form>
 </div> 
 </div>
-<?php
-/*foreach ($carreras_controller->listar() as $aggal) {
-
-    echo "
-                <tr  >
-                    <td  > <input type='checkbox'  name='eliminar[]' value=' ' title=' ' > </td>
-                    <td>" . $aggal->getIdcarrera() . "</td>
-                    <td>" . $aggal->getIdescuelas() . "</td>
-                    <td>" . $aggal->getNombrecarrera() . "</td>
-                    <td>" . $aggal->getAsignaturas() . "</td>
-                    <td><a href='update/ '>A </a></td>
-                </tr>
-                ";
-}*/
-?>

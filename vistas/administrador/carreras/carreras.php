@@ -2,6 +2,7 @@
 $carreras_controller = new carreras_controller();
 
 if(isset($_POST['ok1'])){
+    
     $carreras = new carreras("", "", $_POST['nombre_carrera'], $_POST['asignaturas']);
     $carreras_controller->agregar($idcarrera, $idescuela, $nom_carrera, $aginaturas);
 }
@@ -14,6 +15,10 @@ if(isset($_POST['ok1'])){
 
     <div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
     <a class='btn btn-success position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
+</div>
+
+<div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
+    <a class='btn btn-success position-absolute top-0 start-0' href='up_carreras'>Agregar Carreras</a>
 </div>
 
 </div>
