@@ -32,7 +32,7 @@ if(isset($_POST['ok1'])){
         </thead>
         <tbody>
 
-        <?php 
+        <?php //comentario
         foreach ($carreras_controller->listar() as $aggal) {
 
             echo "
