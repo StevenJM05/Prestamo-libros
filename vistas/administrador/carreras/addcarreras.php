@@ -13,10 +13,10 @@ if(isset($_POST['ok1'])){
     
 
 
-    <div class="container mt-7 bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin: 20px 30px 50px 240px; border-radius: 100px">
+    <div class="container mt-7 bg-secondary text-white fw-bold" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin: 20px 30px 50px 240px; border-radius: 50px;">
         <form method="post" class="m-5 mx-auto">
-        <div class="mb-3 row">
-            <label for="inputName" class="col-4 col-form-label">
+        <div class="mb-5 row">
+            <label for="inputName" class="col-4 mr-2 col-form-label">
                 Nombre de la escuela
             </label>
             <div class="col-8">
