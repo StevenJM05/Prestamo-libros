@@ -1,14 +1,13 @@
 <?php
-require_once($prestamos);
+require_once("conexion.php");
+
 class PrestamosController extends Conexion
 {
-    public function agregar($prestamos) {
-        $sql = "INSERT INTO prestamos (id_alumno, id_libros, fecha_prestamo, fecha_devolucion, estado) 
-                VALUES ('{$prestamos->getIdAlumno()}', '{$prestamos->getIdLibros()}', '{$prestamos->getFechaPrestamo()}', '{$prestamos->getFechaDevolucion()}', {$prestamos->getEstado()})";
-        $rs = $this->ejecutarSQL($sql);
-    }
-    
 
+        public function agregar($prestamo) {
+            $sql = "INSERT INTO prestamos (id_alumno, id_libros, fecha_prestamo, fecha_devolucion, estado)  VALUES (('" . $prestamo->getIdAlumno() . $prestamo->getIdLibros() . $prestamo->getFechaPrestamo() . $prestamo->getFechaDevolucion() . $prestamo->getEstado() . "')";
+            $this->ejecutarSQL($sql);
+        }
     public function listar()
     {
         $sql = "SELECT * FROM prestamos";
@@ -19,24 +18,6 @@ class PrestamosController extends Conexion
         }
         return $resultado;
     }
-
-    public function update($prestamos, $id) {
-        $sql = "UPDATE prestamos
-                SET
-                id_alumno = '{$prestamos->getIdAlumno()}',
-                id_libros = '{$prestamos->getIdLibros()}',
-                fecha_prestamo = '{$prestamos->getFechaPrestamo()}',
-                fecha_devolucion = '{$prestamos->getFechaDevolucion()}',
-                estado = {$prestamos->getEstado()}
-                WHERE id_prestamos = $id";
-        $rs = $this->ejecutarSQL($sql);
-    }
-
-    public function delete($id){
-        $sql = "DELETE FROM prestamos WHERE id_prestamos = $id";
-        $rs = $this->ejecutarSQL($sql);
-    }
-    
 }
 
 ?>

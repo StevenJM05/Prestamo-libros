@@ -1,4 +1,24 @@
-<div class="container mt-5">
+<?php
+if(isset($_POST['ok1'])){
+    // Recopilar los datos del formulario
+    $id_alumno = $_POST['id_alumno'];
+    $id_libro = $_POST['id_libro'];
+    $fecha_prestamo = $_POST['fecha_prestamo'];
+    $fecha_devolucion = $_POST['fecha_devolucion'];
+    $estado = $_POST['estado'];
+
+  
+    $prestamo = new Prestamos();
+
+    $prestamosController = new PrestamosController();
+
+    
+    $prestamosController->agregar($prestamo);
+}
+?>
+
+            <form method="post">
+            <div class="container mt-5">
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h5 class="card-title mb-0">Agregar Nuevo Préstamo</h5>
@@ -40,6 +60,34 @@
                         <button type="submit" name="ok1" class="btn btn-primary">Agregar</button>
                     </div>
                 </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Lista de Préstamos</h5>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Eliminar</th>
+                            <th>ID Alumno</th>
+                            <th>ID Libro</th>
+                            <th>Fecha de Préstamo</th>
+                            <th>Fecha de Devolución</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
             </form>
         </div>
     </div>
