@@ -9,7 +9,7 @@
             $this->nombre = $nombre;
             $this->director = $director;
         }
-    
+    ///comentario
         public function getIdEscuelas() {
             return $this->id_escuelas;
         }
