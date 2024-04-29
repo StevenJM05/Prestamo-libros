@@ -1,21 +1,39 @@
 <?php
-
 class Contenido{
     public function mostra_archivo(){
         $url=isset($_GET["url"])? $_GET["url"]:null;
-        $url=explode('/',$url);
+        $url=explode("/",$url);
         $pagina="";
         if($url[0]==null){
-            $pagina="vistas/inicio.php";
-        }else if($url[0]=="autor"){
-            $pagina="vistas/autor/addautor.php";
-        }else if($url[0]=="libros"){
-            $pagina="vistas/libros/add.libros.php";
-        }else{
-            $pagina="vistas/e404.php";
+            $pagina="vistas/inicio.php";}
+            elseif($url[0]=="alumnos"){
+                $pagina="vistas/administrador/alumnos/alumnos.php";
+            }
+            elseif($url[0]=="addalumnos"){
+                $pagina="vistas/administrador/alumnos/addalumnos.php";
+            }
+            elseif($url[0]=="carreras"){
+                $pagina="vistas/administrador/carreras/carreras.php";
+            }
+            elseif($url[0]=="addcarreras"){
+                $pagina="vistas/administrador/carreras/addcarreras.php";
+            }
+            elseif($url[0]=="escuelas"){
+                $pagina= "vistas/administrador/escuelas/addescuelas.php";
+            }
+            elseif($url[0]=="libros"){
+                $pagina= "vistas/administrador/libros/addlibros.php";
+            }
+            elseif($url[0]=="prestamos"){
+                $pagina= "vistas/administrador/prestamos/addprestamos.php";
+            }
+            else{
+                $pagina="vistas/e404.php";
+            }
+
+            return $pagina;
         }
-        return $pagina;
     }
-}
+
 
 ?>
