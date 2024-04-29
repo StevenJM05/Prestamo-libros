@@ -19,7 +19,7 @@ if(isset($_POST['ok1'])){
 </div>
 <br><br>
 
-<form method=post >
+<form method=post>
 <table class="table table-dark mx-auto" style="width: 80%;">
         <thead>
             <tr>
