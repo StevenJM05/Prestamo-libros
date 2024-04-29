@@ -25,7 +25,7 @@ if(isset($_POST['ok1'])){
 
 
 <div class="container mt-5 text-center">
-        <h1 class="fw-bold">AGREGAR ALUMNOS</h1>
+        <h1 class="fw-bold">INFORMACIÓN DE LIBROS</h1>
     </div>
     <div class="container m-7 bg-dark text-white">
 
