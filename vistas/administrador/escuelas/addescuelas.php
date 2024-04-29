@@ -7,8 +7,8 @@ if(isset($_POST['ok1'])){
     $nombre = $_POST['nombre'];
     $director = $_POST['director'];
 
-    $alumnos = new alumnos($_POST['id_escuelas'], $_POST['nombre'], $_POST['director']);
-    $alumnos_controller->agregar($idescuelas, $nombre, $director);
+    $escuelas = new Escuelas();
+    $escuelas_controller->agregar($escuelas);
 }
 ?>
 

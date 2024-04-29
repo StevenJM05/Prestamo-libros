@@ -33,7 +33,7 @@ if(isset($_POST['ok1'])){
         <tbody>
 
         <?php //comentario
-        foreach ($carreras_controller->listar() as $aggal) {
+        foreach ($escuelas_controller->listar() as $aggal) {
 
             echo "
                         <tr  >
