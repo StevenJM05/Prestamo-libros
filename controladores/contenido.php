@@ -25,10 +25,10 @@ class Contenido{
                 $pagina= "vistas/administrador/escuelas/addescuelas.php";
             }
             elseif($url[0]=="libros"){
-                $pagina= "vistas/administrador/libros/addlibros.php";
+                $pagina= "vistas/administrador/libros/libros.php";
             }
             elseif($url[0]=="prestamos"){
-                $pagina= "vistas/administrador/prestamos/addprestamos.php";
+                $pagina=  "vistas/administrador/prestamos/addprestamo.php";
             }
             else{
                 $pagina="vistas/e404.php";
