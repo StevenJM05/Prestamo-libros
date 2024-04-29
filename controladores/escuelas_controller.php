@@ -1,6 +1,6 @@
 <?php 
 require_once("conexion.php");
-class EscuelasController extends Conexion{
+class escuelas_controller extends Conexion{
     public function agregar($escuelas) {
         $sql = "INSERT INTO escuelas (nombre, director) 
                 VALUES ('{$escuelas->getNombre()}', '{$escuelas->getDirector()}')";

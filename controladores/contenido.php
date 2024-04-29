@@ -19,6 +19,9 @@ class Contenido{
                 $pagina="vistas/administrador/carreras/addcarreras.php";
             }
             elseif($url[0]=="escuelas"){
+                $pagina= "vistas/administrador/escuelas/escuelas.php";
+            }
+            elseif($url[0]=="addescuelas"){
                 $pagina= "vistas/administrador/escuelas/addescuelas.php";
             }
             elseif($url[0]=="libros"){

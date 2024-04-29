@@ -1,38 +1,38 @@
-<?php 
-    class Escuelas {
-        private $id_escuelas;
-        private $nombre;
-        private $director;
-    
-        public function __construct($id_escuelas = "", $nombre = "", $director = "") {
-            $this->id_escuelas = $id_escuelas;
-            $this->nombre = $nombre;
-            $this->director = $director;
-        }
-    ///comentario
-        public function getIdEscuelas() {
-            return $this->id_escuelas;
-        }
-    
-        public function setIdEscuelas($id_escuelas) {
-            $this->id_escuelas = $id_escuelas;
-        }
-    
-        public function getNombre() {
-            return $this->nombre;
-        }
-    
-        public function setNombre($nombre) {
-            $this->nombre = $nombre;
-        }
-    
-        public function getDirector() {
-            return $this->director;
-        }
-    
-        public function setDirector($director) {
-            $this->director = $director;
-        }
-    }
-    
+<?php
+class Escuelas{
+private $idescuelas;
+private $nombre;
+private $director;
+
+//constructor
+public function __construct($idescue="",$nomb="",$direc=""){
+$this -> idescuelas = $idescue;
+$this -> nombre = $nomb;
+$this -> director = $direc;
+}
+
+
+//getters
+public function getIdescuelas(){
+return $this -> idescuelas;
+}
+public function getNombre(){
+return $this -> nombre;
+}
+public function getDirector(){
+return $this -> director;
+}
+
+
+//setters
+public function setIdescuelas($idescue){
+$this -> idescuelas = $idescue;
+}
+public function setNombre($nomb){
+$this -> nombre = $nomb;
+}
+public function setDirector($direc){
+$this -> director = $direc;
+}
+}
 ?>
