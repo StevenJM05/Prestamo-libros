@@ -1,5 +1,4 @@
 <?php
-
 $alumnos_controller = new alumnos_controller();
 
 if(isset($_POST['ok1'])){
