@@ -1,6 +1,6 @@
 <?php
 
-$libros_controller = new $libros_controller();
+$libros_controller = new LibrosController();
 
 if(isset($_POST['ok1'])){
 
@@ -61,7 +61,7 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getTitulo() . "</td>
                             <td>" . $aggal->getAutor() . "</td>
                             <td>" . $aggal->getEditorial() . "</td>
-                            <td>" . $aggal->getFecha_edicion() . "</td>
+                            <td>" . $aggal->getFechaEdicion() . "</td>
                             <td>" . $aggal->getISBN() . "</td>
                             <td><a href='update/ '>A </a></td>
                         </tr>
