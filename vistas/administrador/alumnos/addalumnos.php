@@ -11,7 +11,7 @@ if(isset($_POST['ok1'])){
 <div class="container mt-5 text-center">
         <h1 class="fw-bold">AGREGAR ALUMNOS</h1>
     </div>
-    <div class="container m-7 bg-dark text-white">
+    <div class="container m-6 bg-dark text-white">
     <form method="post" class="m-5 mx-auto"> 
         <div class="col-md-4">
             <div class="form-group mt-3">
