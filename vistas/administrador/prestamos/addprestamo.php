@@ -1,14 +1,24 @@
 <?php
-if(isset($_POST['ok1'])){
-    // Recopilar los datos del formulario
+
+
+$prestamosController = new PrestamosController();   
+if (isset($_POST['ok1'])) {
+
     $id_alumno = $_POST['id_alumno'];
-    $id_libro = $_POST['id_libro'];
+    $id_libros = $_POST['id_libros'];
     $fecha_prestamo = $_POST['fecha_prestamo'];
     $fecha_devolucion = $_POST['fecha_devolucion'];
     $estado = $_POST['estado'];
- 
+
+
     $prestamo = new Prestamos();
-    $prestamosController = new PrestamosController();   
+    $prestamo->setIdAlumno($id_alumno);
+    $prestamo->setIdLibros($id_libros);
+    $prestamo->setFechaPrestamo($fecha_prestamo);
+    $prestamo->setFechaDevolucion($fecha_devolucion);
+    $prestamo->setEstado($estado);
+    
+
     $prestamosController->agregar($prestamo);
 }
 ?>
@@ -28,10 +38,10 @@ if(isset($_POST['ok1'])){
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputLibro" class="col-sm-4 col-form-label">ID del Libro</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="id_libro" id="inputLibro" placeholder="Ingrese el ID del libro">
-                    </div>
+                <label for="inputLibro" class="col-sm-4 col-form-label">ID del Libro</label>
+                <div class="col-sm-8">
+                <input type="text" class="form-control" name="id_libros" id="inputLibro" placeholder="Ingrese el ID del libro">
+                </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="inputFechaPrestamo" class="col-sm-4 col-form-label">Fecha de Préstamo</label>
@@ -46,10 +56,13 @@ if(isset($_POST['ok1'])){
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputEstado" class="col-sm-4 col-form-label">Estado</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="estado" id="inputEstado" placeholder="Ingrese el estado del préstamo">
-                    </div>
+                <label for="inputEstado" class="col-sm-4 col-form-label">Estado</label>
+                <div class="col-sm-8">
+                <select class="form-select" name="estado" id="inputEstado">
+                <option value="1">Activo</option>
+                <option value="0">Finalizado</option>
+                </select>
+                </div>
                 </div>
                 <div class="mb-3 row">
                     <div class="offset-sm-4 col-sm-8">
@@ -72,6 +85,7 @@ if(isset($_POST['ok1'])){
                     <thead>
                         <tr>
                             <th>Eliminar</th>
+                            <th>ID prestamos</th>
                             <th>ID Alumno</th>
                             <th>ID Libro</th>
                             <th>Fecha de Préstamo</th>
@@ -80,6 +94,23 @@ if(isset($_POST['ok1'])){
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                         foreach ($prestamosController->listar() as $prestamo) {
+                            echo "
+                                <tr>
+                                    <td><input type='checkbox' name='eliminar[]' value='" . $prestamo->getIdPrestamos() . "' title='Eliminar'></td>
+                                    <td>" . $prestamo->getIdPrestamos() . "</td>
+                                    <td>" . $prestamo->getIdAlumno() . "</td>
+                                    <td>" . $prestamo->getIdLibros() . "</td>
+                                    <td>" . $prestamo->getFechaPrestamo() . "</td>
+                                    <td>" . $prestamo->getFechaDevolucion() . "</td>
+                                    <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
+                                    <td><a href='update/" . $prestamo->getIdPrestamos() . "'>Actualizar</a></td>
+                                </tr>
+                            ";
+                        }
+                        
+                        ?>
                         
                     </tbody>
                 </table>
