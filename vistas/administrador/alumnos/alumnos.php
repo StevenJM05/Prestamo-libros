@@ -1,70 +1,57 @@
-<?php
-
-$alumnos_controller = new alumnos_controller();
-
-if(isset($_POST['ok1'])){
-    $idcarrera = $_POST['id_carrera'];
-    $nombres = $_POST['nombres'];
-    $apellidos = $_POST['apellidos'];
-    $direccion = $_POST['direccion'];
-    $telefono = $_POST['telefono'];
-
-    $alumnos = new alumnos($_POST['id_carrera'], $_POST['nombres'], $_POST['apellidos'], $_POST['direccion'], $_POST['telefono']);
-    $alumnos_controller->agregar($idcarrera, $nombres, $apellidos, $direccion, $telefono);
-}
+<?php 
+    $alumnos_controller = new alumnos_controller();
 ?>
-
-
-<div class="container mt-5 text-center">
-        <h1 class="fw-bold">AGREGAR ALUMNOS</h1>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1>Lista de Alumnos</h1>
+            <a href="addalumnos"><button class="btn btn-outline-warning" >Agregar</button></a>
+        </div>
+        <div class="card-body">
+            <div
+                class="table-responsive-md"
+            >
+                <table
+                    class="table table-striped table-hover table-borderless table-primary align-middle"
+                >
+                    <thead class="table-light">
+                        <caption>
+                            Alumnos
+                        </caption>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID Carrera</th>
+                            <th>Carrera</th>
+                            <th>Nombres</th>
+                            <th>Apellido</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th colspan="2"><center>Acciones</center></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                       <?php 
+                       foreach($alumnos_controller->listar() as $item){
+                        echo "<tr>";
+                        echo "<td> {$item['id_alumno']} </td>";
+                        echo "<td> {$item['id_carrera']} </td>";
+                        echo "<td> {$item['nombre_carrera']} </td>";
+                        echo "<td> {$item['nombres']} </td>";
+                        echo "<td> {$item['apellidos']} </td>";
+                        echo "<td> {$item['direccion']} </td>";
+                        echo "<td> {$item['telefono']} </td>";
+                        echo "<td><button class='btn btn-danger'>Eliminar</button></td>";
+                        echo "<td><button class='btn btn-warning'>Actualizar</button></td>";
+                        echo "</tr>";
+                       }
+                       ?>
+                    </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
+                </table>
+            </div>
+            
+        </div>
     </div>
-    <div class="container m-7 bg-dark text-white">
-    <form method="post" class="m-5 mx-auto"> 
-        <div class="col-md-4">
-            <div class="form-group mt-3">
-                    <label>Nombres del Alumno:</label>
-                    <input type="text" class="form-control" name="nombres" placeholder="Ingrese nombres del alumno">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group mt-3">
-                    <label>Apellidos del Alumno:</label>
-                    <input type="text" class="form-control" name="apellidos" placeholder="Ingrese apellidos del alumno">
-                </div>
-            </div>
-            <div class="col-md-4">
-    <div class="form-group mt-3">
-        <label>Seleccione la carrera:</label>
-        <select class="form-control" name="id_carrera">
-            <?php
-            foreach ($carreras as $carrera) {
-                echo "<option value='" . $carrera['id'] . "'>" . $carrera['nombre'] . "</option>";
-            }
-            ?>
-        </select>
-    </div>
 </div>
-       
-        <div class="col-md-4">
-                <div class="form-group mt-3">
-                    <label>Dirección del Alumno:</label>
-                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese la direccion del alumno">
-                </div>
-            </div>
-        <div class="col-md-4">
-                <div class="form-group mt-3">
-                    <label>Teléfono del Alumno:</label>
-                    <input type="text" class="form-control" name="telefono" placeholder="Ingrese telefono del alumno">
-                </div>
-            </div>
-            <div class="d-flex justify-content-center">
-    <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Agregar</button>
-</div>
-
-    </form>
-</div> 
-</div>
-<?php
-
-
-?>

@@ -12,9 +12,9 @@ class LibrosController extends Conexion{
         $rs = $this->ejecutarSQL($sql);
         $resultado = array();
         while($fila = $rs->fetch_assoc()){
-            $resultado = new Libros($fila["id_libros"], $fila["titulo"], $fila["autor"], $fila["editorial"], $fila["fecha_edicion"], $fila["ISBN"]);
+            $resultado[] = new Libros($fila["id_libros"], $fila["titulo"], $fila["autor"], $fila["editorial"], $fila["fecha_edicion"], $fila["ISBN"]);
         }
-
+    
         return $resultado;
      }
      //Prueba

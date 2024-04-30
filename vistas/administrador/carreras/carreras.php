@@ -17,8 +17,8 @@ if(isset($_POST['ok1'])){
     <a class='btn btn-success position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
 </div>
 
-<div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
-    <a class='btn btn-success position-absolute top-0 start-0' href='up_carreras'>Agregar Carreras</a>
+<div class="container mt-5 position-relative" style="margin-left: 400px; margin-top: -15px;">
+    <a class='btn btn-warning position-absolute top-10 start-10' href='up_carreras'>Agregar Carreras</a>
 </div>
 
 </div>
