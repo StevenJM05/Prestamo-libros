@@ -1,6 +1,7 @@
 <?php
 
-
+$alumnos_controller  = new alumnos_controller();
+$LibrosController=new LibrosController();
 $prestamosController = new PrestamosController();   
 if (isset($_POST['ok1'])) {
 
@@ -31,18 +32,25 @@ if (isset($_POST['ok1'])) {
         </div>
         <div class="card-body">
             <form method="post">
-                <div class="mb-3 row">
-                    <label for="inputAlumno" class="col-sm-4 col-form-label">ID del Alumno</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="id_alumno" id="inputAlumno" placeholder="Ingrese el ID del alumno">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                <label for="inputLibro" class="col-sm-4 col-form-label">ID del Libro</label>
-                <div class="col-sm-8">
-                <input type="text" class="form-control" name="id_libros" id="inputLibro" placeholder="Ingrese el ID del libro">
-                </div>
-                </div>
+            <div class="mb-3" style="display: flex; align-items: center;">
+            <label for="id_alumno" class="form-label" style="width: 300px;">Selecciona un Alumno:</label>
+            <select class="form-select" id="id_alumno" name="id_alumno" onchange="mostrarInfoAlumno()" style="width: 500px; margin-left: 10px;">
+            <?php foreach($alumnos_controller->listar() as $alumno): ?>
+            <option value="<?php echo $alumno->getIdAlumno(); ?>"><?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?></option>
+             <?php endforeach; ?>
+         </select>
+         </div>
+
+         <div class="mb-3 row" style="display: flex; align-items: center;">
+         <label for="inputLibro" class="col-sm-4 col-form-label">Seleccione el Libro:</label>
+         <div class="col-sm-8">
+         <select class="form-select" id="id_libro" name="id_libro">
+            <?php foreach($LibrosController->listar() as $libro): ?>
+                <option value="<?php echo $libro->getIdLibros(); ?>"><?php echo $libro->getTitulo(); ?></option>
+            <?php endforeach; ?>
+        </select>
+        </div>
+        </div>
                 <div class="mb-3 row">
                     <label for="inputFechaPrestamo" class="col-sm-4 col-form-label">Fecha de Préstamo</label>
                     <div class="col-sm-8">
@@ -86,8 +94,8 @@ if (isset($_POST['ok1'])) {
                         <tr>
                             <th>Eliminar</th>
                             <th>ID prestamos</th>
-                            <th>ID Alumno</th>
-                            <th>ID Libro</th>
+                            <th>Nombre Alumno</th>
+                            <th>Nombre Libro</th>
                             <th>Fecha de Préstamo</th>
                             <th>Fecha de Devolución</th>
                             <th>Estado</th>
