@@ -7,15 +7,15 @@ if(isset($_POST['ok1'])){
     $carreras_controller->agregar($carreras);
 }
 ?>
-     <div class="container mt-5 text-center bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin 20px 0 0 0; font-size: 0.8em; border-radius: 100px; bacground: #3c3c3c: color: #fff;">
+     <div class="container mx-5 mt-5 text-center bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin: 20px 0 0 0; font-size: 0.8em; border-radius: 100px; background: #3c3c3c; color: #fff;">
         <h1 class="fw-bold">AGREGAR CARRERAS</h1>
      </div>
     
 
 
-    <div class="container mt-7 bg-secondary text-white fw-bold" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin: 20px 30px 50px 240px; border-radius: 50px;">
+    <div class="container bg-secondary text-white fw-bold" style="opacity: 1; display: block; border: none; outline: none; width: 90%; padding: 13px 18px; margin: 20px 30px 50px 55px; border-radius: 50px;">
         <form method="post" class="m-5 mx-auto">
-        <div class="mb-5 row">
+        <div class="row mt-4">
             <label for="inputName" class="col-4 mr-2 col-form-label">
                 Nombre de la escuela
             </label>
@@ -31,7 +31,7 @@ if(isset($_POST['ok1'])){
             <br>
         </div>
 
-        <div class=" mb-3 row">
+        <div class=" mt-3 row">
             <label for="inputName" class="col-4 col-form-label">
                 Escuelas 
             </label>

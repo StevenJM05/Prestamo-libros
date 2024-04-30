@@ -3,13 +3,17 @@
 $escuelas_controller = new escuelas_controller();
 
 if(isset($_POST['ok1'])){
-    $idescuelas = $_POST['id_escuelas'];
+    
     $nombre = $_POST['nombre'];
     $director = $_POST['director'];
-
-    $alumnos = new alumnos($_POST['id_escuelas'], $_POST['nombre'], $_POST['director']);
-    $alumnos_controller->agregar($idescuelas, $nombre, $director);
+    $escuelas = new Escuelas();
+    $escuelas->setNombre($nombre);
+    $escuelas->setDirector($director);
+    
+    
+    $escuelas_controller->agregar($escuelas);
 }
+
 ?>
 
 
@@ -21,13 +25,13 @@ if(isset($_POST['ok1'])){
         <div class="col-md-4">
             <div class="form-group mt-3">
                     <label>Nombres de la escuela:</label>
-                    <input type="text" class="form-control" name="nombres" placeholder="Ingrese el nombre de la escuela">
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la escuela">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group mt-3">
                     <label>Director:</label>
-                    <input type="text" class="form-control" name="apellidos" placeholder="Ingrese el director">
+                    <input type="text" class="form-control" name="director" placeholder="Ingrese el director">
                 </div>
             </div>
             <div class="d-flex justify-content-center">
