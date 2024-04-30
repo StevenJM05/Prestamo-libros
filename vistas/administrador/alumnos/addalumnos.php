@@ -1,10 +1,16 @@
 <?php
 $alumnos_controller = new alumnos_controller();
-$carreras_controller= new carreras_controller();
 
-if(isset($_POST['ok1'])){
 
-    $alumnos = new alumnos($_POST['id_carrera'], $_POST['nombres'], $_POST['apellidos'], $_POST['direccion'], $_POST['telefono']);
+if (isset($_POST['ok1'])) {
+    $id_carrera = $_POST['id_carrera'];
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $direccion = $_POST['direccion'];
+    $telefono = $_POST['telefono'];
+
+    
+    $alumnos = new Alumnos($id_carrera, $nombres, $apellidos, $direccion, $telefono);
     $alumnos_controller->agregar($alumnos);
 }
 ?>
@@ -32,7 +38,7 @@ if(isset($_POST['ok1'])){
     <label>Seleccione la carrera:</label>
     <select class="form-control" name="id_carrera">
         <?php
-        foreach ($carreras_controller->listar() as $carrera) {
+        foreach ($alumnos_controller->listarCarreras() as $carrera) {
             echo "<option value='" . $carrera->getIdCarrera() . "'>" . $carrera->getNombreCarrera() . "</option>";
         }
         ?>
