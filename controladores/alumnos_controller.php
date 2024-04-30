@@ -8,14 +8,17 @@ class alumnos_controller extends Conexion{
         $rs = $this->ejecutarSQL($sql);
     }
     
-    public function listar(){
-        $sql = "SELECT * FROM alumnos";
-        $rs= $this -> ejecutarSQL($sql);
-        $resultado=array();
-        while($fila=$rs->fetch_assoc()){
-         $resultado[]=new Alumnos ($fila["id_alumno"],$fila["id_carrera"],$fila["nombres"],$fila["apellidos"],$fila["direccion"],$fila["telefono"]);
+    public function listar() {
+        $sql = "SELECT a.id_alumno, c.id_carrera, c.nombre_carrera, a.nombres, a.apellidos, a.direccion, a.telefono 
+                FROM alumnos a 
+                INNER JOIN carreras c ON a.id_carrera = c.id_carrera";
+        $rs = $this->ejecutarSQL($sql);
+        $resultado = array(); 
+        while ($fila = $rs->fetch_assoc()) {
+            $resultado[] = $fila;
         }
-        return $resultado;
+    
+        return $resultado; 
     }
 
     public function listarCarreras(){
