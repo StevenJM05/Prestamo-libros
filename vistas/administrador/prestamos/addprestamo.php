@@ -103,6 +103,7 @@ if (isset($_POST['ok1'])) {
                     </thead>
                     <tbody>
                         <?php
+                        ///comentario de prueba
                          foreach ($prestamosController->listar() as $prestamo) {
                             echo "
                                 <tr>
