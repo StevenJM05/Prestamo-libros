@@ -32,19 +32,21 @@ if (isset($_POST['ok1'])) {
         </div>
         <div class="card-body">
             <form method="post">
-            <div class="mb-3" style="display: flex; align-items: center;">
-            <label for="id_alumno" class="form-label" style="width: 300px;">Selecciona un Alumno:</label>
-            <select class="form-select" id="id_alumno" name="id_alumno" onchange="mostrarInfoAlumno()" style="width: 500px; margin-left: 10px;">
-            <?php foreach($alumnos_controller->listar() as $alumno): ?>
+            <div class="mb-3 row" style="display: flex; align-items: center;">
+            <label for="id_alumno" class="col-sm-4 col-form-label">Selecciona un Alumno:</label>
+             <div class="col-sm-8">
+            <select class="form-select" id="id_alumno" name="id_alumno">
+            <?php foreach($alumnos_controller->listar2() as $alumno): ?>
             <option value="<?php echo $alumno->getIdAlumno(); ?>"><?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?></option>
-             <?php endforeach; ?>
+            <?php endforeach; ?>
          </select>
-         </div>
+      </div>
+       </div>
 
          <div class="mb-3 row" style="display: flex; align-items: center;">
          <label for="inputLibro" class="col-sm-4 col-form-label">Seleccione el Libro:</label>
          <div class="col-sm-8">
-         <select class="form-select" id="id_libro" name="id_libro">
+        <select class="form-select" id="id_libros" name="id_libros">
             <?php foreach($LibrosController->listar() as $libro): ?>
                 <option value="<?php echo $libro->getIdLibros(); ?>"><?php echo $libro->getTitulo(); ?></option>
             <?php endforeach; ?>

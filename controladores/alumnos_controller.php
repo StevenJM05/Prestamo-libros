@@ -20,6 +20,20 @@ class alumnos_controller extends Conexion{
     
         return $resultado; 
     }
+    
+    public function listar2(){
+        $sql = "SELECT * FROM alumnos";
+        $rs= $this -> ejecutarSQL($sql);
+        $resultado=array();
+        while($fila=$rs->fetch_assoc()){
+        
+        $resultado[]=new Alumnos ($fila["id_alumno"],$fila["id_carrera"],$fila["nombres"],$fila["apellidos"],$fila["direccion"],$fila["telefono"]);
+     
+        }
+        return $resultado;
+    }
+
+
 
     public function listarCarreras(){
         $sql = "SELECT * FROM carreras";
