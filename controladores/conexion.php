@@ -4,7 +4,7 @@
     if (!defined('SERVIDOR')) define('SERVIDOR', 'localhost');
     if (!defined('USUARIO')) define('USUARIO', 'root');
     if (!defined('CLAVE')) define('CLAVE', '');
-    if (!defined('DATABASE')) define('DATABASE', 'EXAMENPHP2');
+    if (!defined('DATABASE')) define('DATABASE', 'EXAMEN2PHP');
 
 class Conexion {
     private $connect;
