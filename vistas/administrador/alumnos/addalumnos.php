@@ -10,8 +10,14 @@ if (isset($_POST['ok1'])) {
     $telefono = $_POST['telefono'];
 
     
-    $alumnos = new Alumnos($id_carrera, $nombres, $apellidos, $direccion, $telefono);
-    $alumnos_controller->agregar($alumnos);
+  
+    $alumno = new Alumnos();
+    $alumno->setIdCarrera($id_carrera);
+    $alumno->setNombres($nombres);
+    $alumno->setApellidos($apellidos);
+    $alumno->setDireccion($direccion);
+    $alumno->setTelefono($telefono);
+    $alumnos_controller->agregar($alumno);
 }
 ?>
 
