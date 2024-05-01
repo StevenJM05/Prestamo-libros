@@ -13,7 +13,6 @@ $prestamosController = new PrestamosController();
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Eliminar</th>
                             <th>ID prestamos</th>
                             <th>Nombre Alumno</th>
                             <th>Nombre Libro</th>
@@ -27,7 +26,6 @@ $prestamosController = new PrestamosController();
                          foreach ($prestamosController->listar() as $prestamo) {
                             echo "
                                 <tr>
-                                    <td><input type='checkbox' name='eliminar[]' value='" . $prestamo->getIdPrestamos() . "' title='Eliminar'></td>
                                     <td>" . $prestamo->getIdPrestamos() . "</td>
                                     <td>" . $prestamo->getIdAlumno() . "</td>
                                     <td>" . $prestamo->getIdLibros() . "</td>
@@ -35,6 +33,7 @@ $prestamosController = new PrestamosController();
                                     <td>" . $prestamo->getFechaDevolucion() . "</td>
                                     <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
                                     <td><a href='up_prestamo/" . $prestamo->getIdPrestamos() . "' class='btn btn-success'>Actualizar</a></td>
+
                                 </tr>
                             ";
                         }

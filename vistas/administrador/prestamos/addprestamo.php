@@ -27,7 +27,7 @@ if (isset($_POST['ok1'])) {
 
             <form method="post">
             <div class="container mt-5">
-    <div class="card">
+        <div class="card">
         <div class="card-header bg-dark text-white">
             <h5 class="card-title mb-0">Agregar Nuevo Préstamo</h5>
         </div>
