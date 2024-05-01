@@ -17,8 +17,6 @@ class Alumnos{
     $this -> telefono = $tel;
     }
 
-///comentario de gerson
-
 ///getters
     public function getIdalumno(){
         return $this->idalumno;

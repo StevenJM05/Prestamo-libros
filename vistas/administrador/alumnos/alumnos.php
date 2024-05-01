@@ -41,7 +41,7 @@
                         echo "<td> {$item['direccion']} </td>";
                         echo "<td> {$item['telefono']} </td>";
                         echo "<td><button class='btn btn-danger'>Eliminar</button></td>";
-                        echo "<td><button class='btn btn-warning'>Actualizar</button></td>";
+                        echo "<td><a href='updateAlumno/{$item['id_alumno']}'><button class='btn btn-warning'>Editar</button></a></td>";
                         echo "</tr>";
                        }
                        ?>
