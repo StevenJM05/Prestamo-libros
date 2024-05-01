@@ -30,7 +30,7 @@ if(isset($_POST['ok1'])){
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">ID Carreras</th>
-                <th scope="col">ID Escuelas</th>
+                <th scope="col">Nombre de la Escuela</th>
                 <th scope="col">Nombre de la carrera</th>
                 <th scope="col"># Asignaturas</th>
                 <th>Act</th>
