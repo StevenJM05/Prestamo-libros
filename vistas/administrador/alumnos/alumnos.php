@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-header">
             <h1>Lista de Alumnos</h1>
-            <a href="addalumnos"><button class="btn btn-outline-warning" >Agregar</button></a>
+            <a href="addalumnos"><button class="btn btn-outline-success" >Agregar</button></a>
         </div>
         <div class="card-body">
             <div

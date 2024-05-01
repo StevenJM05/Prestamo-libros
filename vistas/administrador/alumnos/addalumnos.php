@@ -28,6 +28,7 @@ if (isset($_POST['ok1'])) {
                 </div>
             </div>
 
+
             <div class="col-md-4">
                 <div class="form-group mt-4 mx-3">
                     <label>Seleccione la carrera:</label>
@@ -58,5 +59,6 @@ if (isset($_POST['ok1'])) {
         </div>
 
     </form>
+</div>
 </div>
 </div>
