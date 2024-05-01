@@ -45,6 +45,21 @@ class alumnos_controller extends Conexion{
         }
         return $resultado;
     }
-}
 
+    public function update($alumnos, $id){
+        $sql = "UPDATE alumnos
+                SET id_carrera = '{$alumnos->getIdCarrera()}',
+                nombres = '{$alumnos->getNombres()}',
+                apellidos = '{$alumnos->getApellidos()}',
+                direccion = '{$alumnos->getDireccion()}',
+                telefono = '{$alumnos->getTelefono()}'
+                WHERE id_alumno = {$id}";
+        $this->ejecutarSQL($sql);
+    }
+
+    public function eliminar($id){
+        $sql = "DELETE FROM alumnos WHERE id_alumno = {$id}";
+        $this->ejecutarSQL($sql);
+    }
+}
 ?>
