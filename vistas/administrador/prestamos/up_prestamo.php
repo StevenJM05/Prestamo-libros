@@ -1,31 +1,5 @@
-<?php
 
-$alumnos_controller  = new alumnos_controller();
-$LibrosController=new LibrosController();
-$prestamosController = new PrestamosController();   
-if (isset($_POST['ok1'])) {
-
-    $id_alumno = $_POST['id_alumno'];
-    $id_libros = $_POST['id_libros'];
-    $fecha_prestamo = $_POST['fecha_prestamo'];
-    $fecha_devolucion = $_POST['fecha_devolucion'];
-    $estado = $_POST['estado'];
-
-
-    $prestamo = new Prestamos();
-    $prestamo->setIdAlumno($id_alumno);
-    $prestamo->setIdLibros($id_libros);
-    $prestamo->setFechaPrestamo($fecha_prestamo);
-    $prestamo->setFechaDevolucion($fecha_devolucion);
-    $prestamo->setEstado($estado);
-    
-
-    $prestamosController->agregar($prestamo);
-}
-
-?>
-
-            <form method="post">
+<form method="post">
             <div class="container mt-5">
         <div class="card">
         <div class="card-header bg-dark text-white">
@@ -85,52 +59,3 @@ if (isset($_POST['ok1'])) {
         </div>
     </div>
 </div>
-
-<div class="container mt-5">
-    <div class="card">
-        <div class="card-header bg-dark text-white">
-            <h5 class="card-title mb-0">Lista de Préstamos</h5>
-        </div>
-        <div class="card-body">
-            <form method="post">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Eliminar</th>
-                            <th>ID prestamos</th>
-                            <th>Nombre Alumno</th>
-                            <th>Nombre Libro</th>
-                            <th>Fecha de Préstamo</th>
-                            <th>Fecha de Devolución</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        ///comentario de prueba
-                         foreach ($prestamosController->listar() as $prestamo) {
-                            echo "
-                                <tr>
-                                    <td><input type='checkbox' name='eliminar[]' value='" . $prestamo->getIdPrestamos() . "' title='Eliminar'></td>
-                                    <td>" . $prestamo->getIdPrestamos() . "</td>
-                                    <td>" . $prestamo->getIdAlumno() . "</td>
-                                    <td>" . $prestamo->getIdLibros() . "</td>
-                                    <td>" . $prestamo->getFechaPrestamo() . "</td>
-                                    <td>" . $prestamo->getFechaDevolucion() . "</td>
-                                    <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
-                                    <td><a href='update/" . $prestamo->getIdPrestamos() . "'>Actualizar</a></td>
-                                </tr>
-                            ";
-                        }
-                        
-                        ?>
-                        
-                    </tbody>
-                </table>
-                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
-            </form>
-        </div>
-    </div>
-</div>
-
-

@@ -22,15 +22,19 @@ class carreras_controller extends Conexion{
 
 
     public function listar(){
-        $sql = "SELECT * FROM carreras";
-        $rs= $this->ejecutarSQL($sql);
+        $sql = "SELECT c.id_carrera, e.nombre AS nombre_escuela, c.nombre_carrera, c.asignaturas
+        FROM carreras c
+        JOIN escuelas e ON c.id_escuelas = e.id_escuelas";
+
+        $rs = $this->ejecutarSQL($sql);
         $resultado = array();
 
-        while($fila = $rs->fetch_assoc()){
-            $resultado[] = new Carreras($fila["id_carrera"], $fila["id_escuelas"], $fila["nombre_carrera"], $fila["asignaturas"]);
+        while ($fila = $rs->fetch_assoc()) {
+        $resultado[] = new Carreras($fila["id_carrera"], $fila["nombre_escuela"], $fila["nombre_carrera"], $fila["asignaturas"]);
         }
 
         return $resultado;
+
     }
 
     public function update($carreras, $id){

@@ -1,6 +1,11 @@
 <?php
 class Contenido{
+    
     public function mostra_archivo(){
+        require_once("conexion.php"); 
+        $prestamo = new prestamos();
+        
+
         $url=isset($_GET["url"])? $_GET["url"]:null;
         $url=explode("/",$url);
         $pagina="";
@@ -9,8 +14,11 @@ class Contenido{
             elseif($url[0]=="alumnos"){
                 $pagina="vistas/administrador/alumnos/alumnos.php";
             }
-            elseif($url[0]=="addalumnos"){
-                $pagina="vistas/administrador/alumnos/addalumnos.php";
+            elseif($url[0]=="updateAlumno"){
+                $pagina="vistas/administrador/alumnos/updateAlumno.php";
+            }
+            elseif($url[0]=="addalumno"){
+                $pagina="vistas/administrador/alumnos/addalumno.php";
             }
             elseif($url[0]=="carreras"){
                 $pagina="vistas/administrador/carreras/carreras.php";
@@ -27,8 +35,14 @@ class Contenido{
             elseif($url[0]=="libros"){
                 $pagina= "vistas/administrador/libros/libros.php";
             }
-            elseif($url[0]=="prestamos"){
+            elseif($url[0]=="addprestamo"){
                 $pagina=  "vistas/administrador/prestamos/addprestamo.php";
+            }     
+            elseif($url[0]=="prestamos"){
+                $pagina=  "vistas/administrador/prestamos/prestamos.php";
+            }          
+            elseif($url[0]=="prestamos"){
+                $pagina=  "vistas/administrador/prestamos/up_prestamo.php/10";
             }
             else{
                 $pagina="vistas/e404.php";
