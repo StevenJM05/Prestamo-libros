@@ -11,14 +11,14 @@ if(isset($_POST['ok1'])){
     fecha_edicion DATE,
     ISBN VARCHAR(100) */
 
-    $id_libros = $_POST['id_libros'];
+  
     $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
     $editorial = $_POST['editorial'];
     $fecha_edicion = $_POST['fecha_edicion'];
     $ISBN = $_POST['ISBN'];
 
-    $libros = new alumnos($_POST['id_libros'], $_POST['titulo'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
+    $libros = new alumnos($_POST['titulo'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
     $libros_controller->agregar($id_libros, $titulo, $editorial, $fecha_edicion, $ISBN);
 }
 ?>
@@ -64,6 +64,10 @@ if(isset($_POST['ok1'])){
                     <input type="text" class="form-control" name="ISBN" placeholder="Ingrese el ISBN">
             </div>
             </div>
+            <div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Agregar</button>
+</div>
+
     </form>
 
     

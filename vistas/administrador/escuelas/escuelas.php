@@ -47,7 +47,7 @@ if(isset($_POST['del'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombre() . "</td>
                             <td>" . $aggal->getDirector() . "</td>
-                            <td><a href='update/ '>A </a></td>
+                            <td><a href='up_escuelas/ id='>A </a></td>
                         </tr>
                         ";
            /*while ($fila=$rs->fetch_assoc()) {

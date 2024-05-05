@@ -118,7 +118,7 @@ if (isset($_POST['ok1'])) {
                                     <td>" . $prestamo->getFechaPrestamo() . "</td>
                                     <td>" . $prestamo->getFechaDevolucion() . "</td>
                                     <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
-                                    <td><a href='update/" . $prestamo->getIdPrestamos() . "'>Actualizar</a></td>
+                                    <td><a href='up_prestamo/" . $prestamo->getIdPrestamos() . "'>Actualizar</a></td>
                                 </tr>
                             ";
                         }

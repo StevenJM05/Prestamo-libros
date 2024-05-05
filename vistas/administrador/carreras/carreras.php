@@ -48,7 +48,7 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
-                            <td><a href='update/ '>A </a></td>
+                            <td><a href='up_carreras/ '>A </a></td>
                         </tr>
                         ";
     

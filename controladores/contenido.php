@@ -26,11 +26,17 @@ class Contenido{
             elseif($url[0]=="addcarreras"){
                 $pagina="vistas/administrador/carreras/addcarreras.php";
             }
+            elseif($url[0]=="up_carreras"){
+                $pagina="vistas/administrador/carreras/up_carreras.php";
+            }
             elseif($url[0]=="escuelas"){
                 $pagina= "vistas/administrador/escuelas/escuelas.php";
             }
             elseif($url[0]=="addescuelas"){
                 $pagina= "vistas/administrador/escuelas/addescuelas.php";
+            }
+            elseif($url[0]=="up_escuelas"){
+                $pagina= "vistas/administrador/escuelas/up_escuelas.php";
             }
             elseif($url[0]=="libros"){
                 $pagina= "vistas/administrador/libros/libros.php";
