@@ -17,7 +17,7 @@ if(isset($_POST['ok1'])){
         <form method="post" class="m-5 mx-auto">
         <div class="row mt-4">
             <label for="inputName" class="col-4 mr-2 col-form-label">
-                Nombre de la escuela
+                Nombre de la carrera
             </label>
             <div class="col-8">
                 <input
@@ -47,10 +47,22 @@ if(isset($_POST['ok1'])){
                 </select>
             </div>
         </div>
+        <div class="col-md-8">
+                <div class="form-group mt-5">
+                    <label>Asignaturas:</label>
+                    <input type="number" class="form-control" name="asignaturas" placeholder="Cuantas Asignaturas tiene la carrera">
+                </div>
+                
+            </div>
 
 
-        </form>
-     </div>
+
+            <div class="d-flex justify-content-center mt-5">
+                <button type="submit" class="btn btn-outline-primary" name="ok1">Agregar</button>
+            </div>
+
+    </form>
+</div> 
 
 <!--<div class="container m-7 bg-da text-whte">
     <form method="post" class="m-5 mx-auto"> 

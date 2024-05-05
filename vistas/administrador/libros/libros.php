@@ -29,7 +29,7 @@ if(isset($_POST['ok1'])){
     </div>
 
     <div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
+    <a class='btn btn-success position-absolute top-0 start-0' href='addlibros'>Agregar Libros</a>
 </div>
 
 </div>

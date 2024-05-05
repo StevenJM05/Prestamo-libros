@@ -18,14 +18,14 @@ if(isset($_POST['ok1'])){
     $fecha_edicion = $_POST['fecha_edicion'];
     $ISBN = $_POST['ISBN'];
 
-    $libros = new alumnos($_POST['titulo'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
-    $libros_controller->agregar($id_libros, $titulo, $editorial, $fecha_edicion, $ISBN);
+    $libros = new Libros($_POST['titulo'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
+    $libros_controller->agregar($libros);
 }
 ?>
 
 
 <div class="container mt-5 text-center">
-        <h1 class="fw-bold">INFORMACIÓN DE LIBROS</h1>
+        <h1 class="fw-bold">AGREGAR LIBROS</h1>
     </div>
     <div class="container m-7 bg-dark text-white">
 

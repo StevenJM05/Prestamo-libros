@@ -41,6 +41,12 @@ class Contenido{
             elseif($url[0]=="libros"){
                 $pagina= "vistas/administrador/libros/libros.php";
             }
+            elseif($url[0]=="addlibros"){
+                $pagina= "vistas/administrador/libros/addlibros.php";
+            }
+            elseif($url[0]=="up_libros"){
+                $pagina= "vistas/administrador/libros/up_libros.php";
+            }
             elseif($url[0]=="addprestamo"){
                 $pagina=  "vistas/administrador/prestamos/addprestamo.php";
             }     

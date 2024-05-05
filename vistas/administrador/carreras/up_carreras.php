@@ -1,5 +1,5 @@
 <?php
-$alumnos_controller = new alumnos_controller();
+$carreras_controller = new carreras_controller();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];
 if(isset($_POST["ok1"])){
