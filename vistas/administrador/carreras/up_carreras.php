@@ -1,12 +1,16 @@
 <?php
-$carreras_controller = new carreras_controller();
-
-if(isset($_POST['ok1'])){
+$alumnos_controller = new alumnos_controller();
+$info = explode("/",$_GET["url"]);
+$id = $info[1];
+if(isset($_POST["ok1"])){
     
     $carreras = new carreras("","", $_POST['nombre_carrera'], $_POST['asignaturas']);
     $carreras_controller->update($carreras, $id);
+    header("Location: " . "carreras");
 }
 ?>
+
+
 
 <div class="container mt-5 text-center">
         <h1 class="fw-bold">ACTUALIZAR LAS CARRERAS</h1>

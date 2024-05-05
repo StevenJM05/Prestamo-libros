@@ -47,8 +47,8 @@ class Contenido{
             elseif($url[0]=="prestamos"){
                 $pagina=  "vistas/administrador/prestamos/prestamos.php";
             }          
-            elseif($url[0]=="prestamos"){
-                $pagina=  "vistas/administrador/prestamos/up_prestamo.php/10";
+            elseif($url[0]=="up_prestamo"){
+                $pagina=  "vistas/administrador/prestamos/up_prestamo.php";
             }
             else{
                 $pagina="vistas/e404.php";

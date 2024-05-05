@@ -63,7 +63,7 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getEditorial() . "</td>
                             <td>" . $aggal->getFechaEdicion() . "</td>
                             <td>" . $aggal->getISBN() . "</td>
-                            <td><a href='update/ '>A </a></td>
+                            <td><a href='up_libros/" . $aggal->getIdlibros()  . " '>A </a></td>
                         </tr>
                         ";
     

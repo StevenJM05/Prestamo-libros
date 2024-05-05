@@ -1,17 +1,13 @@
 <?php
-
 $escuelas_controller = new escuelas_controller();
+$info = explode("/",$_GET["url"]);
+$id = $info[1];
 
 if(isset($_POST['ok1'])){
-    
-    $nombre = $_POST['nombre'];
-    $director = $_POST['director'];
-    $escuelas = new Escuelas();
-    $escuelas->setNombre($nombre);
-    $escuelas->setDirector($director);
-    
-    
-    $escuelas_controller->agregar($escuelas);
+    $escuelas = new Escuelas("", $_POST['nombre'], $_POST['director']);
+    $escuelas_controller->update($escuelas, $id);
+    header("Location: " . "escuelas");
+
 }
 
 ?>
