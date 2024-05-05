@@ -17,8 +17,8 @@ class Contenido{
             elseif($url[0]=="updateAlumno"){
                 $pagina="vistas/administrador/alumnos/updateAlumno.php";
             }
-            elseif($url[0]=="addalumno"){
-                $pagina="vistas/administrador/alumnos/addalumno.php";
+            elseif($url[0]=="addalumnos"){
+                $pagina="vistas/administrador/alumnos/addalumnos.php";
             }
             elseif($url[0]=="carreras"){
                 $pagina="vistas/administrador/carreras/carreras.php";

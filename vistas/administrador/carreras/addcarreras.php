@@ -58,7 +58,8 @@ if(isset($_POST['ok1'])){
 
 
             <div class="d-flex justify-content-center mt-5">
-                <button type="submit" class="btn btn-outline-primary" name="ok1">Agregar</button>
+            <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Agregar</button>
+                <a href="carreras" class="btn btn-outline-warning m-4 mt-3">Regresar</a>
             </div>
 
     </form>
