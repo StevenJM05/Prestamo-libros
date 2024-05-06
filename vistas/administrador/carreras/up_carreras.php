@@ -1,4 +1,5 @@
 <?php
+
 $carreras_controller = new carreras_controller();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];

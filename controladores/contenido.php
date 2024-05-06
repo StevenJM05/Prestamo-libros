@@ -2,9 +2,7 @@
 class Contenido{
     
     public function mostra_archivo(){
-        require_once("conexion.php"); 
-        $prestamo = new prestamos();
-        
+        require_once("conexion.php");
 
         $url=isset($_GET["url"])? $_GET["url"]:null;
         $url=explode("/",$url);
@@ -53,9 +51,11 @@ class Contenido{
             elseif($url[0]=="prestamos"){
                 $pagina=  "vistas/administrador/prestamos/prestamos.php";
             }          
-            elseif($url[0]=="up_prestamo"){
-                $pagina=  "vistas/administrador/prestamos/up_prestamo.php";
-            }
+            elseif ($url[0] == "up_prestamo") {         
+                
+                $pagina = "vistas/administrador/prestamos/up_prestamo.php";
+
+            }            
             else{
                 $pagina="vistas/e404.php";
             }

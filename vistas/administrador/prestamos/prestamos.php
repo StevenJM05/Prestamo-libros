@@ -32,7 +32,7 @@ $prestamosController = new PrestamosController();
                                     <td>" . $prestamo->getFechaPrestamo() . "</td>
                                     <td>" . $prestamo->getFechaDevolucion() . "</td>
                                     <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
-                                    <td><a href='up_prestamo/" . $prestamo->getIdPrestamos() . "' class='btn btn-success'>Actualizar</a></td>
+                                    <td><a href='up_prestamo' class='btn btn-success'>Modificar</a></td>
 
                                 </tr>
                             ";
