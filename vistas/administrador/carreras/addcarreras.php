@@ -3,7 +3,7 @@ $carreras_controller = new carreras_controller();
 
 if(isset($_POST['ok1'])){
        
-    $carreras = new carreras("",1, $_POST['nombre_carrera'], $_POST['asignaturas']);
+    $carreras = new carreras("",$_POST['escuelas'],$_POST['nombre_carrera'], $_POST['asignaturas']);
     $carreras_controller->agregar($carreras);
 }
 ?>
