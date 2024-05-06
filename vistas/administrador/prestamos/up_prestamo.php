@@ -1,3 +1,11 @@
+<?php
+$alumnos_controller  = new alumnos_controller();
+$LibrosController=new LibrosController();
+$prestamosController = new PrestamosController();  
+
+?>
+
+
 
 <form method="post">
             <div class="container mt-5">
