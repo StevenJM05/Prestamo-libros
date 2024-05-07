@@ -16,7 +16,7 @@ if(isset($_POST['ok1'])){
         <div class="row"> 
             <div class="col-md-4">
                 <div class="form-group mt-4 mx-3">
-            <label for="inputName" class="col-4 mr-2 col-form-label">
+            <label for="inputName" class="col-6 mr-2 col-form-label">
                 Nombre de la carrera
             </label>
             <div class="col-8">
@@ -28,11 +28,10 @@ if(isset($_POST['ok1'])){
                     placeholder="Ingrese el nombre de la carrera"
                 />
             </div>
-            <br>
         </div>
 
         <div class=" mt-3 row">
-            <label for="inputName" class="col-4 col-form-label">
+            <label for="inputName" class="col-6 col-form-label">
                 Escuelas 
             </label>
             <div class="col-8">
@@ -52,12 +51,9 @@ if(isset($_POST['ok1'])){
                     <label>Asignaturas:</label>
                     <input type="number" class="form-control" name="asignaturas" placeholder="Cuantas Asignaturas tiene la carrera">
                 </div>
-                
             </div>
-
-        
             <div class="form-group mt-4 mx-3">
-            <label for="inputName" class="col-4 mr-2 col-form-label">
+            <label for="inputName" class="col-6 mr-2 col-form-label">
                 Nombre de la carrera
             </label>
             <div class="col-8">
@@ -69,19 +65,15 @@ if(isset($_POST['ok1'])){
                     placeholder="Ingrese el nombre de la carrera"
                 />
             </div>
-            <br>
         </div>
-
-
         <div class="form-group mt-4 mx-3">
-            <label for="inputName" class="col-4 col-form-label">
+            <label for="inputName" class="col-6 col-form-label">
                 Número de asignatura
             </label>
             <div class="col-8">
                 <input type="number" name="asignatura" id="">
             </div>
         </div>
-        
             </div>
         </div>
 
