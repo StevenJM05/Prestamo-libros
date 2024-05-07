@@ -4,7 +4,7 @@ $libros_controller = new LibrosController();
 
 if(isset($_POST['ok1'])){
 
-  /*   id_libros INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  /*id_libros INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(150),
     autor VARCHAR(150),
     editorial VARCHAR(50),
@@ -18,7 +18,7 @@ if(isset($_POST['ok1'])){
     $fecha_edicion = $_POST['fecha_edicion'];
     $ISBN = $_POST['ISBN'];
 
-    $libros = new Libros($_POST['titulo'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
+    $libros = new Libros("",$_POST['titulo'], $_POST['autor'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
     $libros_controller->agregar($libros);
 }
 ?>
