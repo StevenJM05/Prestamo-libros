@@ -52,5 +52,7 @@ class LibrosController extends Conexion{
         $rs = $this->ejecutarSQL($sql);
     }   
 
+    
+
 }
 ?>
