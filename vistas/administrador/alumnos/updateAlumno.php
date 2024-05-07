@@ -45,6 +45,10 @@ if(isset($_POST["ok1"])){
         <label>Dirección del Alumno:</label>
         <input type="text" class="form-control" name="direccion" placeholder="Ingrese la direccion del alumno" value="<?php echo $alumno_actual['direccion']; ?>">
     </div>
+    <div class="form-group mt-4 mx-3">
+        <label>Telefono:</label>
+        <input type="text" class="form-control" name="telefono" placeholder="Ingrese la direccion del alumno" value="<?php echo $alumno_actual['telefono']; ?>">
+    </div>
 </div>
 
         </div>
