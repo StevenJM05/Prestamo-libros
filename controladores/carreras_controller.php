@@ -2,6 +2,8 @@
 
 require_once("conexion.php");
 class carreras_controller extends Conexion{
+
+    
     public function agregar($carreras) {
         $sql = "INSERT INTO carreras (id_escuelas, nombre_carrera, asignaturas) 
                 VALUES ('{$carreras->getIdescuelas()}', '{$carreras->getNombrecarrera()}', '{$carreras->getAsignaturas()}')";

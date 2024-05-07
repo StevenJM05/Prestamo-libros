@@ -3,18 +3,26 @@ $carreras_controller = new carreras_controller();
 
 if(isset($_POST['ok1'])){
        
+<<<<<<< Updated upstream
     $carreras = new carreras("",$_POST['escuelas'],$_POST['nombre_carrera'], $_POST['asignaturas']);
+=======
+    $carreras = new carreras("",1,$_POST['nombre_carrera'],$_POST['asignaturas']);
+>>>>>>> Stashed changes
     $carreras_controller->agregar($carreras);
 }
 ?>
-     <div class="container mx-5 mt-5 text-center bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin: 20px 0 0 0; font-size: 0.8em; border-radius: 100px; background: #3c3c3c; color: #fff;">
+     <div class="container mx-5 mt-5 text-center bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin: 20px 0 0 0; font-size: 0.8em; border-radius: 100px;">
         <h1 class="fw-bold">AGREGAR CARRERAS</h1>
      </div>
     
 
 
-    <div class="container bg-secondary text-white fw-bold" style="opacity: 1; display: block; border: none; outline: none; width: 90%; padding: 13px 18px; margin: 20px 30px 50px 55px; border-radius: 50px;">
+     
+
+
+    <div class="container bg-warning text-white fw-bold" style="opacity: 1; display: block; border: none; outline: none; width: 90%; padding: 13px 18px; margin: 20px 30px 50px 55px; border-radius: 50px;">
         <form method="post" class="m-5 mx-auto">
+<<<<<<< Updated upstream
         <div class="row mt-4">
             <label for="inputName" class="col-4 mr-2 col-form-label">
                 Nombre de la carrera
@@ -30,6 +38,11 @@ if(isset($_POST['ok1'])){
             </div>
             <br>
         </div>
+=======
+
+
+
+>>>>>>> Stashed changes
 
         <div class=" mt-3 row">
             <label for="inputName" class="col-4 col-form-label">
@@ -54,6 +67,47 @@ if(isset($_POST['ok1'])){
                 </div>
                 
             </div>
+
+        
+        <div class="row mt-4">
+            <label for="inputName" class="col-4 mr-2 col-form-label">
+                Nombre de la carrera
+            </label>
+            <div class="col-8">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="nombre_carrera"
+                    id="nombre_carrera"
+                    placeholder="Ingrese el nombre de la carrera"
+                />
+            </div>
+            <br>
+        </div>
+
+
+        <div class="mt-3 row">
+            <label for="inputName" class="col-4 col-form-label">
+                Número de asignatura
+            </label>
+            <div class="col-8">
+                <input type="number" name="asignatura" id="">
+            </div>
+        </div>
+        
+            </div>
+        </div>
+
+
+
+<div class="mb-3 row">
+            <div class="offset-sm-4 col-sm-8">
+                <button type="submit" name=ok1 class="btn btn-dark">
+                    Agregar
+                </button>
+            </div>
+        </div>
+
 
 
 
