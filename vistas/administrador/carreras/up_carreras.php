@@ -3,6 +3,7 @@
 $carreras_controller = new carreras_controller();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];
+$carrera_actual = $carreras_controller->obtenerAlumnoPorId($id); 
 if(isset($_POST["ok1"])){
     
     $carreras = new carreras("","", $_POST['nombre_carrera'], $_POST['asignaturas']);
@@ -22,7 +23,7 @@ if(isset($_POST["ok1"])){
         <div class="col-md-4">
                 <div class="form-group mt-3">
                     <label>Nombre de la Carrera:</label>
-                    <input type="text" class="form-control" name="nombre_carrera" placeholder="Ingrese el nombre de la carrera">
+                    <input type="text" class="form-control" name="nombre_carrera" placeholder="Ingrese el nombre de la carrera" value="<?php echo $carrera_actual['nombre_carrera']; ?>">
                 </div>
             </div>
             <div class="col-md-4">
@@ -42,7 +43,7 @@ if(isset($_POST["ok1"])){
         <div class="col-md-4">
                 <div class="form-group mt-3">
                     <label>Asignaturas:</label>
-                    <input type="number" class="form-control" name="asignaturas" placeholder="">
+                    <input type="number" class="form-control" name="asignaturas" placeholder="" value="<?php echo $carrera_actual['asignaturas']; ?>">
                 </div>
             </div>
             <div class="d-flex justify-content-center">

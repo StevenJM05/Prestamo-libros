@@ -89,38 +89,33 @@ if(isset($_POST['buscar'])) {
     </form>
 
     <?php
-    if(isset($resultados)) {
-        if ($resultados) {
-            echo "<h2>Resultados de la búsqueda:</h2>";
-            foreach ($busqueda as $libro) {
-                echo "<table>";
-                echo "<tr>";
-
-                echo "<td>";
-                echo "<p><strong>Título: </strong> " . $libro->getTitulo() . "<br>";
-                echo "</td>";
-
-                echo "<td>";
-                echo "<p><strong>Autor: </strong> " . $libro->getAutor() . "<br>";
-                echo "</td>";
-
-                echo "<td>";
-                echo "<p><strong>Editorial: </strong> " . $libro->getEditorial() . "<br>";
-                echo "</td>";
-
-                echo "<td>";
-                echo "<p><strong>ISBN: </strong> " . $libro->getISBN() . "<br>";
-                echo "</td>";
-
-                echo "</tr>";
-                echo "</table>";
-            }
-        } else {
-            echo "<p>No se encontraron resultados</p>";
+if(isset($resultados)) {
+    if ($resultados) {
+        echo "<h2>Resultados de la búsqueda:</h2>";
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Título</th>";
+        echo "<th>Autor</th>";
+        echo "<th>Editorial</th>";
+        echo "<th>ISBN</th>";
+        echo "</tr>";
+        
+        foreach ($busqueda as $libro) {
+            echo "<tr>";
+            echo "<td>" . $libro->getTitulo() . "</td>";
+            echo "<td>" . $libro->getAutor() . "</td>";
+            echo "<td>" . $libro->getEditorial() . "</td>";
+            echo "<td>" . $libro->getISBN() . "</td>";
+            echo "</tr>";
         }
-
+        
+        echo "</table>";
+    } else {
+        echo "<p>No se encontraron resultados</p>";
     }
-    ?>
+}
+?>
+
 </div>
 
 </body>
