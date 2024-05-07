@@ -8,10 +8,16 @@ class Contenido{
         $url=explode("/",$url);
         $id = end($url); 
         $pagina="";
+        
         if($url[0]==null){
             $pagina="vistas/inicio.php";}
             elseif($url[0]=="alumnos"){
                 $pagina="vistas/administrador/alumnos/alumnos.php";
+            }
+            elseif($url[1]=="alumnos"){
+                $pagina="vistas/administrador/alumnos/alumnos.php";
+                header("Location: http://localhost/Prestamo-libros/alumnos");
+                exit(); 
             }
             elseif($url[0]=="updateAlumno"){
                 $pagina="vistas/administrador/alumnos/updateAlumno.php";
