@@ -1,90 +1,127 @@
 <?php
-
 $libros_controller = new LibrosController();
 
-if(isset($_POST['ok1'])){
-
-  /*   id_libros INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(150),
-    autor VARCHAR(150),
-    editorial VARCHAR(50),
-    fecha_edicion DATE,
-    ISBN VARCHAR(100) */
-
-    $id_libros = $_POST['id_libros'];
-    $titulo = $_POST['titulo'];
-    $autor = $_POST['autor'];
-    $editorial = $_POST['editorial'];
-    $fecha_edicion = $_POST['fecha_edicion'];
-    $ISBN = $_POST['ISBN'];
-
-    $libros = new alumnos($_POST['id_libros'], $_POST['titulo'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
-    $libros_controller->agregar($id_libros, $titulo, $editorial, $fecha_edicion, $ISBN);
+// Procesar eliminación de libros
+if(isset($_POST['del'])){
+    if(isset($_POST['eliminar']) && is_array($_POST['eliminar'])) {
+        foreach($_POST['eliminar'] as $id_libro) {
+            $libros_controller->delete(intval($id_libro));   
+        }
+        echo "<script>alert('Registro(s) eliminado(s) correctamente');</script>";
+    }
 }
+
+// Procesar búsqueda de libros
+if(isset($_POST['buscar'])) {
+    // Obtener la consulta de búsqueda
+    $consulta_busqueda = $_POST['busqueda'];
+    // Realizar la búsqueda en la base de datos
+    $resultados = $libros_controller->buscarPorTitulo($consulta_busqueda);
+}
+
 ?>
-<body style="background-color: #f0f0f0;">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Libros</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS para estilos -->
+</head>
+<body>
 
 <div class="container mt-5 text-center">
-        <h1 class="fw-bold">INFORMACIÓN DE LIBROS</h1>
-    </div>
-
-    <div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addlibros'>Agregar Libros</a>
+    <h1 class="fw-bold">INFORMACIÓN DE LIBROS</h1>
 </div>
 
+<div class="container mt-5 position-relative">
+    <a class='btn btn-success position-absolute top-0 start-0' href='addlibros.php'>Agregar Libros</a>
 </div>
+
 <br><br>
 
-<form method=post >
-<table class="table table-dark mx-auto" style="width: 80%;">
+<form method="post">
+    <table class="table table-dark mx-auto" style="width: 80%;">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Id Libros</th>
                 <th scope="col">Titulo</th>
-                <th scope="col">autor</th>
+                <th scope="col">Autor</th>
                 <th scope="col">Editorial</th>
-                <th scope="col">fecha_edicion</th>
+                <th scope="col">Fecha Edición</th>
                 <th scope="col">ISBN</th>
-                <th>Act</th>
+                <th>Actualizar</th>
             </tr>
         </thead>
         <tbody>
 
         <?php 
-        foreach ($libros_controller->listar() as $aggal) {
-
+        foreach ($libros_controller->listar() as $libro) {
             echo "
-                        <tr  >
-                            <td  > <input type='checkbox'  name='eliminar[]' value=' ' title=' ' > </td>
-                            <td>" . $aggal->getIdlibros() . "</td>
-                            <td>" . $aggal->getTitulo() . "</td>
-                            <td>" . $aggal->getAutor() . "</td>
-                            <td>" . $aggal->getEditorial() . "</td>
-                            <td>" . $aggal->getFechaEdicion() . "</td>
-                            <td>" . $aggal->getISBN() . "</td>
-                            <td><a href='up_libros/" . $aggal->getIdlibros()  . " '>A </a></td>
-                        </tr>
-                        ";
-    
+                <tr>
+                    <td><input type='checkbox' name='eliminar[]' value='".$libro->getIdlibros()."'></td>
+                    <td>".$libro->getIdlibros()."</td>
+                    <td>".$libro->getTitulo()."</td>
+                    <td>".$libro->getAutor()."</td>
+                    <td>".$libro->getEditorial()."</td>
+                    <td>".$libro->getFechaEdicion()."</td>
+                    <td>".$libro->getISBN()."</td>
+                    <td><a href='up_libros/".$libro->getIdlibros()."'>Actualizar</a></td>
+                </tr>";
+        } 
 
-           } 
-            
-            ?>
-
+        ?>
             
             <tr>
-                <td colspan=13>
-                    
-                    <input class='btn btn-danger' type="submit" value="Eliminar" name=del >
-                    
+                <td colspan="8">
+                    <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
                 </td>
             </tr>
         </tbody>
     </table>
+</form>
+
+<div class="container">
+    <form method="post">
+        <input type="text" class="form-control" name="busqueda" placeholder="Buscar libros por título">
+        <button type="submit" name="buscar" class="btn btn-primary mt-2">Buscar</button>
     </form>
+
+    <?php
+    if(isset($resultados)) {
+        if ($resultados) {
+            echo "<h2>Resultados de la búsqueda:</h2>";
+            foreach ($resultados as $libro) {
+                echo "<table>";
+                echo "<tr>";
+
+                echo "<td>";
+                echo "<p><strong>Título: </strong> " . $libro->getTitulo() . "<br>";
+                echo "</td>";
+
+                echo "<td>";
+                echo "<p><strong>Autor: </strong> " . $libro->getAutor() . "<br>";
+                echo "</td>";
+
+                echo "<td>";
+                echo "<p><strong>Editorial: </strong> " . $libro->getEditorial() . "<br>";
+                echo "</td>";
+
+                echo "<td>";
+                echo "<p><strong>ISBN: </strong> " . $libro->getISBN() . "<br>";
+                echo "</td>";
+
+                echo "</tr>";
+                echo "</table>";
+            }
+        } else {
+            echo "<p>No se encontraron resultados</p>";
+        }
+
+    }
+    ?>
 </div>
 
-
-</div>
-</div>
+</body>
+</html>

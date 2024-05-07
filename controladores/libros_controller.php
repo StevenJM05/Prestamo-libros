@@ -1,3 +1,4 @@
+<!-- Controlador -->
 <?php 
 require_once("conexion.php");
 class LibrosController extends Conexion{
@@ -34,5 +35,11 @@ class LibrosController extends Conexion{
         $sql = "DELETE FROM libros WHERE id_libros = $id";
         $rs = $this->ejecutarSQL($sql);
     }   
+
+    public function buscarPorTitulo($titulo) {
+        $sql = "SELECT * FROM libros WHERE titulo LIKE '%$titulo%'";
+        $rs = $this->ejecutarSQL($sql);
+    }   
+
 }
 ?>
