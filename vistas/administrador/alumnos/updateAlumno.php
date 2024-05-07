@@ -1,11 +1,11 @@
 <?php
 $alumnos_controller = new alumnos_controller();
-$info = explode("/",$_GET["url"]);
+$info = explode("/", $_GET["url"]);
 $id = $info[1];
-$alumno_actual = $alumnos_controller->obtenerAlumnoPorId($id); 
-if(isset($_POST["ok1"])){
-    $alumno = new Alumnos("",$_POST['id_carrera'], $_POST['nombres'], $_POST['apellidos'], $_POST['direccion'], $_POST['telefono']);
-    $alumnos_controller->update($alumno,$id);
+$alumno_actual = $alumnos_controller->obtenerAlumnoPorId($id);
+if (isset($_POST["ok1"])) {
+    $alumno = new Alumnos("", $_POST['id_carrera'], $_POST['nombres'], $_POST['apellidos'], $_POST['direccion'], $_POST['telefono']);
+    $alumnos_controller->update($alumno, $id);
     header("Location: " . "alumnos");
 }
 
@@ -17,7 +17,7 @@ if(isset($_POST["ok1"])){
 
 <div class="container m-6 bg-dark text-white">
     <form method="post" class="m-5 mx-auto">
-        <div class="row"> 
+        <div class="row">
             <div class="col-md-4">
                 <div class="form-group mt-4 mx-3">
                     <label>Nombres del Alumno:</label>
@@ -30,27 +30,28 @@ if(isset($_POST["ok1"])){
                 </div>
             </div>
             <div class="col-md-4">
-    <div class="form-group mt-4 mx-3">
-        <label>Seleccione la carrera:</label>
-        <select class="form-control" name="id_carrera">
-            <?php
-            foreach ($alumnos_controller->listarCarreras() as $carrera) {
-                $selected = ($carrera->getIdCarrera() == $alumno_actual['id_carrera']) ? 'selected' : '';
-                echo "<option value='" . $carrera->getIdCarrera() . "' $selected>" . $carrera->getNombreCarrera() . "</option>";
-            }
-            ?>
-        </select>
-    </div>
-    <div class="form-group mt-4 mx-3">
-        <label>Dirección del Alumno:</label>
-        <input type="text" class="form-control" name="direccion" placeholder="Ingrese la direccion del alumno" value="<?php echo $alumno_actual['direccion']; ?>">
-    </div>
-    <div class="form-group mt-4 mx-3">
-        <label>Telefono:</label>
-        <input type="text" class="form-control" name="telefono" placeholder="Ingrese la direccion del alumno" value="<?php echo $alumno_actual['telefono']; ?>">
-    </div>
-</div>
-
+                <div class="form-group mt-4 mx-3">
+                    <label>Seleccione la carrera:</label>
+                    <select class="form-control" name="id_carrera">
+                        <?php
+                        foreach ($alumnos_controller->listarCarreras() as $carrera) {
+                            $selected = ($carrera->getIdCarrera() == $alumno_actual['id_carrera']) ? 'selected' : '';
+                            echo "<option value='" . $carrera->getIdCarrera() . "' $selected>" . $carrera->getNombreCarrera() . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group mt-4 mx-3">
+                    <label>Dirección del Alumno:</label>
+                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese la direccion del alumno" value="<?php echo $alumno_actual['direccion']; ?>">
+                </div>
+            </div>
+            <div class="col md-4">
+                <div class="form-group mt-4 mx-3">
+                    <label>Telefono:</label>
+                    <input type="text" class="form-control" name="telefono" placeholder="Ingrese la direccion del alumno" value="<?php echo $alumno_actual['telefono']; ?>">
+                </div>
+            </div>
         </div>
         
         <div class="d-flex justify-content-center mt-5">
