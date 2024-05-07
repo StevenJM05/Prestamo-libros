@@ -31,14 +31,15 @@ class escuelas_controller extends Conexion{
         $rs = $this->ejecutarSQL($sql);
     }
 
-<<<<<<< Updated upstream
     public function buscarPorId($id) {
         $sql = "SELECT * FROM escuelas WHERE id_escuelas = $id";
         $resultado = $this->ejecutarSQL($sql);
         if ($resultado->num_rows > 0) {
             $escuelas = $resultado->fetch_assoc();
             return $escuelas;
-=======
+        }
+    }
+
     public function obtenerAlumnoPorId($id) {
         $sql = "SELECT * FROM escuelas WHERE id_escuela = $id";
         $resultado = $this->ejecutarSQL($sql);
@@ -46,7 +47,7 @@ class escuelas_controller extends Conexion{
             // Obtener los datos del alumno como un array asociativo
             $escuela = $resultado->fetch_assoc();
             return $escuela;
->>>>>>> Stashed changes
+
         } else {
             return null;
         }
