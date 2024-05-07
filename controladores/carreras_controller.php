@@ -54,6 +54,17 @@ class carreras_controller extends Conexion{
         $rs = $this->ejecutarSQL($sql);
     }
 
+    public function obtenerAlumnoPorId($id) {
+        $sql = "SELECT * FROM carreras WHERE id_carrera = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            // Obtener los datos del alumno como un array asociativo
+            $carrera = $resultado->fetch_assoc();
+            return $carrera;
+        } else {
+            return null;
+        }
+    }
     
 }
 ?>
