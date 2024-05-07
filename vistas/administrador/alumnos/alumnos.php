@@ -1,5 +1,9 @@
 <?php 
     $alumnos_controller = new alumnos_controller();
+    if(isset($_POST["eliminar"])){
+        $id = $_POST["id"];
+        $alumnos_controller->eliminar($id);
+    }
 ?>
 <div class="container mt-5">
     <div class="card">
@@ -40,7 +44,7 @@
                         echo "<td> {$item['apellidos']} </td>";
                         echo "<td> {$item['direccion']} </td>";
                         echo "<td> {$item['telefono']} </td>";
-                        echo "<td><button class='btn btn-danger'>Eliminar</button></td>";
+                        echo "<td><form method=post><input type='hidden' value={$item['id_alumno']} name='id'><button name='eliminar' class='btn btn-danger'>Eliminar</button></form></td>";
                         echo "<td><a href='updateAlumno/{$item['id_alumno']}'><button class='btn btn-warning'>Editar</button></a></td>";
                         echo "</tr>";
                        }
