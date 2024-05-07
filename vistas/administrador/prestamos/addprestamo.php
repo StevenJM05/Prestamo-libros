@@ -21,6 +21,8 @@ if (isset($_POST['ok1'])) {
     
 
     $prestamosController->agregar($prestamo);
+    header("Location: http://localhost/Prestamo-libros/prestamos");
+    exit();
 }
 
 ?>

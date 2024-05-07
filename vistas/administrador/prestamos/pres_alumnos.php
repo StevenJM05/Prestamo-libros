@@ -1,16 +1,35 @@
 <?php
-$prestamosController = new PrestamosController();   
-
+$alumnos_controller  = new alumnos_controller();
+$prestamosController = new PrestamosController();  
+$prestatamoshistorial = [];
+if (isset($_POST["buscar"])) {
+    $id_alumno = $_POST["id_alumno"];
+    $prestatamoshistorial = $prestamosController->historial($id_alumno);
+}
 ?>
+
 
 <div class="container mt-5">
     <div class="card">
         <div class="card-header bg-dark text-white">
-            <h5 class="card-title mb-0">Lista de Préstamos</h5>
+            <h5 class="card-title mb-0">Buscar Préstamos por Nombre de Alumno</h5>
         </div>
-        
         <div class="card-body">
-            <form method="post">
+            <form method="post" class="mb-4">
+                <div class="input-group">
+                    <select class="form-select" id="id_alumno" name="id_alumno">
+                        <?php foreach($alumnos_controller->listar2() as $alumno): ?>
+                            <option value="<?php echo $alumno->getIdAlumno(); ?>">
+                                <?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
+                </div>
+            </form>
+
+            
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -24,7 +43,7 @@ $prestamosController = new PrestamosController();
                     </thead>
                     <tbody>
                         <?php
-                         foreach ($prestamosController->listar() as $prestamo) {
+                         foreach ($prestatamoshistorial as $prestamo) {
                             echo "
                                 <tr>
                                     <td>" . $prestamo->getIdPrestamos() . "</td>
@@ -33,8 +52,7 @@ $prestamosController = new PrestamosController();
                                     <td>" . $prestamo->getFechaPrestamo() . "</td>
                                     <td>" . $prestamo->getFechaDevolucion() . "</td>
                                     <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
-                                    <td><a href='up_prestamo/" . $prestamo->getIdPrestamos() . "' class='btn btn-success'>Modificar</a></td>
-
+                                    
                                 </tr>
                             ";
                         }
@@ -43,12 +61,9 @@ $prestamosController = new PrestamosController();
                         
                     </tbody>
                 </table>
-               <a href="addprestamo" class="btn btn-dark">Agregar</a>
+               <a href="prestamos" class="btn btn-dark">Regresar</a>
 
-               <a href="pres_alumnos" class="btn btn-dark">Historial por alumno</a>
             </form>
         </div>
     </div>
 </div>
-
-
