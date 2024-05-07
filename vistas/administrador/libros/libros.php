@@ -35,7 +35,7 @@ if(isset($_POST['buscar'])) {
 </div>
 
 <div class="container mt-5 position-relative">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addlibros.php'>Agregar Libros</a>
+    <a class='btn btn-success position-absolute top-0 start-0' href='addlibros'>Agregar Libros</a>
 </div>
 
 <br><br>
