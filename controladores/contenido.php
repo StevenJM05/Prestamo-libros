@@ -14,10 +14,10 @@ class Contenido{
             elseif($url[0]=="alumnos"){
                 $pagina="vistas/administrador/alumnos/alumnos.php";
             }
-            elseif($url[1]=="alumnos"){
-                $pagina="vistas/administrador/alumnos/alumnos.php";
+            elseif(isset($url[1]) && $url[1] == "alumnos") {
+                $pagina = "vistas/administrador/alumnos/alumnos.php";
                 header("Location: http://localhost/Prestamo-libros/alumnos");
-                exit(); 
+                exit();
             }
             elseif($url[0]=="updateAlumno"){
                 $pagina="vistas/administrador/alumnos/updateAlumno.php";
@@ -57,6 +57,11 @@ class Contenido{
             }     
             elseif($url[0]=="prestamos"){
                 $pagina=  "vistas/administrador/prestamos/prestamos.php";
+            }
+            elseif(isset($url[1]) && $url[1] == "prestamos") {
+                $pagina = "vistas/administrador/prestamos/prestamos.php";
+                header("Location: http://localhost/Prestamo-libros/prestamos");
+                exit();
             }          
             elseif ($url[0] == "up_prestamo") {         
                 $pagina = "vistas/administrador/prestamos/up_prestamo.php";

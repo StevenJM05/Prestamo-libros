@@ -46,6 +46,26 @@ class PrestamosController extends Conexion
 
     }
 
+    public function obtenerPrestamoPorId($idPrestamo) {
+        $sql = "SELECT * FROM prestamos WHERE id_prestamos = $idPrestamo";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            $prestamo = $resultado->fetch_assoc();
+            return $prestamo;
+        } else {
+            return null;
+        }
+    }
+    public function actualizar($prestamo, $id){
+        $sql = "UPDATE prestamos
+                SET id_alumno = '{$prestamo->getIdAlumno()}',
+                id_libros = '{$prestamo->getIdLibros()}',
+                fecha_prestamo = '{$prestamo->getFechaPrestamo()}',
+                fecha_devolucion = '{$prestamo->getFechaDevolucion()}',
+                estado = '{$prestamo->getEstado()}'
+                WHERE id_prestamos = {$id}";
+        $this->ejecutarSQL($sql);
+    }
     
 }
 

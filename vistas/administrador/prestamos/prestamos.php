@@ -42,7 +42,7 @@ $prestamosController = new PrestamosController();
                         
                     </tbody>
                 </table>
-               <a href="addprestamo" class="btn btn-primary">Agregar</a>
+               <a href="addprestamo" class="btn btn-dark">Agregar</a>
             </form>
         </div>
     </div>
