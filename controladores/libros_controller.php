@@ -18,7 +18,7 @@ class LibrosController extends Conexion{
     
         return $resultado;
      }
-            //Prueba
+            
     public function update($libros, $id) {
         $sql = "UPDATE libros
                 SET
@@ -36,8 +36,19 @@ class LibrosController extends Conexion{
         $rs = $this->ejecutarSQL($sql);
     }   
 
+    public function buscarPorId($id) {
+        $sql = "SELECT * FROM libros WHERE id_libros = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            $libros = $resultado->fetch_assoc();
+            return $libros;
+        } else {
+            return null;
+        }
+    }
+
     public function buscarPorTitulo($titulo) {
-        $sql = "SELECT * FROM libros WHERE titulo LIKE '%$titulo%'";
+        $sql = "SELECT * FROM libros WHERE titulo LIKE '$titulo%'";
         $rs = $this->ejecutarSQL($sql);
     }   
 

@@ -1,48 +1,71 @@
-<!-- <?php
-
+<?php
 $libros_controller = new LibrosController();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];
-
-if(isset($_POST['ok1'])){
-
-    $libros = new Libros($_POST['titulo'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
-    $libros_controller->update($id_libros, $titulo, $editorial, $fecha_edicion, $ISBN);
-    header("Location: " . "libros");
+$filtrar_libro = $libros_controller->buscarPorId($id); 
+if(isset($_POST["ok1"])){
+    $libros = new Libros("",$_POST['id_libros'], $_POST['titulo'], $_POST['autor'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
+    $libros_controller->update($libros, $id); 
+    header("Location: http://localhost/Prestamo-libros/libros");
 }
+
 ?>
 
-<?php
-
-
-?> -->
-<form method="post">
-
-<div class="container">
-    <input type="text" class="form-control" name="titulo" value="<?php echo $libros_controller->listar()[0]->getTitulo(); ?>" placeholder="Ingrese el título del libro">
+<div class="container mt-5 text-center">
+    <h1 class="fw-bold">ACTUALIZAR ALUMNOS</h1>
 </div>
 
-<div class="container">
-    <input type="text" class="form-control" name="autor" value="<?php echo $libros_controller->listar()[0]->getAutor(); ?>" placeholder="Ingrese el nombre del autor">
-</div>
+<div class="container m-6 bg-dark text-white">
+    <form method="post" class="m-5 mx-auto">
+        <div class="row"> 
+            <div class="col-md-4">
+                <div class="form-group mt-4 mx-3">
+                    <label>Titulo del libro:</label>
+                    <input type="text" class="form-control" name="titulo" placeholder="Ingrese el título del libro" value="<?php echo $filtrar_libro['titulo']; ?>">
+                </div>
 
-<div class="container">
-    <input type="text" class="form-control" name="editorial" value="<?php echo $libros_controller->listar()[0]->getEditorial(); ?>" placeholder="Ingrese el editorial">
-</div>
 
-<div class="container">
-    <input type="date" class="form-control" name="fecha_edicion" value="<?php echo $libros_controller->listar()[0]->getFechaEdicion(); ?>" placeholder="Ingrese la fecha de edición">
-</div>
 
-<div class="container">
-    <input type="text" class="form-control" name="ISBN" value="<?php echo $libros_controller->listar()[0]->getISBN(); ?>" placeholder="Ingrese el ISBN">
-</div>
 
-<div class="container">
-    <div class="offset-sm-4 col-sm-8">
-        <button type="submit" name="ok1" class="btn btn-primary">Actualizar</button>
-        <a href="libros" class="btn btn-warning text-white">Volver</a>
+
+                <div class="form-group mt-4 mx-3">
+                    <label>Nombre del autor:</label>
+                    <input type="text" class="form-control" name="autor" placeholder="Ingrese el nombre del autor" value="<?php echo $filtrar_libro['autor']; ?>">
+                </div>
+
+
+
+    </div>
+    <div class="form-group mt-4 mx-3">
+        <label>Editorial:</label>
+        <input type="text" class="form-control" name="editorial" placeholder="Ingrese el editorial" value="<?php echo $filtrar_libro['editorial']; ?>">
+    </div>
+
+
+
+    <div class="form-group mt-4 mx-3">
+        <label>Fecha de edicion:</label>
+        <input type="date" class="form-control" name="fecha_edicion" placeholder="Ingrese la fecha de edición" value="<?php echo $filtrar_libro['fecha_edicion']; ?>">
     </div>
 </div>
 
-</form>
+
+
+
+    <div class="form-group mt-4 mx-3">
+        <label>ISBN:</label>
+        <input type="text" class="form-control" name="ISBN" placeholder="Ingrese el ISBN" value="<?php echo $filtrar_libro['ISBN']; ?>">
+    </div>
+</div>
+
+
+
+
+        </div>
+        
+        <div class="d-flex justify-content-center mt-5">
+            <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Actualizar</button>
+            <a href="libros" class="btn btn-outline-warning m-4 mt-3">Regresar</a>
+        </div>
+    </form>
+</div>
