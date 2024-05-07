@@ -61,5 +61,18 @@ class alumnos_controller extends Conexion{
         $sql = "DELETE FROM alumnos WHERE id_alumno = {$id}";
         $this->ejecutarSQL($sql);
     }
+
+    public function obtenerAlumnoPorId($id) {
+        $sql = "SELECT * FROM alumnos WHERE id_alumno = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            // Obtener los datos del alumno como un array asociativo
+            $alumno = $resultado->fetch_assoc();
+            return $alumno;
+        } else {
+            return null;
+        }
+    }
+    
 }
 ?>
