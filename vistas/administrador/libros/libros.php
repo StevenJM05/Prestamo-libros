@@ -1,7 +1,7 @@
 <?php
 $libros_controller = new LibrosController();
 
-// Procesar eliminación de libros
+
 if(isset($_POST['del'])){
     if(isset($_POST['eliminar']) && is_array($_POST['eliminar'])) {
         foreach($_POST['eliminar'] as $id_libro) {
@@ -11,11 +11,11 @@ if(isset($_POST['del'])){
     }
 }
 
-// Procesar búsqueda de libros
+
 if(isset($_POST['buscar'])) {
-    // Obtener la consulta de búsqueda
+   
     $consulta_busqueda = $_POST['busqueda'];
-    // Realizar la búsqueda en la base de datos
+   
     $resultados = $libros_controller->buscarPorTitulo($consulta_busqueda);
 }
 
@@ -92,7 +92,7 @@ if(isset($_POST['buscar'])) {
     if(isset($resultados)) {
         if ($resultados) {
             echo "<h2>Resultados de la búsqueda:</h2>";
-            foreach ($resultados as $libro) {
+            foreach ($busqueda as $libro) {
                 echo "<table>";
                 echo "<tr>";
 

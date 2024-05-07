@@ -54,7 +54,7 @@ if(isset($_POST['ok1'])){
             <div class="col-md-4">
             <div class="form-group mt-3">
                     <label> Ingrese la fecha de edicion:</label>
-                    <input type="text" class="form-control" name="fecha_edicion" placeholder="Ingrese la fecha de edicion">
+                    <input type="date" class="form-control" name="fecha_edicion" placeholder="Ingrese la fecha de edicion">
             </div>
             </div>
 

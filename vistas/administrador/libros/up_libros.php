@@ -31,7 +31,7 @@ if(isset($_POST['ok1'])){
 </div>
 
 <div class="container">
-    <input type="text" class="form-control" name="fecha_edicion" value="<?php echo $libros_controller->listar()[0]->getFechaEdicion(); ?>" placeholder="Ingrese la fecha de edición">
+    <input type="date" class="form-control" name="fecha_edicion" value="<?php echo $libros_controller->listar()[0]->getFechaEdicion(); ?>" placeholder="Ingrese la fecha de edición">
 </div>
 
 <div class="container">
