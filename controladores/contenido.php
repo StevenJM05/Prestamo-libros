@@ -6,6 +6,7 @@ class Contenido{
 
         $url=isset($_GET["url"])? $_GET["url"]:null;
         $url=explode("/",$url);
+        $id = end($url); 
         $pagina="";
         if($url[0]==null){
             $pagina="vistas/inicio.php";}
@@ -52,7 +53,6 @@ class Contenido{
                 $pagina=  "vistas/administrador/prestamos/prestamos.php";
             }          
             elseif ($url[0] == "up_prestamo") {         
-                
                 $pagina = "vistas/administrador/prestamos/up_prestamo.php";
 
             }            
