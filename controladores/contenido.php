@@ -46,6 +46,11 @@ class Contenido{
             elseif($url[0]=="libros"){
                 $pagina= "vistas/administrador/libros/libros.php";
             }
+            elseif(isset($url[1]) && $url[1] == "libros") {
+                $pagina = "vistas/administrador/libros/libros.php";
+                header("Location: http://localhost/Prestamo-libros/libros");
+                exit();
+            }
             elseif($url[0]=="addlibros"){
                 $pagina= "vistas/administrador/libros/addlibros.php";
             }
