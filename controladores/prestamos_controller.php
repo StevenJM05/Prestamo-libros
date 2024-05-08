@@ -68,7 +68,7 @@ class PrestamosController extends Conexion
     }
     
     public function historial($id_alumno){
-        if ($id_alumno) {
+        
           
             $sql = "SELECT 
                         p.id_prestamos, 
@@ -80,12 +80,12 @@ class PrestamosController extends Conexion
                     FROM 
                         prestamos p
                     JOIN 
-                        alumnos a ON p.fecha_devolucion = a.fecha_devolucion
+                    alumnos a ON p.id_alumno = a.id_alumno
                     JOIN
-                        libros l ON p.fecha_devolucion = l.fecha_devolucion
+                    libros l ON p.id_libros = l.id_libros
                     WHERE 
-                        p.fecha_devolucion = $fecha_devolucion";
-        }
+                    p.id_alumno = $id_alumno";
+        
     
         
         $rs = $this->ejecutarSQL($sql);
@@ -107,8 +107,49 @@ class PrestamosController extends Conexion
         return $resultado;
     }
     
-}    
+ 
 
+public function fecha($fecha_devol){
+        
+          
+    $sql = "SELECT 
+    p.id_prestamos, 
+    a.nombre AS nombre_alumno, 
+    l.titulo AS titulo_libro, 
+    p.fecha_prestamo, 
+    p.fecha_devolucion, 
+    p.estado
+    FROM 
+    prestamos p
+    JOIN 
+    alumnos a ON p.id_alumno = a.id_alumno
+    JOIN
+    libros l ON p.id_libros = l.id_libros
+    WHERE 
+    p.fecha_devolucion = '$fecha_devol'";
+
+
+
+$rs = $this->ejecutarSQL($sql);
+$resultado = array();
+
+
+while ($fila = $rs->fetch_assoc()) {
+    $prestamo = new Prestamos();
+    $prestamo->setIdPrestamos($fila["id_prestamos"]);
+    $prestamo->setIdAlumno($fila["nombre_alumno"]); 
+    $prestamo->setIdLibros($fila["titulo_libro"]);  
+    $prestamo->setFechaPrestamo($fila["fecha_prestamo"]);
+    $prestamo->setFechaDevolucion($fila["fecha_devolucion"]);
+    $prestamo->setEstado($fila["estado"]);
+    $resultado[] = $prestamo;
+}
+
+
+return $resultado;
+}
+
+}
     
 
 

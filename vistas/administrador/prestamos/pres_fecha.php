@@ -3,7 +3,7 @@ $prestamosController = new PrestamosController();
 $prestatamoshistorial = [];
 if (isset($_POST["buscar"])) {
     $fecha_devol = $_POST["fecha_devolucion"];
-    $prestatamoshistorial = $prestamosController->historial($fecha_devol);
+    $prestatamoshistorial = $prestamosController->fecha($fecha_devol);
 }
 ?>
 
@@ -14,16 +14,15 @@ if (isset($_POST["buscar"])) {
             <h5 class="card-title mb-0">Buscar Libros por fecha de Devolución</h5>
         </div>
         <div class="card-body">
-            <form method="post" class="mb-4">
-                <div class="mb-3 row">
-                    <label for="inputFechaDevolucion" class="col-sm-4 col-form-label">Fecha de Devolución</label>
-                    <div class="col-sm-8">
-                        <input type="date" class="form-control" name="fecha_devolucion" id="inputFechaDevolucion">
-                    </div>
-                </div>
-                    <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
-                </div>
-            </form>
+        <form method="post" class="mb-4">
+    <div class="mb-3 row">
+        <label for="inputFechaDevolucion" class="col-sm-4 col-form-label">Fecha de Devolución</label>
+        <div class="col-sm-8">
+            <input type="date" class="form-control" name="fecha_devolucion" id="inputFechaDevolucion">
+        </div>
+    </div>
+    <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
+</form>
             
                 <table class="table">
                     <thead>
