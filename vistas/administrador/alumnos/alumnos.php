@@ -5,7 +5,7 @@
         $alumnos_controller->eliminar($id);
     }
 ?>
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     <div class="card">
         <div class="card-header">
             <h1>Lista de Alumnos</h1>
@@ -16,7 +16,7 @@
                 class="table-responsive-md"
             >
                 <table
-                    class="table table-striped table-hover table-borderless table-primary align-middle"
+                    class="table table-striped table-hover table-borderless table-dark align-middle"
                 >
                     <thead class="table-light">
                         <caption>
