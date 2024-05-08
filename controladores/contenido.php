@@ -6,12 +6,6 @@ class Contenido
     {
         require_once("conexion.php");
 
-<<<<<<< Updated upstream
-        $url = isset($_GET["url"]) ? $_GET["url"] : null;
-        $url = explode("/", $url);
-        $id = end($url);
-        $pagina = "";
-=======
         $url=isset($_GET["url"])? $_GET["url"]:null;
         $url=explode("/",$url);
         $id = end($url); 
@@ -88,9 +82,7 @@ class Contenido
                 exit();
             }          
             elseif ($url[0] == "up_prestamo") {         
-                $pagina = "vistas/administrador/prestamos/up_prestamo.php";
->>>>>>> Stashed changes
-
+                $pagina = "vistas/administrador/prestamos/up_prestamo.php";}
         if ($url[0] == null) {
             $pagina = "vistas/inicio.php";
         } elseif ($url[0] == "alumnos") {
