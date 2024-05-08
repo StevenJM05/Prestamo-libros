@@ -110,9 +110,11 @@ class PrestamosController extends Conexion
  
 
 public function fecha($fecha_devol){
+        
+          
     $sql = "SELECT 
     p.id_prestamos, 
-    a.nombres AS nombre_alumno, 
+    a.nombre AS nombre_alumno, 
     l.titulo AS titulo_libro, 
     p.fecha_prestamo, 
     p.fecha_devolucion, 
@@ -124,7 +126,7 @@ public function fecha($fecha_devol){
     JOIN
     libros l ON p.id_libros = l.id_libros
     WHERE 
-    p.fecha_devolucion = '{$fecha_devol}'";
+    p.fecha_devolucion = '$fecha_devol'";
 
 
 
