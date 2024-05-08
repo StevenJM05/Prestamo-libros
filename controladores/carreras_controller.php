@@ -41,12 +41,11 @@ class carreras_controller extends Conexion{
 
     public function update($carreras, $id){
         $sql = "UPDATE carreras
-                SET
-                id_escuelas = '{$carreras->getIdEscuelas()}',
+                SET id_escuelas = '{$carreras->getIdEscuelas()}',
                 nombre_carrera = '{$carreras->getNombreCarrera()}',
                 asignaturas = '{$carreras->getAsignaturas()}'
-                WHERE id_carrera = '{$id}'";
-        $rs = $this->ejecutarSQL($sql);
+                WHERE id_carrera = {$id}";
+         $this->ejecutarSQL($sql);
     }
     
     public function delete($id){

@@ -5,9 +5,10 @@ $info = explode("/",$_GET["url"]);
 $id = $info[1];
 if(isset($_POST["ok1"])){
     
-    $carreras = new carreras("",$_POST['id_escuelas'],$_POST['nombre_carrera'],$_POST['asignaturas']);
+    $carreras = new carreras("", $_POST['id_escuelas'], $_POST['nombre_carrera'],$_POST['asignaturas']);
+    //$id=($_POST['id_escuelas'],$_POST['id_carrera']);
     $carreras_controller->update($carreras, $id);
-    header("Location: " . "carreras");
+    header("Location: http://localhost/Prestamo-libros/carreras " );
 }
 ?>
 
@@ -33,7 +34,7 @@ if(isset($_POST["ok1"])){
     <?php
     $carreras = $carreras_controller->listarescuelas();
     foreach ($carreras as $item) {
-        echo "<option value='" . $item->getIdEscuelas() . "'>" . $item->getNombre() . "</option>";
+        echo "<option value='" . $item->getIdescuelas() . "'>" . $item->getNombre() . "</option>";
     }
     ?>
 </select>
@@ -46,7 +47,7 @@ if(isset($_POST["ok1"])){
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-    <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Agregar</button>
+    <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Actualizar</button>
     <a href="carreras" class="btn btn-outline-primary m-4 mt-3">Regresar</a>
 </div>
 
