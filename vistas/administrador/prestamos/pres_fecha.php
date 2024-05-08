@@ -19,11 +19,9 @@ if (isset($_POST["buscar"])) {
         <label for="inputFechaDevolucion" class="col-sm-4 col-form-label">Fecha de Devolución</label>
         <div class="col-sm-8">
             <input type="date" class="form-control" name="fecha_devolucion" id="inputFechaDevolucion">
-            <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
         </div>
-        
     </div>
-    
+    <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
 </form>
             
                 <table class="table">
