@@ -136,7 +136,9 @@ class Contenido
             exit();
         } elseif ($url[0] == "up_prestamo") {
             $pagina = "vistas/administrador/prestamos/up_prestamo.php";
-        } else {
+        } elseif ($url[0] == "estado") {
+            $pagina = "vistas/administrador/prestamos/estado.php";
+        }  else {
             $pagina = "vistas/e404.php";
         }
 

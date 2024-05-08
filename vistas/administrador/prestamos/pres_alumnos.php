@@ -18,6 +18,7 @@ if (isset($_POST["buscar"])) {
             <form method="post" class="mb-4">
                 <div class="input-group">
                     <select class="form-select" id="id_alumno" name="id_alumno">
+                    <option value="">Seleccione Alumno</option>
                         <?php foreach($alumnos_controller->listar2() as $alumno): ?>
                             <option value="<?php echo $alumno->getIdAlumno(); ?>">
                                 <?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?>
