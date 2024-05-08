@@ -21,15 +21,12 @@ if(isset($_POST['ok1'])){
 
 }
 ?>
-<body style="background-color: #f0f0f0;">
-
+<body>
 <div class="container mt-5 text-center">
-        <h1 class="fw-bold">INFORMACIÓN DE CARRERAS</h1>
+        <h1 class="fw-bold"s>LISTAR CARRERAS</h1>
     </div>
 
-    <div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
-</div>
+ 
 
 </div>
 <br><br>
@@ -58,7 +55,7 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
-                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " '>MODIFICAR </a></td>
+                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " '>Click para actualizar </a></td>
                         </tr>
                         ";
     
@@ -77,9 +74,13 @@ if(isset($_POST['ok1'])){
             </tr>
         </tbody>
     </table>
+       <div class="container mt-6 position-relative" style="margin-right: 50px">
+    <a class='btn btn-primary position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
+      </div>
     </form>
 </div>
 
 
+</div>
 </div>
 </div>

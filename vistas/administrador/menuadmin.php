@@ -406,7 +406,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="Prestamos">
+                        <a href="prestamos">
                             <i class='bx bx-collection icon'></i>
                             <span class="text nav-text">Prestamos</span>
                         </a>

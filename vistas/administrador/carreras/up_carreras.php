@@ -45,11 +45,14 @@ if(isset($_POST["ok1"])){
             <div class="form-group mt-3">
                 <label>Asignaturas:</label>
                 <input type="number" class="form-control" name="asignaturas" placeholder="" value="<?php echo $carrera_actual->getAsignaturas(); ?>">
+                <label for=""><br></label>
             </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Actualizar</button>
-            <a href="carreras" class="btn btn-outline-primary m-4 mt-3">Regresar</a>
-        </div>
+       
     </form>
+    
 </div>
+<div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary m-4 mt-3" name="ok1">Actualizar</button>
+            <a href="carreras" class="btn btn-success m-4 mt-3">Regresar</a>
+        </div>
