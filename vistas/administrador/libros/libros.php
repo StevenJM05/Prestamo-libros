@@ -30,12 +30,9 @@ if(isset($_POST['buscar'])) {
 </head>
 <body>
 
+
 <div class="container mt-5 text-center">
     <h1 class="fw-bold">INFORMACIÓN DE LIBROS</h1>
-</div>
-
-<div class="container mt-5 position-relative">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addlibros'>Agregar Libros</a>
 </div>
 
 <br><br>
@@ -75,12 +72,20 @@ if(isset($_POST['buscar'])) {
             
             <tr>
                 <td colspan="8">
-                    <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
+                <a class='btn btn-success ' href='addlibros'>Agregar Libros</a>
                 </td>
             </tr>
+            <tr>
+                <td colspan="8">
+                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
+                </td>
+            </tr>
+
         </tbody>
     </table>
 </form>
+
+
 
 <div class="container">
     <form method="post">

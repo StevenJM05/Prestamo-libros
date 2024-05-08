@@ -4,6 +4,7 @@ $prestamosController = new PrestamosController();
 ?>
 
 <div class="container mt-5">
+    
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h5 class="card-title mb-0">Lista de Préstamos</h5>
