@@ -49,7 +49,7 @@ class carreras_controller extends Conexion{
         $rs = $this->ejecutarSQL($sql);
     }
     
-    public function Delete($id){
+    public function delete($id){
         $sql = "DELETE FROM carreras WHERE id_carrera = $id";
         $rs = $this->ejecutarSQL($sql);
     }

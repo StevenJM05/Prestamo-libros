@@ -61,6 +61,7 @@ class alumnos_controller extends Conexion{
         $sql = "DELETE FROM alumnos WHERE id_alumno = {$id}";
         $this->ejecutarSQL($sql);
     }
+    
 
     public function obtenerAlumnoPorId($id) {
         $sql = "SELECT * FROM alumnos WHERE id_alumno = $id";

@@ -21,6 +21,8 @@ if (isset($_POST['ok1'])) {
     
 
     $prestamosController->agregar($prestamo);
+    header("Location: http://localhost/Prestamo-libros/prestamos");
+    exit();
 }
 
 ?>
@@ -77,8 +79,8 @@ if (isset($_POST['ok1'])) {
                 </div>
                 <div class="mb-3 row">
                     <div class="offset-sm-4 col-sm-8">
-                        <button type="submit" name="ok1" class="btn btn-primary">Agregar</button>
-                        <a href="prestamos" class="btn btn-warning text-white">Regresar</a>
+                        <button type="submit" name="ok1" class="btn btn-dark">Agregar</button>
+                        <a href="prestamos" class="btn btn-success text-white">Regresar</a>
                     </div>
                 </div>
             </form>
