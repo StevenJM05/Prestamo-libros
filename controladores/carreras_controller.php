@@ -66,6 +66,25 @@ class carreras_controller extends Conexion{
             return null;
         }
     }
+
+    public function getCarreraPorId($id) {
+        $sql = "SELECT * FROM carreras WHERE id_carrera = '$id'";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            $fila = $resultado->fetch_assoc();
+            $carrera = new Carreras(
+                $fila['id_carrera'],
+                $fila['id_escuelas'],
+                $fila['nombre_carrera'],
+                $fila['asignaturas']
+            );
+            
+            return $carrera;
+        } else {
+            
+            return null;
+        }
+    }
     
 }
 ?>
