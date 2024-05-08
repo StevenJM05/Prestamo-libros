@@ -10,14 +10,18 @@ if(isset($_POST['ok1'])){
 }
 ?>
 
-<div class="container mt-5 text-center">      
-      <h1 class="fw-bold">AGREGAR CARRERAS</h1>
-     </div>
+<div class="container mt-5">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Agregar carreras</h5>
+        </div>
 
-     <div class="container m-6 bg-dark text-white">
-    <form method="post" class="m-5 mx-auto">
 
-    <div class=" mt-3 row" style="margin-right: 50px;">
+
+<div class="card-body">
+    <form method="post">
+
 
                  <label for="inputName" class="col-6 mr-2 col-form-label">
                  Nombre de la carrera
@@ -50,18 +54,23 @@ if(isset($_POST['ok1'])){
                 <input type="number" class="form-control" name="asignaturas" placeholder="Cuantas Asignaturas tiene la carrera">
                 <label for=""><br></label>
     
+                <table>
+    
+    
+    <button type="submit" class="btn btn-outline-dark" name="ok1">Agregar</button>
+   <a href="carreras" class="btn btn-outline-dark m-2">Regresar</a>
+</table>
         </div>
                 </div>
 
 
-        <div class="d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-primary m-4 mt-3" name="ok1">Agregar</button>
-                <a href="carreras" class="btn btn-success m-4 mt-3">Regresar</a>
-
-            </div>
+              
 
     </form>
+   
 </div> 
+
+
 
 <!--<div class="container m-7 bg-da text-whte">
     <form method="post" class="m-5 mx-auto"> 

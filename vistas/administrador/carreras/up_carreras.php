@@ -13,20 +13,20 @@ if(isset($_POST["ok1"])){
     exit();
 }
 ?>
+<div class="container mt-5">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Actualizar carrera</h5>
+        </div>
 
-<div class="container mt-5 text-center">
-    <h1 class="fw-bold">ACTUALIZAR LAS CARRERAS</h1>
-</div>
-
-<div class="container m-7 bg-dark text-white">
-    <form method="post" class="m-5 mx-auto"> 
-        <div class="col-md-4">
-            <div class="form-group mt-3">
+        <div class="card-body">
+    <form method="post"> 
+       
+    <div class="form-group mt-3">
                 <label>Nombre de la Carrera:</label>
                 <input type="text" class="form-control" name="nombre_carrera" placeholder="Ingrese el nombre de la carrera" value="<?php echo $carrera_actual->getNombreCarrera(); ?>">
-            </div>
-        </div>
-        <div class="col-md-4">
+    </div>
             <div class="form-group mt-3">
                 <label>Escuelas:</label>
                 <select class="form-control" name="id_escuelas">
@@ -40,19 +40,21 @@ if(isset($_POST["ok1"])){
                     ?>
                 </select>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group mt-3">
+        
+       
+        <div class="form-group mt-3">
                 <label>Asignaturas:</label>
                 <input type="number" class="form-control" name="asignaturas" placeholder="" value="<?php echo $carrera_actual->getAsignaturas(); ?>">
                 <label for=""><br></label>
+
+                <table>
+                 <button type="submit" class="btn btn-outline-dark m-2" name="ok1">Actualizar</button>
+            <a href="carreras" class="btn btn-outline-dark">Regresar</a>
+                </table>
             </div>
         </div>
        
     </form>
     
 </div>
-<div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary m-4 mt-3" name="ok1">Actualizar</button>
-            <a href="carreras" class="btn btn-success m-4 mt-3">Regresar</a>
-        </div>
+

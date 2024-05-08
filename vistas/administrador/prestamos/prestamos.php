@@ -4,7 +4,7 @@ $prestamosController = new PrestamosController();
 ?>
 
 <div class="container mt-5">
-    
+
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h5 class="card-title mb-0">Lista de Préstamos</h5>
@@ -34,7 +34,7 @@ $prestamosController = new PrestamosController();
                                     <td>" . $prestamo->getFechaPrestamo() . "</td>
                                     <td>" . $prestamo->getFechaDevolucion() . "</td>
                                     <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
-                                    <td><a href='up_prestamo/" . $prestamo->getIdPrestamos() . "' class='btn btn-success'>Modificar</a></td>
+                                    <td><a href='up_prestamo/" . $prestamo->getIdPrestamos() . "' class='btn btn-success'>Actualizar</a></td>
 
                                 </tr>
                             ";
@@ -44,11 +44,10 @@ $prestamosController = new PrestamosController();
                         
                     </tbody>
                 </table>
-               <a href="addprestamo" class="btn btn-dark">Agregar</a>
-
-               <a href="pres_alumnos" class="btn btn-dark">Historial por alumno</a>
-               <a href="pres_fecha" class="btn btn-dark">Libros por fecha</a>
-               <a href="estado" class="btn btn-dark">Prestamos por estado</a>
+               <a href="addprestamo" class="btn btn-outline-dark">Agregar</a>
+               <a href="pres_alumnos" class="btn btn-outline-dark">Historial por alumno</a>
+               <a href="pres_fecha" class="btn btn-outline-dark">Libros por fecha</a>
+               <a href="estado" class="btn btn-outline-dark">Prestamos por estado</a>
             </form>
         </div>
     </div>

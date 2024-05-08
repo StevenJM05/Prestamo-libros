@@ -31,14 +31,16 @@ if(isset($_POST['buscar'])) {
 <body>
 
 
-<div class="container mt-5 text-center">
-    <h1 class="fw-bold">INFORMACIÓN DE LIBROS</h1>
-</div>
+<div class="container mt-5">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Información de libros</h5>
+        </div>
 
-<br><br>
-
+<div class="card-body">
 <form method="post">
-    <table class="table table-dark mx-auto" style="width: 80%;">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -64,33 +66,38 @@ if(isset($_POST['buscar'])) {
                     <td>".$libro->getEditorial()."</td>
                     <td>".$libro->getFechaEdicion()."</td>
                     <td>".$libro->getISBN()."</td>
-                    <td><a href='up_libros/".$libro->getIdlibros()."'>Actualizar</a></td>
+                    <td><a href='up_libros/".$libro->getIdlibros()."' class='btn btn-success'>Actualizar</a></td>
                 </tr>";
         } 
 
         ?>
             
-            <tr>
-                <td colspan="8">
-                <a class='btn btn-success ' href='addlibros'>Agregar Libros</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="8">
-                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
-                </td>
-            </tr>
+          
 
         </tbody>
     </table>
+    <table>
+                <a class='btn btn-outline-dark' href='addlibros'>Agregar Libros</a>
+                <input class='btn btn-outline-dark m-2' type="submit" value="Eliminar" name="del">
+                
+                    </table>
 </form>
+</div>
+
+
+
+
+
+
+
+
 
 
 
 <div class="container">
     <form method="post">
         <input type="text" class="form-control" name="busqueda" placeholder="Buscar libros por título">
-        <button type="submit" name="buscar" class="btn btn-primary mt-2">Buscar</button>
+        <button type="submit" name="buscar" class="btn btn-outline-dark m-2">Buscar</button>
     </form>
 
     <?php
