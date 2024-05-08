@@ -6,6 +6,7 @@ class Contenido
     {
         require_once("conexion.php");
 
+
         $url=isset($_GET["url"])? $_GET["url"]:null;
         $url=explode("/",$url);
         $id = end($url); 
