@@ -1,16 +1,21 @@
 <?php
-
 $carreras_controller = new carreras_controller();
-$info = explode("/",$_GET["url"]);
+$info = explode("/", $_GET["url"]);
 $id = $info[1];
-if(isset($_POST["ok1"])){
+if (isset($_POST["ok1"])) {
     
-    $carreras = new carreras("",$_POST['id_escuelas'],$_POST['nombre_carrera'],$_POST['asignaturas']);
+    $id_escuelas = $_POST['id_escuelas'];
+    $nombre_carrera = $_POST['nombre_carrera'];
+    $asignaturas = $_POST['asignaturas'];
+    
+   
+    $carreras = new carreras("", $id_escuelas, $nombre_carrera, $asignaturas);
+    
+
     $carreras_controller->update($carreras, $id);
-    header("Location: " . "carreras");
+    
 }
 ?>
-
 
 
 <div class="container mt-5 text-center">
@@ -28,7 +33,7 @@ if(isset($_POST["ok1"])){
             <div class="col-md-4">
                 <div class="form-group mt-3">
                 <label>Escuelas:</label>
-<select class="form-control" name="escuelas" id="">
+<select class="form-control" name="id_escuelas" id="">
     <option value="all">Seleccione una escuela:</option>
     <?php
     $carreras = $carreras_controller->listarescuelas();

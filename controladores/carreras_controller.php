@@ -47,6 +47,7 @@ class carreras_controller extends Conexion{
                 asignaturas = '{$carreras->getAsignaturas()}'
                 WHERE id_carrera = '{$id}'";
         $rs = $this->ejecutarSQL($sql);
+        
     }
     
     public function delete($id){
