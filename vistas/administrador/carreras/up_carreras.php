@@ -3,10 +3,9 @@
 $carreras_controller = new carreras_controller();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];
-$carrera_actual = $carreras_controller->obtenerAlumnoPorId($id); 
 if(isset($_POST["ok1"])){
     
-    $carreras = new carreras("","", $_POST['nombre_carrera'], $_POST['asignaturas']);
+    $carreras = new carreras("",$_POST['id_escuelas'],$_POST['nombre_carrera'],$_POST['asignaturas']);
     $carreras_controller->update($carreras, $id);
     header("Location: " . "carreras");
 }
@@ -23,18 +22,18 @@ if(isset($_POST["ok1"])){
         <div class="col-md-4">
                 <div class="form-group mt-3">
                     <label>Nombre de la Carrera:</label>
-                    <input type="text" class="form-control" name="nombre_carrera" placeholder="Ingrese el nombre de la carrera" value="<?php echo $carrera_actual['nombre_carrera']; ?>">
+                    <input type="text" class="form-control" name="nombre_carrera" placeholder="Ingrese el nombre de la carrera">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group mt-3">
                 <label>Escuelas:</label>
-<select name="escuelas" id="">
+<select class="form-control" name="escuelas" id="">
     <option value="all">Seleccione una escuela:</option>
     <?php
     $carreras = $carreras_controller->listarescuelas();
     foreach ($carreras as $item) {
-        echo "<option value='" . $item->getIdescuelas() . "'>" . $item->getNombre() . "</option>";
+        echo "<option value='" . $item->getIdEscuelas() . "'>" . $item->getNombre() . "</option>";
     }
     ?>
 </select>
@@ -43,7 +42,7 @@ if(isset($_POST["ok1"])){
         <div class="col-md-4">
                 <div class="form-group mt-3">
                     <label>Asignaturas:</label>
-                    <input type="number" class="form-control" name="asignaturas" placeholder="" value="<?php echo $carrera_actual['asignaturas']; ?>">
+                    <input type="number" class="form-control" name="asignaturas" placeholder="">
                 </div>
             </div>
             <div class="d-flex justify-content-center">

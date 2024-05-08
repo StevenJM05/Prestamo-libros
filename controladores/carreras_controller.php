@@ -42,10 +42,10 @@ class carreras_controller extends Conexion{
     public function update($carreras, $id){
         $sql = "UPDATE carreras
                 SET
-                id_escuelas = {$carreras->getIdescuelas()},
-                nombre_carrera = '{$carreras->getNombrecarrera()}',
-                asignaturas = {$carreras->getAsignaturas()}
-                WHERE id_carrera = $id";
+                id_escuelas = '{$carreras->getIdEscuelas()}',
+                nombre_carrera = '{$carreras->getNombreCarrera()}',
+                asignaturas = '{$carreras->getAsignaturas()}'
+                WHERE id_carrera = '{$id}'";
         $rs = $this->ejecutarSQL($sql);
     }
     

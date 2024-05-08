@@ -53,7 +53,7 @@ if(isset($_POST['ok1'])){
 
             echo "
                         <tr  >
-                            <td  > <input type='checkbox'  name='eliminar[]' value=' ' title=' ' > </td>
+                            <td  > <input type='checkbox'  name='eliminar[]' value='".$aggal->getIdcarrera()."' title=' ' > </td>
                             <td>" . $aggal->getIdcarrera() . "</td>
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
