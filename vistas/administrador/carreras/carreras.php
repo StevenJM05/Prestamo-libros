@@ -43,7 +43,7 @@ if(isset($_POST['ok1'])){
                 <th scope="col">Nombre de la Escuela</th>
                 <th scope="col">Nombre de la carrera</th>
                 <th scope="col"># Asignaturas</th>
-                <th>Act</th>
+                <th scope="col">Actualizar</th>
             </tr>
         </thead>
         <tbody>
@@ -58,7 +58,7 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
-                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " '>A </a></td>
+                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " '>MODIFICAR </a></td>
                         </tr>
                         ";
     

@@ -5,7 +5,7 @@ $info = explode("/",$_GET["url"]);
 $id = $info[1];
 if(isset($_POST["ok1"])){
     
-    $carreras = new carreras("", $_POST['id_escuelas'], $_POST['nombre_carrera'],$_POST['asignaturas']);
+    $carreras = new carreras("", $_POST['nombre_carrera'],$_POST['asignaturas']);
     //$id=($_POST['id_escuelas'],$_POST['id_carrera']);
     $carreras_controller->update($carreras, $id);
     header("Location: http://localhost/Prestamo-libros/carreras " );
