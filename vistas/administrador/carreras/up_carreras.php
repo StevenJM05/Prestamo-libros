@@ -4,13 +4,13 @@ $info = explode("/", $_GET["url"]);
 $id = $info[1];
 if (isset($_POST["ok1"])) {
     
+
     $id_escuelas = $_POST['id_escuelas'];
     $nombre_carrera = $_POST['nombre_carrera'];
     $asignaturas = $_POST['asignaturas'];
     
    
     $carreras = new carreras("", $id_escuelas, $nombre_carrera, $asignaturas);
-    
 
     $carreras_controller->update($carreras, $id);
     
