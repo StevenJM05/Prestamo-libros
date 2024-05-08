@@ -80,11 +80,11 @@ class PrestamosController extends Conexion
                     FROM 
                         prestamos p
                     JOIN 
-                        alumnos a ON p.id_alumno = a.id_alumno
+                        alumnos a ON p.fecha_devolucion = a.fecha_devolucion
                     JOIN
-                        libros l ON p.id_libros = l.id_libros
+                        libros l ON p.fecha_devolucion = l.fecha_devolucion
                     WHERE 
-                        p.id_alumno = $id_alumno";
+                        p.fecha_devolucion = $fecha_devolucion";
         }
     
         
