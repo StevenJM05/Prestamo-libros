@@ -18,30 +18,12 @@ if (isset($_POST['del'])) {
     }
 }
 ?>
+<body>
+<div class="container mt-5 text-center">
+        <h1 class="fw-bold"s>LISTAR CARRERAS</h1>
+    </div>
 
-<div class="container mt-5 position-relative" style="margin-left: 100px;">
-    <div class="card">
-        <div class="card-header">
-            <h1>Carreras</h1>
-            <a class='btn btn-success' href='addcarreras'>Agregar</a>
-        </div>
-        <div class="card-body bg-dark">
-            <form method=post>
-                <table class="table table-dark mx-auto">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">ID Carreras</th>
-                            <th scope="col">Nombre de la Escuela</th>
-                            <th scope="col">Nombre de la carrera</th>
-                            <th scope="col"># Asignaturas</th>
-                            <th scope="col">Actualizar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php
-                        foreach ($carreras_controller->listar() as $aggal) {
+ 
 
                             echo "
                         <tr  >
@@ -50,24 +32,32 @@ if (isset($_POST['del'])) {
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
-                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " ' class='btn btn-warning'>MODIFICAR </a></td>
+                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " '>Click para actualizar </a></td>
                         </tr>
                         ";
                         }
 
-                        ?>
+           } 
+            
+            ?>
+
+            
+            <tr>
+                <td colspan=13>
+                    
+                    <input class='btn btn-danger' type="submit" value="Eliminar" name=del >
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+       <div class="container mt-6 position-relative" style="margin-right: 50px">
+    <a class='btn btn-primary position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
+      </div>
+    </form>
+</div>
 
 
-                        <tr>
-                            <td colspan=13>
-
-                                <input class='btn btn-danger' type="submit" value="Eliminar" name=del>
-
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </div>
-    </div>
+</div>
+</div>
 </div>
