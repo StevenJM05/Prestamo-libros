@@ -12,7 +12,7 @@ if(isset($_POST['del'])){
 
 }
 ?>
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     
     <div class="card">
         <div class="card-header bg-dark text-white">

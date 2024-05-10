@@ -50,6 +50,12 @@ class LibrosController extends Conexion{
     public function buscarPorTitulo($titulo) {
         $sql = "SELECT * FROM libros WHERE titulo LIKE '$titulo%'";
         $rs = $this->ejecutarSQL($sql);
+        if ($rs->num_rows > 0) {
+            $libros = $rs->fetch_assoc();
+            return $libros;
+        } else {
+            return null;
+        }
     }   
 
     

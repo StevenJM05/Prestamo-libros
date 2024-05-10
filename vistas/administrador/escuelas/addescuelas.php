@@ -17,7 +17,7 @@ if(isset($_POST['ok1'])){
 ?>
 
 
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     
     <div class="card">
         <div class="card-header bg-dark text-white">
@@ -44,11 +44,14 @@ if(isset($_POST['ok1'])){
 
    
 </div>
-
-    </form>
-    <table>
-    <button type="submit" class="btn btn-outline-dark " name="ok1">Agregar</button>
+<table>
+    
+  
+<button type="submit" class="btn btn-outline-dark " name="ok1">Agregar</button>
     <a href="escuelas" class="btn btn-outline-dark m-2">Regresar</a>
     </table>
+
+    </form>
+   
 </div> 
 </div>

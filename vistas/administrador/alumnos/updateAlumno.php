@@ -6,13 +6,11 @@ $alumno_actual = $alumnos_controller->obtenerAlumnoPorId($id);
 if (isset($_POST["ok1"])) {
     $alumno = new Alumnos("", $_POST['id_carrera'], $_POST['nombres'], $_POST['apellidos'], $_POST['direccion'], $_POST['telefono']);
     $alumnos_controller->update($alumno, $id);
-    header("Location: http://localhost/Prestamo-libros/alumnos");
-     exit(); 
 }
 
 ?>
 
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     
     <div class="card">
         <div class="card-header bg-dark text-white">

@@ -5,7 +5,7 @@
         $alumnos_controller->eliminar($id);
     }
 ?>
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h5>Lista de Alumnos</h5>
@@ -38,8 +38,10 @@
                         echo "<td> {$item['apellidos']} </td>";
                         echo "<td> {$item['direccion']} </td>";
                         echo "<td> {$item['telefono']} </td>";
+                        echo "<td><form method=post><input type='hidden' value={$item['id_alumno']} name='id'><button name='eliminar' class='btn btn-outline-dark'>Eliminar</button></form></td>";
                         echo "<td><a href='updateAlumno/{$item['id_alumno']}'><button class='btn btn-success'>Actualizar</button></a></td>";
                         echo "</tr>";
+                        
                        }
                        ?>
                     </tbody>
@@ -50,10 +52,7 @@
 
                 <table class="bg-dark text-white">
                 <a href="addalumnos"><button class="btn btn-outline-dark m-2" >Agregar</button></a>
-            <?php
-            echo "<input type='hidden' value={$item['id_alumno']} name='id'><button name='eliminar' class='btn btn-outline-dark'>Eliminar</button>";
-                
-            ?>    
+            
             </table>
             </div>
             

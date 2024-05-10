@@ -371,7 +371,7 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="<?php echo URL?>">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">inicio</span>
                         </a>

@@ -6,13 +6,12 @@ $filtrar_libro = $escuelas_controller->buscarPorId($id);
 if(isset($_POST['ok1'])){
     $escuelas = new Escuelas("", $_POST['nombre'], $_POST['director']);
     $escuelas_controller->update($escuelas, $id);
-    header("Location: http://localhost/Prestamo-libros/escuelas");
 }
 
 ?>
 
 
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     
     <div class="card">
         <div class="card-header bg-dark text-white">
@@ -35,10 +34,10 @@ if(isset($_POST['ok1'])){
                 <input type="text" class="form-control" name="director" placeholder="Ingrese el director" value="<?php echo $filtrar_libro['director'];?>">       
                  </div>
         </div>
-       
-    </form>
-    <table>
+        <table>
     <button type="submit" class="btn btn-outline-dark" name="ok1">Actualizar</button>
             <a href="escuelas" class="btn btn-outline-dark m-4">Regresar</a>
     </table>
+    </form>
+   
 </div>

@@ -9,11 +9,9 @@ $carrera_actual = $carreras_controller->getCarreraPorId($id);
 if(isset($_POST["ok1"])){
     $carreras = new carreras($id, $_POST['id_escuelas'], $_POST['nombre_carrera'], $_POST['asignaturas']);
     $carreras_controller->update($carreras, $id);
-    header("Location: http://localhost/Prestamo-libros/carreras");
-    exit();
 }
 ?>
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     
     <div class="card">
         <div class="card-header bg-dark text-white">
