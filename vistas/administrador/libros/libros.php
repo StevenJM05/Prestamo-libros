@@ -15,46 +15,33 @@ if (isset($_POST['del'])) {
 
 
 ?>
-<!DOCTYPE html>
-<html lang="es">
+<div class="container mt-5" style="margin-left: 100px;">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información de Libros</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS para estilos -->
-</head>
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Información de libros</h5>
+        </div>
 
-<body>
+        <div class="card-body">
+            <form method="post">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Id Libros</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Editorial</th>
+                            <th scope="col">Fecha Edición</th>
+                            <th scope="col">ISBN</th>
+                            <th>Actualizar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-
-    <div class="container mt-5" style="margin-left: 100px;">
-
-        <div class="card">
-            <div class="card-header bg-dark text-white">
-                <h5 class="card-title mb-0">Información de libros</h5>
-            </div>
-
-            <div class="card-body">
-                <form method="post">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Id Libros</th>
-                                <th scope="col">Titulo</th>
-                                <th scope="col">Autor</th>
-                                <th scope="col">Editorial</th>
-                                <th scope="col">Fecha Edición</th>
-                                <th scope="col">ISBN</th>
-                                <th>Actualizar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <?php
-                            foreach ($libros_controller->listar() as $libro) {
-                                echo "
+                        <?php
+                        foreach ($libros_controller->listar() as $libro) {
+                            echo "
                 <tr>
                     <td><input type='checkbox' name='eliminar[]' value='" . $libro->getIdlibros() . "'></td>
                     <td>" . $libro->getIdlibros() . "</td>
@@ -65,77 +52,61 @@ if (isset($_POST['del'])) {
                     <td>" . $libro->getISBN() . "</td>
                     <td><a href='up_libros/" . $libro->getIdlibros() . "' class='btn btn-success'>Actualizar</a></td>
                 </tr>";
-                            }
+                        }
 
-                            ?>
+                        ?>
+                    </tbody>
+                </table>
+                <table>
+                    <a class='btn btn-outline-dark' href='addlibros'>Agregar Libros</a>
+                    <input class='btn btn-outline-dark' type="submit" value="Eliminar" name="del">
 
+                </table>
+            </form>
+        </div>
+        <div class="container">
+            <form method="post">
+                <input type="text" class="form-control" name="busqueda" placeholder="Buscar libros por título">
+                <button type="submit" name="buscar" class="btn btn-outline-dark m-2">Buscar</button>
+            </form>
 
+            <?php
 
-                        </tbody>
-                    </table>
-                    <table>
-                        <a class='btn btn-outline-dark' href='addlibros'>Agregar Libros</a>
-                        <input class='btn btn-outline-dark' type="submit" value="Eliminar" name="del">
+            if (isset($_POST['buscar'])) {
 
-                    </table>
-                </form>
-            </div>
+                $consulta_busqueda = $_POST['busqueda'];
 
+                $resultados = $libros_controller->buscarPorTitulo($consulta_busqueda);
+            }
+            if (isset($resultados)) {
+                if ($resultados) {
+                    echo "<h2>Resultados de la búsqueda:</h2>";
+                    echo "<table class='table'>";
+                    echo "<tr>";
+                    echo "<th>ID</th>";
+                    echo "<th>Título</th>";
+                    echo "<th>Autor</th>";
+                    echo "<th>Editorial</th>";
+                    echo "<th>Fecha edicion</th>";
+                    echo "<th>ISBN</th>";
+                    echo "</tr>";
 
+                    echo "<tr>";
+                    echo "<td>" . $resultados["id_libros"] . "</td>";
+                    echo "<td>" . $resultados["titulo"] . "</td>";
+                    echo "<td>" . $resultados["autor"]  . "</td>";
+                    echo "<td>" . $resultados["editorial"] . "</td>";
+                    echo "<td>" . $resultados["fecha_edicion"] . "</td>";
+                    echo "<td>" . $resultados["ISBN"] . "</td>";
+                    echo "</tr>";
 
-
-
-
-
-
-
-
-
-            <div class="container">
-                <form method="post">
-                    <input type="text" class="form-control" name="busqueda" placeholder="Buscar libros por título">
-                    <button type="submit" name="buscar" class="btn btn-outline-dark m-2">Buscar</button>
-                </form>
-
-                <?php
-
-                if (isset($_POST['buscar'])) {
-
-                    $consulta_busqueda = $_POST['busqueda'];
-
-                    $resultados = $libros_controller->buscarPorTitulo($consulta_busqueda);
+                    echo "</table>";
+                } else {
+                    echo "<p>No se encontraron resultados</p>";
                 }
-                if (isset($resultados)) {
-                    if ($resultados) {
-                        echo "<h2>Resultados de la búsqueda:</h2>";
-                        echo "<table class='table'>";
-                        echo "<tr>";
-                        echo "<th>ID</th>";
-                        echo "<th>Título</th>";
-                        echo "<th>Autor</th>";
-                        echo "<th>Editorial</th>";
-                        echo "<th>Fecha edicion</th>";
-                        echo "<th>ISBN</th>";
-                        echo "</tr>";
+            }
+            ?>
 
-                        echo "<tr>";
-                        echo "<td>" . $resultados["id_libros"] . "</td>";
-                        echo "<td>" . $resultados["titulo"] . "</td>";
-                        echo "<td>" .$resultados["autor"]  . "</td>";
-                        echo "<td>" . $resultados["editorial"] . "</td>";
-                        echo "<td>" . $resultados["fecha_edicion"] . "</td>";
-                        echo "<td>" . $resultados["ISBN"] . "</td>";
-                        echo "</tr>";
-
-                        echo "</table>";
-                    } else {
-                        echo "<p>No se encontraron resultados</p>";
-                    }
-                }
-                ?>
-
-            </div>
-
-</body>
-
-</html>
+        </div>
+    </div>
+</div>

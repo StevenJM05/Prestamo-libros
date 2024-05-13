@@ -57,8 +57,14 @@ class LibrosController extends Conexion{
             return null;
         }
     }   
-
-    
-
+    public function buscarLibros($query){
+        $sql = "SELECT * FROM libros WHERE titulo LIKE '$query%'";
+        $resultado = $this->ejecutarSQL($sql);
+        $alumnos = array();
+        while($fila = $resultado->fetch_assoc()){
+            $alumnos[] = new Alumnos($fila["id_libros"], $fila["titulo"], $fila["autor"], $fila["editorial"], $fila["fecha_edicion"], $fila["ISBN"]);
+        }
+        return $alumnos;
+    }
 }
 ?>
