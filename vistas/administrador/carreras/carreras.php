@@ -21,28 +21,20 @@ if(isset($_POST['ok1'])){
 
 }
 ?>
-<body style="background-color: #f0f0f0;">
-
-<head>
-    <!-- Otros elementos de la cabeza -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-</head>
-
-  
-
-<div class="container mt-5 text-center">
-        <h1 class="fw-bold">INFORMACIÓN DE CARRERAS</h1>
-    </div>
-
-    <div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
-</div>
+<div class="container mt-5" style="margin-left: 100px;">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Información de  carreras</h5>
+        </div>
 
 </div>
-<br><br>
 
+<div style="background-color: white;">
+<div class="card-body">
 <form method=post >
-<table class="table table-dark mx-auto" style="width: 80%;">
+
+<table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -65,8 +57,8 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
-                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . "'><i class='fas fa-edit'></i> Actualizar</a></td>
-                            </tr>
+                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " ' class='btn btn-success'>Actualizar </a></td>
+                        </tr>
                         ";
     
 
@@ -74,19 +66,16 @@ if(isset($_POST['ok1'])){
             
             ?>
 
-            
-            <tr>
-                <td colspan=13>
-                    
-                    <input class='btn btn-danger' type="submit" value="Eliminar" name=del >
-                    
-                </td>
-            </tr>
         </tbody>
-    </table>
+        
+      </table>
+     
+      <a class='btn btn-outline-dark m-2' href='addcarreras'>Agregar Carreras</a>
+      <input class='btn btn-outline-dark' type="submit" value="Eliminar" name=del >
+    </div>
     </form>
-</div>
-
-
+   
 </div>
 </div>
+</div>
+        </div>
