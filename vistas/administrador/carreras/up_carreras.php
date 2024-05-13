@@ -4,6 +4,9 @@ $carreras_controller = new carreras_controller();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];
 
+if (isset($_POST["ok1"])) {
+    
+
 $carrera_actual = $carreras_controller->getCarreraPorId($id);
 
 if(isset($_POST["ok1"])){
