@@ -43,7 +43,7 @@ $prestamosController = new PrestamosController();
                         
                     </tbody>
                 </table>
-               <a href="addprestamo" class="btn btn-dark">Agregar</a>
+               <a href="addprestamo" class="btn btn-success">Agregar</a>
 
                <a href="pres_alumnos" class="btn btn-dark">Historial por alumno</a>
                <a href="pres_fecha" class="btn btn-dark">Libros por fecha</a>

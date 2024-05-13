@@ -27,6 +27,10 @@ if(isset($_POST['buscar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información de Libros</title>
     <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS para estilos -->
+    <head>
+    <!-- Otros elementos de la cabeza -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -67,7 +71,7 @@ if(isset($_POST['buscar'])) {
                     <td>".$libro->getEditorial()."</td>
                     <td>".$libro->getFechaEdicion()."</td>
                     <td>".$libro->getISBN()."</td>
-                    <td><a href='up_libros/".$libro->getIdlibros()."'>Actualizar</a></td>
+                    <td><a href='up_libros/".$libro->getIdlibros(). "'><i class='fas fa-edit'></i> Actualizar</a></td>
                 </tr>";
         } 
 

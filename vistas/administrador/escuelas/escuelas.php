@@ -13,6 +13,12 @@ if(isset($_POST['del'])){
 }
 ?>
 <body style="background-color: #f0f0f0;">
+<head>
+    <!-- Otros elementos de la cabeza -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+  
 
 <div class="container mt-5 text-center">
         <h1 class="fw-bold">INFORMACIÓN DE ESCUELAS</h1>
@@ -33,7 +39,7 @@ if(isset($_POST['del'])){
                 <th scope="col">ID Escuelas</th>
                 <th scope="col">Nombre de la escuela</th>
                 <th scope="col">Director</th>
-                <th>Act</th>
+                <th>Actualizar</th>
             </tr>
         </thead>
         <tbody>
@@ -47,7 +53,8 @@ if(isset($_POST['del'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombre() . "</td>
                             <td>" . $aggal->getDirector() . "</td>
-                            <td><a href='up_escuelas/" . $aggal->getIdescuelas()  . "'>A </a></td>
+                            <td><a href='up_escuelas/" . $aggal->getIdescuelas()  . "'><i class='fas fa-edit'></i> Actualizar</a></td>
+
                         </tr>
                         ";
            /*while ($fila=$rs->fetch_assoc()) {
