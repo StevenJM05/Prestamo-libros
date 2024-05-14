@@ -101,15 +101,23 @@ if (isset($_POST['ok1'])) {
                     <div class="mb-3 row" style="display: flex; align-items: center;">
                         <label for="inputFechaPrestamo" class="col-sm-4 col-form-label">Fecha de Préstamo</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" name="fecha_prestamo" id="inputFechaPrestamo">
+                        <input type="text" class="form-control" name="fecha_prestamo" id="inputFechaPrestamo" value="<?php echo date('Y-m-d'); ?>" readonly>
                         </div>
                     </div>
                     <div class="mb-3 row" style="display: flex; align-items: center;">
                         <label for="inputFechaDevolucion" class="col-sm-4 col-form-label">Fecha de Devolución</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" name="fecha_devolucion" id="inputFechaDevolucion">
+                            <input type="text" class="form-control" name="fecha_devolucion" id="inputFechaDevolucion">
                         </div>
                     </div>
+
+                    <script>
+                        var fechaActual = new Date();
+                        fechaActual.setDate(fechaActual.getDate() + 3);
+                        var fechaFormateada = fechaActual.toISOString().split('T')[0];
+                        document.getElementById('inputFechaDevolucion').value = fechaFormateada;
+                    </script>
+
                     <div class="mb-3 row" style="display: flex; align-items: center;">
                         <div class="offset-sm-4 col-sm-8">
                             <button id="btnGuardar" name="ok1" class="btn btn-dark">Agregar</button>
