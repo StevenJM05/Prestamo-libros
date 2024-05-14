@@ -19,7 +19,7 @@ class Contenido
             }
             elseif(isset($url[1]) && $url[1] == "alumnos") {
                 $pagina = "vistas/administrador/alumnos/alumnos.php";
-                header("Location: http://localhost/Prestamo-libros/alumnos");
+                header("Location: http://localhost/Prestamo-libros/alumnos.php");
                 exit();
             }
             elseif($url[0]=="updateAlumno"){
