@@ -6,6 +6,8 @@ $alumno_actual = $alumnos_controller->obtenerAlumnoPorId($id);
 if (isset($_POST["ok1"])) {
     $alumno = new Alumnos("", $_POST['id_carrera'], $_POST['nombres'], $_POST['apellidos'], $_POST['direccion'], $_POST['telefono']);
     $alumnos_controller->update($alumno, $id);
+    header("Location: http://localhost/Prestamo-libros/alumnos");
+    exit();
 }
 
 ?>

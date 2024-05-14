@@ -6,6 +6,8 @@ $filtrar_libro = $escuelas_controller->buscarPorId($id);
 if(isset($_POST['ok1'])){
     $escuelas = new Escuelas("", $_POST['nombre'], $_POST['director']);
     $escuelas_controller->update($escuelas, $id);
+    header("Location: http://localhost/Prestamo-libros/escuelas");
+    exit();
 }
 
 ?>
@@ -36,7 +38,7 @@ if(isset($_POST['ok1'])){
         </div>
         <table>
     <button type="submit" class="btn btn-outline-dark" name="ok1">Actualizar</button>
-            <a href="escuelas" class="btn btn-outline-dark m-4">Regresar</a>
+           <!-- <a href="escuelas" class="btn btn-outline-dark m-4">Regresar</a>-->
     </table>
     </form>
    

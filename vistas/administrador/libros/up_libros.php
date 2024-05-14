@@ -6,6 +6,8 @@ $filtrar_libro = $libros_controller->buscarPorId($id);
 if (isset($_POST["ok1"])) {
     $libros = new Libros("", $_POST['titulo'], $_POST['autor'], $_POST['editorial'], $_POST['fecha_edicion'], $_POST['ISBN']);
     $libros_controller->update($libros, $id);
+    header("Location: http://localhost/Prestamo-libros/libros");
+            exit();
 }
 
 ?>

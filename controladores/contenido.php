@@ -38,7 +38,11 @@ class Contenido
             $pagina = "vistas/administrador/escuelas/addescuelas.php";
         } elseif ($url[0] == "up_escuelas") {
             $pagina = "vistas/administrador/escuelas/up_escuelas.php";
-        } elseif ($url[0] == "libros") {
+        } elseif (isset($url[1]) && $url[1] == "escuelas") {
+            $pagina = "vistas/administrador/carreras/escuelas.php";
+            header("Location: http://localhost/Prestamo-libros/escuelas");
+            exit();}
+        elseif ($url[0] == "libros") {
             $pagina = "vistas/administrador/libros/libros.php";
         } elseif (isset($url[1]) && $url[1] == "libros") {
             $pagina = "vistas/administrador/libros/libros.php";

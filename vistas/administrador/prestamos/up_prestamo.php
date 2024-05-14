@@ -26,6 +26,8 @@ if (isset($_POST['ok1'])) {
 
     $prestamosController->actualizar($prestamo, $idPrestamo);
     
+    header("Location: http://localhost/Prestamo-libros/prestamos");
+            exit();
     
 }
 
@@ -72,7 +74,7 @@ if (isset($_POST['ok1'])) {
                     <div class="mb-3 row">
                         <label for="inputFechaPrestamo" class="col-sm-4 col-form-label">Fecha de Préstamo</label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" name="fecha_prestamo" id="inputFechaPrestamo" value="<?php echo date('Y-m-d', strtotime($prestamoActual['fecha_prestamo'])); ?>">
+                        <input type="date" class="form-control" name="fecha_prestamo" id="inputFechaPrestamo" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d', strtotime($prestamoActual['fecha_prestamo'])); ?>">
                         </div>
                     </div>
                     <div class="mb-3 row">
