@@ -36,8 +36,8 @@ if (isset($_POST["buscar"])) {
                                                 class="btn btn-primary btn-sm"
                                                 onclick="seleccionarAlumno(
                                                     <?php echo $alumno->getIdalumno(); ?>,
-                                                    '<?php echo $alumno->getNombres(); ?>',
-                                                    '<?php echo $alumno->getApellidos(); ?>'
+                                                    <?php echo $alumno->getNombres(); ?>,
+                                                    <?php echo $alumno->getApellidos(); ?>,
                                                 )">
                                             >
                                                 Seleccionar

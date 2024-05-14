@@ -1,81 +1,78 @@
-<body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="logo.png" alt="">
-                </span>
 
-                <div class="text logo-text">
-                    <span class="name">Prestamos</span>
-                    <span class="profession">Steven Y Alex</span>
-                </div>
-            </div>
+<style>
 
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
+/* Estilos para el botón de navegación */
+.custom-toggler {
+    border-color: #3498db;
+}
 
-        <div class="menu-bar">
-            <div class="menu">
+.custom-toggler .navbar-toggler-icon {
+    background-color: #3498db;
+}
 
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="<?php echo URL?>">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">inicio</span>
-                        </a>
-                    </li>
+/* Estilos para los enlaces de navegación */
+.navbar-nav .nav-item .nav-link {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase; /* Convertir a mayúsculas */
+    font-family: 'Roboto', sans-serif; /* Fuente bonita (puedes cambiarla por la que desees) */
+}
 
-                    <li class="nav-link">
-                        <a href="alumnos">
-                            <i class='bx bx-male-female icon'></i>
-                            <span class="text nav-text">Alumnos</span>
-                        </a>
-                    </li>
+.navbar-nav .nav-item .nav-link:hover {
+    color: #3498db;
+}
 
-                    <li class="nav-link">
-                        <a href="carreras">
-                        <i class='bx bx-briefcase icon'></i>
-                            <span class="text nav-text">Carreras</span>
-                        </a>
-                    </li>
+/* Estilos para el botón de búsqueda */
+.btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+}
 
-                    <li class="nav-link">
-                        <a href="escuelas">
-                            <i class='bx bxs-school icon'></i>
-                            <span class="text nav-text">Escuelas</span>
-                        </a>
-                    </li>
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
+}
 
-                    <li class="nav-link">
-                        <a href="libros">
-                            <i class='bx bx-book-bookmark icon'></i>
-                            <span class="text nav-text">Libros</span>
-                        </a>
-                    </li>
+body, html {
+    height: 100%; /* Establecer altura al 100% */
+}
 
-                    <li class="nav-link">
-                        <a href="prestamos">
-                            <i class='bx bx-collection icon'></i>
-                            <span class="text nav-text">Prestamos</span>
-                        </a>
-                    </li>
+</style>
 
-                </ul>
-            </div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+
+
+
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="<?php echo URL;?>">Inicio</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="escuelas">Escuelas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="alumnos">Alumnos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carreras">Carreras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prestamos">Prestamos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="libros">Libros</a>
+                </li>
+            </ul>
+            <form class="d-flex my-2 my-lg-0">
+                <input class="form-control me-sm-2" type="text" placeholder="Buscar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
         </div>
-
-    </nav>
-
-    <script>
-        const body = document.querySelector('body'),
-            sidebar = body.querySelector('nav'),
-            toggle = body.querySelector(".toggle"),
-            modeText = body.querySelector(".mode-text");
-        toggle.addEventListener("click", () => {
-            sidebar.classList.toggle("close");
-        })
-       
-    </script>
-
-</body>
+    </div>
+</nav>
