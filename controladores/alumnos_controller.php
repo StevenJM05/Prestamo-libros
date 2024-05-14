@@ -86,4 +86,5 @@ class alumnos_controller extends Conexion{
     }
     
 }
+
 ?>
