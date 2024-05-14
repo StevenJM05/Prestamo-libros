@@ -8,6 +8,11 @@ if(isset($_POST['ok1'])){
 }
 ?>
 <body style="background-color: #f0f0f0;">
+<head>
+    <!-- Otros elementos de la cabeza -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
 
 <div class="container mt-5 text-center">
         <h1 class="fw-bold">INFORMACIÓN DE CARRERAS</h1>
@@ -44,7 +49,7 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
-                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " '>A </a></td>
+                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . "'><i class='fas fa-edit'></i> Actualizar</a></td>s
                         </tr>
                         ";
     

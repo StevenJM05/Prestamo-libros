@@ -62,4 +62,5 @@ class alumnos_controller extends Conexion{
         $this->ejecutarSQL($sql);
     }
 }
+
 ?>
