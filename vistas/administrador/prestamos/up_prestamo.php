@@ -25,6 +25,7 @@ if (isset($_POST['ok1'])) {
     $prestamo->setEstado($estado);
 
     $prestamosController->actualizar($prestamo, $idPrestamo);
+    
 }
 
 ?>
