@@ -4,14 +4,14 @@ $carreras_controller = new carreras_controller();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];
 
-if (isset($_POST["ok1"])) {
-    
 
 $carrera_actual = $carreras_controller->getCarreraPorId($id);
 
 if(isset($_POST["ok1"])){
     $carreras = new carreras($id, $_POST['id_escuelas'], $_POST['nombre_carrera'], $_POST['asignaturas']);
     $carreras_controller->update($carreras, $id);
+    header("Location: http://localhost/Prestamo-libros/carreras");
+    exit();
 }
 ?>
 <div class="container mt-5" style="margin-left: 100px;">
@@ -58,4 +58,3 @@ if(isset($_POST["ok1"])){
     </form>
     
 </div>
-
