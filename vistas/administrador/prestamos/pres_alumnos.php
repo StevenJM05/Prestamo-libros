@@ -2,10 +2,7 @@
 $alumnos_controller  = new alumnos_controller();
 $prestamosController = new PrestamosController();  
 $prestatamoshistorial = [];
-if (isset($_POST["buscar"])) {
-    $id_alumno = $_POST["id_alumno"];
-    $prestatamoshistorial = $prestamosController->historial($id_alumno);
-}
+
 ?>
 
 
