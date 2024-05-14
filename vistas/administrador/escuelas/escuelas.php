@@ -31,7 +31,7 @@ if(isset($_POST['del'])){
                 <th scope="col">ID Escuelas</th>
                 <th scope="col">Nombre de la escuela</th>
                 <th scope="col">Director</th>
-                <th>Act</th>
+                <th>Actualizar</th>
             </tr>
         </thead>
         <tbody>

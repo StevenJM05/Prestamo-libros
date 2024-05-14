@@ -36,6 +36,7 @@ class Contenido
             }
             elseif($url[0]=="up_carreras"){
                 $pagina="vistas/administrador/carreras/up_carreras.php";
+                
             }
             elseif(isset($url[1]) && $url[1] == "carreras") {
                 $pagina = "vistas/administrador/carreras/carreras.php";
