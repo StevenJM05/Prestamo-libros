@@ -61,6 +61,30 @@ class alumnos_controller extends Conexion{
         $sql = "DELETE FROM alumnos WHERE id_alumno = {$id}";
         $this->ejecutarSQL($sql);
     }
+    
+
+    public function obtenerAlumnoPorId($id) {
+        $sql = "SELECT * FROM alumnos WHERE id_alumno = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            // Obtener los datos del alumno como un array asociativo
+            $alumno = $resultado->fetch_assoc();
+            return $alumno;
+        } else {
+            return null;
+        }
+    }
+
+    public function buscarAlumnos($query){
+        $sql = "SELECT * FROM alumnos WHERE nombres LIKE '%{$query}%' OR apellidos LIKE '%{$query}%'";
+        $resultado = $this->ejecutarSQL($sql);
+        $alumnos = array();
+        while($fila = $resultado->fetch_assoc()){
+            $alumnos[] = new Alumnos($fila["id_alumno"], $fila["id_carrera"], $fila["nombres"], $fila["apellidos"], $fila["direccion"], $fila["telefono"]);
+        }
+        return $alumnos;
+    }
+    
 }
 
 ?>

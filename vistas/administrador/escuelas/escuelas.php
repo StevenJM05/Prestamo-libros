@@ -12,28 +12,26 @@ if(isset($_POST['del'])){
 
 }
 ?>
-<body style="background-color: #f0f0f0;">
-
-<div class="container mt-5 text-center">
-        <h1 class="fw-bold">INFORMACIÓN DE ESCUELAS</h1>
-    </div>
-
-    <div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addescuelas'>Agregar Escuelas</a>
-</div>
+<div class="container mt-5" style="margin-left: 100px;">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Información de escuelas</h5>
+        </div>
 
 </div>
-<br><br>
 
+<div style="background-color: white;">
+<div class="card-body">
 <form method=post>
-<table class="table table-dark mx-auto" style="width: 80%;">
+<table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">ID Escuelas</th>
                 <th scope="col">Nombre de la escuela</th>
                 <th scope="col">Director</th>
-                <th>Act</th>
+                <th>Actualizar</th>
             </tr>
         </thead>
         <tbody>
@@ -47,7 +45,7 @@ if(isset($_POST['del'])){
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombre() . "</td>
                             <td>" . $aggal->getDirector() . "</td>
-                            <td><a href='up_escuelas/" . $aggal->getIdescuelas()  . "'>A </a></td>
+                            <td><a href='up_escuelas/" . $aggal->getIdescuelas()  . "'class='btn btn-success'>Actualizar </a></td>
                         </tr>
                         ";
            /*while ($fila=$rs->fetch_assoc()) {
@@ -69,18 +67,20 @@ if(isset($_POST['del'])){
             ?>
 
             
-            <tr>
-                <td colspan=13>
-                    
-                    <input class='btn btn-danger' type="submit" value="Eliminar" name=del >
-                    
-                </td>
-            </tr>
+
         </tbody>
+    </table>
+    <div class="container">
+    <table>
+  
+    <a class='btn btn-outline-dark m-2' href='addescuelas'>Agregar Escuelas</a>
+                    <input class='btn btn-outline-dark' type="submit" value="Eliminar" name=del >
+                   
+           
     </table>
     </form>
 </div>
 
-
+</div>
 </div>
 </div>

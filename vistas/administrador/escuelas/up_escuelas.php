@@ -2,38 +2,42 @@
 $escuelas_controller = new escuelas_controller();
 $info = explode("/",$_GET["url"]);
 $id = $info[1];
-
+$filtrar_libro = $escuelas_controller->buscarPorId($id); 
 if(isset($_POST['ok1'])){
     $escuelas = new Escuelas("", $_POST['nombre'], $_POST['director']);
     $escuelas_controller->update($escuelas, $id);
-    header("Location: " . "escuelas");
-
 }
 
 ?>
 
 
-<div class="container mt-5 text-center">
-    <h1 class="fw-bold">ACTUALIZAR ESCUELA</h1>
+<div class="container mt-5" style="margin-left: 100px;">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Actualizar escuela</h5>
+        </div>
+
 </div>
 
-<div class="container m-7 bg-dark text-white">
-    <form method="post" class="m-5 mx-auto">
+<div class="card-body">
+       <form method="post">
         <div class="col-md-4">
-            <div class="form-group mt-3">
+            <div class="form-group mt-2">
                 <label>Nombres de la escuela:</label>
-                <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la escuela" value="<?php echo $fila['nombre']; ?>">         
+                <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la escuela" value="<?php echo $filtrar_libro['nombre'];?>">         
                 </div>
         </div>
         <div class="col-md-4">
-            <div class="form-group mt-3">
+            <div class="form-group mt-2">
                 <label>Director:</label>
-                <input type="text" class="form-control" name="director" placeholder="Ingrese el director" value="<?php echo $director; ?>">       
+                <input type="text" class="form-control" name="director" placeholder="Ingrese el director" value="<?php echo $filtrar_libro['director'];?>">       
                  </div>
         </div>
-        <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Actualizar</button>
-            <a href="escuelas" class="btn btn-outline-warning m-4 mt-3">Regresar</a>
-        </div>
+        <table>
+    <button type="submit" class="btn btn-outline-dark" name="ok1">Actualizar</button>
+            <a href="escuelas" class="btn btn-outline-dark m-4">Regresar</a>
+    </table>
     </form>
+   
 </div>

@@ -42,18 +42,49 @@ class carreras_controller extends Conexion{
     public function update($carreras, $id){
         $sql = "UPDATE carreras
                 SET
-                id_escuelas = {$carreras->getIdescuelas()},
-                nombre_carrera = '{$carreras->getNombrecarrera()}',
-                asignaturas = {$carreras->getAsignaturas()}
-                WHERE id_carrera = $id";
+                id_escuelas = '{$carreras->getIdEscuelas()}',
+                nombre_carrera = '{$carreras->getNombreCarrera()}',
+                asignaturas = '{$carreras->getAsignaturas()}'
+                WHERE id_carrera = '{$id}'";
         $rs = $this->ejecutarSQL($sql);
+        
     }
     
-    public function Delete($id){
+    public function delete($id){
         $sql = "DELETE FROM carreras WHERE id_carrera = $id";
         $rs = $this->ejecutarSQL($sql);
     }
 
+    public function obtenerAlumnoPorId($id) {
+        $sql = "SELECT * FROM carreras WHERE id_carrera = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            // Obtener los datos del alumno como un array asociativo
+            $carrera = $resultado->fetch_assoc();
+            return $carrera;
+        } else {
+            return null;
+        }
+    }
+
+    public function getCarreraPorId($id) {
+        $sql = "SELECT * FROM carreras WHERE id_carrera = '$id'";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            $fila = $resultado->fetch_assoc();
+            $carrera = new Carreras(
+                $fila['id_carrera'],
+                $fila['id_escuelas'],
+                $fila['nombre_carrera'],
+                $fila['asignaturas']
+            );
+            
+            return $carrera;
+        } else {
+            
+            return null;
+        }
+    }
     
 }
 ?>

@@ -5,28 +5,36 @@ if(isset($_POST['ok1'])){
     
     $carreras = new carreras("", "", $_POST['nombre_carrera'], $_POST['asignaturas']);
     $carreras_controller->agregar($idcarrera, $idescuela, $nom_carrera, $aginaturas);
+
 }
 ?>
-<body style="background-color: #f0f0f0;">
-<head>
-    <!-- Otros elementos de la cabeza -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-</head>
 
+<?php
+ if(isset($_POST['del'])){
 
-<div class="container mt-5 text-center">
-        <h1 class="fw-bold">INFORMACIÓN DE CARRERAS</h1>
-    </div>
+    if(isset($_POST['eliminar']) && is_array($_POST['eliminar'])) {
+        foreach($_POST['eliminar'] as $idcarreras) {
+            $carreras_controller->delete(intval($idcarreras)); 
+            
+        }
+    }
 
-    <div class="container mt-5 position-relative" style="margin-left: 210px; margin-top: -15px;">
-    <a class='btn btn-success position-absolute top-0 start-0' href='addcarreras'>Agregar Carreras</a>
+}
+?>
+<div class="container mt-5" style="margin-left: 100px;">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Información de  carreras</h5>
+        </div>
+
 </div>
 
-</div>
-<br><br>
-
+<div style="background-color: white;">
+<div class="card-body">
 <form method=post >
-<table class="table table-dark mx-auto" style="width: 80%;">
+
+<table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -34,7 +42,7 @@ if(isset($_POST['ok1'])){
                 <th scope="col">Nombre de la Escuela</th>
                 <th scope="col">Nombre de la carrera</th>
                 <th scope="col"># Asignaturas</th>
-                <th>Act</th>
+                <th scope="col">Actualizar</th>
             </tr>
         </thead>
         <tbody>
@@ -44,12 +52,12 @@ if(isset($_POST['ok1'])){
 
             echo "
                         <tr  >
-                            <td  > <input type='checkbox'  name='eliminar[]' value=' ' title=' ' > </td>
+                            <td  > <input type='checkbox'  name='eliminar[]' value='".$aggal->getIdcarrera()."' title=' ' > </td>
                             <td>" . $aggal->getIdcarrera() . "</td>
                             <td>" . $aggal->getIdescuelas() . "</td>
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
-                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . "'><i class='fas fa-edit'></i> Actualizar</a></td>s
+                            <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " ' class='btn btn-success'>Actualizar </a></td>
                         </tr>
                         ";
     
@@ -58,19 +66,16 @@ if(isset($_POST['ok1'])){
             
             ?>
 
-            
-            <tr>
-                <td colspan=13>
-                    
-                    <input class='btn btn-danger' type="submit" value="Eliminar" name=del >
-                    
-                </td>
-            </tr>
         </tbody>
-    </table>
+        
+      </table>
+     
+      <a class='btn btn-outline-dark m-2' href='addcarreras'>Agregar Carreras</a>
+      <input class='btn btn-outline-dark' type="submit" value="Eliminar" name=del >
+    </div>
     </form>
-</div>
-
-
+   
 </div>
 </div>
+</div>
+        </div>

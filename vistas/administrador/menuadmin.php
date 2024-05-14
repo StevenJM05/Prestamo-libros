@@ -1,77 +1,93 @@
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo.png" alt="">
+                </span>
 
-<style>
-.navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333; 
-}
+                <div class="text logo-text">
+                    <span class="name">Prestamos</span>
+                    <span class="profession">Steven Y Alex</span>
+                </div>
+            </div>
 
-.nav-link {
-    font-size: 18px;
-    font-weight: bold;
-    color: #555; 
-}
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
 
-.nav-link:hover {
-    color: #007bff; 
-}
+        <div class="menu-bar">
+            <div class="menu">
 
-.navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;...'); 
-}
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="<?php echo URL?>">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">inicio</span>
+                        </a>
+                    </li>
 
-.navbar-toggler {
-    border: none;
-}
+                    <li class="nav-link">
+                        <a href="alumnos">
+                            <i class='bx bx-male-female icon'></i>
+                            <span class="text nav-text">Alumnos</span>
+                        </a>
+                    </li>
 
-.form-control {
-    border-radius: 20px;
-}
+                    <li class="nav-link">
+                        <a href="carreras">
+                        <i class='bx bx-briefcase icon'></i>
+                            <span class="text nav-text">Carreras</span>
+                        </a>
+                    </li>
 
-.btn-outline-success {
-    border-radius: 20px;
-    border-color: #28a745;
-    color: #28a745; 
-}
+                    <li class="nav-link">
+                        <a href="escuelas">
+                            <i class='bx bxs-school icon'></i>
+                            <span class="text nav-text">Escuelas</span>
+                        </a>
+                    </li>
 
-.btn-outline-success:hover {
-    background-color: #28a745; 
-    color: #fff; 
-}
-</style>
+                    <li class="nav-link">
+                        <a href="libros">
+                            <i class='bx bx-book-bookmark icon'></i>
+                            <span class="text nav-text">Libros</span>
+                        </a>
+                    </li>
 
+                    <li class="nav-link">
+                        <a href="prestamos">
+                            <i class='bx bx-collection icon'></i>
+                            <span class="text nav-text">Prestamos</span>
+                        </a>
+                    </li>
 
-
-
-
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="<?php echo URL;?>">Inicio</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="escuelas">Escuelas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="alumnos">Alumnos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="carreras">Carreras</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="prestamos">Prestamos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="libros">Libros</a>
-                </li>
-            </ul>
-            <form class="d-flex my-2 my-lg-0">
-                <input class="form-control me-sm-2" type="text" placeholder="Buscar">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+
+    </nav>
+
+    <script>
+        const body = document.querySelector('body'),
+            sidebar = body.querySelector('nav'),
+            toggle = body.querySelector(".toggle"),
+            searchBtn = body.querySelector(".search-box"),
+            modeSwitch = body.querySelector(".toggle-switch"),
+            modeText = body.querySelector(".mode-text");
+        toggle.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        })
+        searchBtn.addEventListener("click", () => {
+            sidebar.classList.remove("close");
+        })
+        modeSwitch.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                modeText.innerText = "Light mode";
+            } else {
+                modeText.innerText = "Dark mode";
+            }
+        });
+    </script>
+
+</body>

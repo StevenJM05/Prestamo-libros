@@ -1,3 +1,5 @@
+<body>
+    
 <?php
 $carreras_controller = new carreras_controller();
 
@@ -7,107 +9,68 @@ if(isset($_POST['ok1'])){
     $carreras_controller->agregar($carreras);
 }
 ?>
-     <div class="container mx-5 mt-5 text-center bg-dark text-white" style="opacity: 1; display: block; border: none; outline: none; width: 100%; padding: 13px 18px; margin: 20px 0 0 0; font-size: 0.8em; border-radius: 100px;">
-        <h1 class="fw-bold">AGREGAR CARRERAS</h1>
-     </div>
+
+<div class="container mt-5" style="margin-left: 100px;">
     
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Agregar carreras</h5>
+        </div>
 
 
-     
+
+<div class="card-body">
+    <form method="post">
 
 
-    <div class="container bg-warning text-white fw-bold" style="opacity: 1; display: block; border: none; outline: none; width: 90%; padding: 13px 18px; margin: 20px 30px 50px 55px; border-radius: 50px;">
-        <form method="post" class="m-5 mx-auto">
-        <div class="row mt-4">
-            <label for="inputName" class="col-4 mr-2 col-form-label">
-                Nombre de la carrera
-            </label>
-            <div class="col-8">
-                <input
+                 <label for="inputName" class="col-6 mr-2 col-form-label">
+                 Nombre de la carrera
+                 </label>
+
+                 <input
                     type="text"
                     class="form-control"
                     name="nombre_carrera"
                     id="nombre_carrera"
-                    placeholder="Ingrese el nombre de la carrera"
-                />
-            </div>
-            <br>
-        </div>
+                    placeholder="Ingrese el nombre de la carrera">
 
-        <div class=" mt-3 row">
-            <label for="inputName" class="col-4 col-form-label">
-                Escuelas 
-            </label>
-            <div class="col-8">
-                <select name="escuelas" id="">
-                    <option value="all">Seleccione una escuela:</option>
-                    <?php
-   $carreras = $carreras_controller->listarescuelas();
-    foreach ($carreras as $item) {
-        echo "<option value='" . $item->getIdescuelas() . "'>" . $item->getNombre() . "</option>";
-    }
-    ?>                    
+
+    
+                 <label for="inputName" class="col-6 col-form-label">
+                 Escuelas 
+                 </label>
+                 <select name="escuelas" id="" class="form-control">
+                 <option value="all">Seleccione una escuela:</option>
+                 <?php
+                 $carreras = $carreras_controller->listarescuelas();
+                 foreach ($carreras as $item) {
+                 echo "<option value='" . $item->getIdescuelas() . "'>" . $item->getNombre() . "</option>";
+                 }?>                    
                 </select>
-            </div>
+       
+
+                <label for="inputName" class="col-6 mr-2 col-form-label">
+                Asignaturas:</label>
+                <input type="number" class="form-control" name="asignaturas" placeholder="Cuantas Asignaturas tiene la carrera">
+                <label for=""><br></label>
+    
+                <table>
+    
+    
+    <button type="submit" class="btn btn-outline-dark" name="ok1">Agregar</button>
+   <a href="carreras" class="btn btn-outline-dark m-2">Regresar</a>
+</table>
         </div>
-        <div class="col-md-8">
-                <div class="form-group mt-5">
-                    <label>Asignaturas:</label>
-                    <input type="number" class="form-control" name="asignaturas" placeholder="Cuantas Asignaturas tiene la carrera">
                 </div>
-                
-            </div>
-
-        
-        <div class="row mt-4">
-            <label for="inputName" class="col-4 mr-2 col-form-label">
-                Nombre de la carrera
-            </label>
-            <div class="col-8">
-                <input
-                    type="text"
-                    class="form-control"
-                    name="nombre_carrera"
-                    id="nombre_carrera"
-                    placeholder="Ingrese el nombre de la carrera"
-                />
-            </div>
-            <br>
-        </div>
 
 
-        <div class="mt-3 row">
-            <label for="inputName" class="col-4 col-form-label">
-                Número de asignatura
-            </label>
-            <div class="col-8">
-                <input type="number" name="asignatura" id="">
-            </div>
-        </div>
-        
-            </div>
-        </div>
-
-
-
-<div class="mb-3 row">
-            <div class="offset-sm-4 col-sm-8">
-                <button type="submit" name=ok1 class="btn btn-dark">
-                    Agregar
-                </button>
-            </div>
-        </div>
-
-
-
-
-            <div class="d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Agregar</button>
-                <a href="carreras" class="btn btn-outline-warning m-4 mt-3">Regresar</a>
-            </div>
+              
 
     </form>
+   
 </div> 
+
+
 
 <!--<div class="container m-7 bg-da text-whte">
     <form method="post" class="m-5 mx-auto"> 
@@ -166,3 +129,4 @@ if(isset($_POST['ok1'])){
                 ";
 }*/
 ?>
+</body>

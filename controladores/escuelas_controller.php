@@ -30,5 +30,27 @@ class escuelas_controller extends Conexion{
         $sql = "DELETE FROM escuelas WHERE id_escuelas = $id";
         $rs = $this->ejecutarSQL($sql);
     }
+
+    public function buscarPorId($id) {
+        $sql = "SELECT * FROM escuelas WHERE id_escuelas = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            $escuelas = $resultado->fetch_assoc();
+            return $escuelas;
+        }
+    }
+
+    public function obtenerAlumnoPorId($id) {
+        $sql = "SELECT * FROM escuelas WHERE id_escuela = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            // Obtener los datos del alumno como un array asociativo
+            $escuela = $resultado->fetch_assoc();
+            return $escuela;
+
+        } else {
+            return null;
+        }
+    }
 }
 ?>

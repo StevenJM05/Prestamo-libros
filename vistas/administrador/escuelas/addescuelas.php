@@ -17,11 +17,17 @@ if(isset($_POST['ok1'])){
 ?>
 
 
-<div class="container mt-5 text-center">
-        <h1 class="fw-bold">AGREGAR ESCUELAS</h1>
-    </div>
-    <div class="container m-7 bg-dark text-white">
-    <form method="post" class="m-5 mx-auto"> 
+<div class="container mt-5" style="margin-left: 100px;">
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Agregar escuelas</h5>
+        </div>
+
+</div>
+  
+        <div class="card-body">
+    <form method="post"> 
         <div class="col-md-4">
             <div class="form-group mt-3">
                     <label>Nombres de la escuela:</label>
@@ -35,10 +41,17 @@ if(isset($_POST['ok1'])){
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-    <button type="submit" class="btn btn-outline-primary m-4 mt-3" name="ok1">Agregar</button>
-    <a href="escuelas" class="btn btn-outline-warning m-4 mt-3">Regresar</a>
+
+   
 </div>
+<table>
+    
+  
+<button type="submit" class="btn btn-outline-dark " name="ok1">Agregar</button>
+    <a href="escuelas" class="btn btn-outline-dark m-2">Regresar</a>
+    </table>
 
     </form>
+   
 </div> 
 </div>

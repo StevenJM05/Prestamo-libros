@@ -1,3 +1,4 @@
+<!-- Controlador -->
 <?php 
 require_once("conexion.php");
 class LibrosController extends Conexion{
@@ -17,7 +18,7 @@ class LibrosController extends Conexion{
     
         return $resultado;
      }
-            //Prueba
+            
     public function update($libros, $id) {
         $sql = "UPDATE libros
                 SET
@@ -34,5 +35,36 @@ class LibrosController extends Conexion{
         $sql = "DELETE FROM libros WHERE id_libros = $id";
         $rs = $this->ejecutarSQL($sql);
     }   
+
+    public function buscarPorId($id) {
+        $sql = "SELECT * FROM libros WHERE id_libros = $id";
+        $resultado = $this->ejecutarSQL($sql);
+        if ($resultado->num_rows > 0) {
+            $libros = $resultado->fetch_assoc();
+            return $libros;
+        } else {
+            return null;
+        }
+    }
+
+    public function buscarPorTitulo($titulo) {
+        $sql = "SELECT * FROM libros WHERE titulo LIKE '$titulo%'";
+        $rs = $this->ejecutarSQL($sql);
+        if ($rs->num_rows > 0) {
+            $libros = $rs->fetch_assoc();
+            return $libros;
+        } else {
+            return null;
+        }
+    }   
+    public function buscarLibros($query){
+        $sql = "SELECT * FROM libros WHERE titulo LIKE '$query%'";
+        $resultado = $this->ejecutarSQL($sql);
+        $libros = array();
+        while($fila = $resultado->fetch_assoc()){
+            $libros[] = new Libros($fila["id_libros"], $fila["titulo"], $fila["autor"], $fila["editorial"], $fila["fecha_edicion"], $fila["ISBN"]);
+        }
+        return $libros;
+    }
 }
 ?>
