@@ -186,5 +186,4 @@ if (isset($_POST['ok1'])) {
     fechaActual.setDate(fechaActual.getDate() + 3);
     var fechaFormateada = fechaActual.toISOString().split('T')[0];
     document.getElementById('inputFechaDevolucion').value = fechaFormateada;
-    //Ricardo
 </script>
