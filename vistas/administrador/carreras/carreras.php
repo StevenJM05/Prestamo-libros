@@ -59,6 +59,7 @@ if(isset($_POST['ok1'])){
                             <td>" . $aggal->getNombrecarrera() . "</td>
                             <td>" . $aggal->getAsignaturas() . "</td>
                             <td><a href='up_carreras/" .  $aggal->getIdcarrera()  . " '>MODIFICAR </a></td>
+                            
                         </tr>
                         ";
     
