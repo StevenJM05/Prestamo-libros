@@ -23,6 +23,11 @@ if(isset($_POST["finalizado"])){
 
 <div class="container mt-5" style="margin-left: 100px;">
 
+<a href="addprestamo" class="btn btn-outline-dark">Agregar</a>
+    <a href="pres_alumnos" class="btn btn-outline-dark">Historial por alumno</a>
+        <a href="pres_fecha" class="btn btn-outline-dark">Libros por fecha</a>
+             <a href="estado" class="btn btn-outline-dark">Prestamos por estado</a>
+             
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h5 class="card-title mb-0">Lista de Préstamos</h5>
@@ -30,7 +35,10 @@ if(isset($_POST["finalizado"])){
         
         <div class="card-body">
             <form method="post">
-            
+            <div class="contaniner m-3">
+            <td colspan="8">
+                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
+                <input class="btn btn-warning" type="submit" value="finalizar" name="finalizado">
                 <table class="table">
                     <thead>
                         <tr>
@@ -63,17 +71,10 @@ if(isset($_POST["finalizado"])){
                         
                     </tbody>
                 </table>
-            <div class="contaniner m-3">
-            <td colspan="8">
-                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
-                <input class="btn btn-warning" type="submit" value="finalizar" name="finalizado">
+            
             </td>
             </div>
 
-               <a href="addprestamo" class="btn btn-outline-dark">Agregar</a>
-               <a href="pres_alumnos" class="btn btn-outline-dark">Historial por alumno</a>
-               <a href="pres_fecha" class="btn btn-outline-dark">Libros por fecha</a>
-               <a href="estado" class="btn btn-outline-dark">Prestamos por estado</a>
             </form>
         </div>
     </div>

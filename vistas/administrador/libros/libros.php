@@ -16,6 +16,7 @@ if (isset($_POST['del'])) {
 
 ?>
 <div class="container mt-5" style="margin-left: 100px;">
+<a class='btn btn-outline-dark' href='addlibros'>Agregar Libros</a>
 
     <div class="card">
         <div class="card-header bg-dark text-white">
@@ -24,6 +25,8 @@ if (isset($_POST['del'])) {
 
         <div class="card-body">
             <form method="post">
+            <input class='btn btn-outline-dark' type="submit" value="Eliminar" name="del">
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -58,8 +61,7 @@ if (isset($_POST['del'])) {
                     </tbody>
                 </table>
                 <table>
-                    <a class='btn btn-outline-dark' href='addlibros'>Agregar Libros</a>
-                    <input class='btn btn-outline-dark' type="submit" value="Eliminar" name="del">
+             
 
                 </table>
             </form>

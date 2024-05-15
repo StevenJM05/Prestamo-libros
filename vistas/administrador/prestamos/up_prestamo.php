@@ -10,7 +10,7 @@ $prestamoActual = $prestamosController->obtenerPrestamoPorId($idPrestamo);
 
 if (isset($_POST['ok1'])) {
     $prestamo = new Prestamos("", $_POST['id_alumno'], $_POST['id_libros'], $_POST['fecha_prestamo'], $_POST['fecha_devolucion'], $_POST['fecha_devolucion']);
-    $prestamosController->actualizar($prestamo, $idPrestamo);
+   // $prestamosController->actualizar($prestamo, $idPrestamo);
     header("Location: http://localhost/Prestamo-libros/prestamos");
     exit();
 }
