@@ -50,9 +50,21 @@ class LibrosController extends Conexion{
     public function buscarPorTitulo($titulo) {
         $sql = "SELECT * FROM libros WHERE titulo LIKE '$titulo%'";
         $rs = $this->ejecutarSQL($sql);
+        if ($rs->num_rows > 0) {
+            $libros = $rs->fetch_assoc();
+            return $libros;
+        } else {
+            return null;
+        }
     }   
-
-    
-
+    public function buscarLibros($query){
+        $sql = "SELECT * FROM libros WHERE titulo LIKE '$query%'";
+        $resultado = $this->ejecutarSQL($sql);
+        $libros = array();
+        while($fila = $resultado->fetch_assoc()){
+            $libros[] = new Libros($fila["id_libros"], $fila["titulo"], $fila["autor"], $fila["editorial"], $fila["fecha_edicion"], $fila["ISBN"]);
+        }
+        return $libros;
+    }
 }
 ?>

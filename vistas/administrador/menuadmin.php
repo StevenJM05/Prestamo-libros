@@ -1,45 +1,46 @@
 
 <style>
-.navbar-brand {
-    font-size: 24px;
+
+/* Estilos para el botón de navegación */
+.custom-toggler {
+    border-color: #3498db;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-color: #3498db;
+}
+
+/* Estilos para los enlaces de navegación */
+.navbar-nav .nav-item .nav-link {
+    color: #333;
     font-weight: bold;
-    color: #333; 
+    text-transform: uppercase; /* Convertir a mayúsculas */
+    font-family: 'Roboto', sans-serif; /* Fuente bonita (puedes cambiarla por la que desees) */
 }
 
-.nav-link {
-    font-size: 18px;
-    font-weight: bold;
-    color: #555; 
+.navbar-nav .nav-item .nav-link:hover {
+    color: #3498db;
 }
 
-.nav-link:hover {
-    color: #007bff; 
-}
-
-.navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;...'); 
-}
-
-.navbar-toggler {
-    border: none;
-}
-
-.form-control {
-    border-radius: 20px;
-}
-
+/* Estilos para el botón de búsqueda */
 .btn-outline-success {
-    border-radius: 20px;
+    color: #28a745;
     border-color: #28a745;
-    color: #28a745; 
 }
 
 .btn-outline-success:hover {
-    background-color: #28a745; 
-    color: #fff; 
+    background-color: #28a745;
+    color: #fff;
 }
+
+body, html {
+    height: 100%; /* Establecer altura al 100% */
+}
+
 </style>
 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
 
 
 

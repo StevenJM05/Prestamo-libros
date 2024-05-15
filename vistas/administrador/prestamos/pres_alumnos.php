@@ -2,31 +2,49 @@
 $alumnos_controller  = new alumnos_controller();
 $prestamosController = new PrestamosController();  
 $prestatamoshistorial = [];
-if (isset($_POST["buscar"])) {
-    $id_alumno = $_POST["id_alumno"];
-    $prestatamoshistorial = $prestamosController->historial($id_alumno);
-}
+
 ?>
 
 
-<div class="container mt-5">
+<div class="container mt-5" style="margin-left: 100px;">
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h5 class="card-title mb-0">Buscar Préstamos por Nombre de Alumno</h5>
         </div>
         <div class="card-body">
             <form method="post" class="mb-4">
-                <div class="input-group">
-                    <select class="form-select" id="id_alumno" name="id_alumno">
-                    <option value="">Seleccione Alumno</option>
-                        <?php foreach($alumnos_controller->listar2() as $alumno): ?>
-                            <option value="<?php echo $alumno->getIdAlumno(); ?>">
-                                <?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
-                </div>
+            <label for="busquedaAlumnos" class="col-sm-4 col-form-label">Buscar Alumno:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="busquedaAlumnos" name="busquedaAlumnos" placeholder="Ingrese el nombre del alumno">
+                            <button type="submit" name="buscar" class="btn btn-primary mt-2">Buscar</button>
+                        </div>
+                    </div>
+                    <?php if (isset($_POST['buscar'])) : ?>
+                        <!-- Resultados de búsqueda -->
+                        <div class="mb-3 row" style="display: flex; align-items: center;" id="resultadosAlumnos">
+                            <label for="id_alumno" class="col-sm-4 col-form-label">Resultados:</label>
+                            <div class="col-sm-8">
+                                <ul class="list-group">
+                                    <?php foreach ($alumnos_controller->buscarAlumnos($_POST['busquedaAlumnos']) as $alumno) : ?>
+                                        <li class="list-group-item mt-2">
+                                            <?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?>
+                                            <button 
+                                                type="button"
+                                                class="btn btn-primary btn-sm"
+                                                onclick="seleccionarAlumno(
+                                                    <?php echo $alumno->getIdalumno(); ?>,
+                                                    <?php echo $alumno->getNombres(); ?>,
+                                                    <?php echo $alumno->getApellidos(); ?>,
+                                                )">
+                                            >
+                                                Seleccionar
+                                            </button>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    <?php  endif; ?>
             </form>
 
             

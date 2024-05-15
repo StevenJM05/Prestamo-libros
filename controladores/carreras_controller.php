@@ -87,7 +87,11 @@ class carreras_controller extends Conexion{
     }
     
 }
+
+
+
 ?>
+
 <?php
 /*require_once("conexion.php");
 class carreras_controller extends Conexion{

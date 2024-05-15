@@ -9,6 +9,7 @@ if (!defined('DATABASE')) define('DATABASE', 'EXAMEN2PHP');
 
 
 
+
 class conexion
 {
     private $connect;

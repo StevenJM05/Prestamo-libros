@@ -56,13 +56,9 @@ class PrestamosController extends Conexion
             return null;
         }
     }
-    public function actualizar($prestamo, $id){
+    public function finalizar($id){
         $sql = "UPDATE prestamos
-                SET id_alumno = '{$prestamo->getIdAlumno()}',
-                id_libros = '{$prestamo->getIdLibros()}',
-                fecha_prestamo = '{$prestamo->getFechaPrestamo()}',
-                fecha_devolucion = '{$prestamo->getFechaDevolucion()}',
-                estado = '{$prestamo->getEstado()}'
+                SET estado = 0
                 WHERE id_prestamos = {$id}";
         $this->ejecutarSQL($sql);
     }
@@ -189,6 +185,12 @@ while ($fila = $rs->fetch_assoc()) {
 
 return $resultado;
 }
+
+public function delete($id) {
+    $sql = "DELETE FROM prestamos WHERE id_prestamos = $id";
+    $rs = $this->ejecutarSQL($sql);
+}   
+
 
 }
     

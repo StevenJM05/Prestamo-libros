@@ -74,6 +74,17 @@ class alumnos_controller extends Conexion{
             return null;
         }
     }
+
+    public function buscarAlumnos($query){
+        $sql = "SELECT * FROM alumnos WHERE nombres LIKE '%{$query}%' OR apellidos LIKE '%{$query}%'";
+        $resultado = $this->ejecutarSQL($sql);
+        $alumnos = array();
+        while($fila = $resultado->fetch_assoc()){
+            $alumnos[] = new Alumnos($fila["id_alumno"], $fila["id_carrera"], $fila["nombres"], $fila["apellidos"], $fila["direccion"], $fila["telefono"]);
+        }
+        return $alumnos;
+    }
     
 }
+
 ?>
