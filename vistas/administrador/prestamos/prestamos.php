@@ -1,5 +1,15 @@
 <?php
 $prestamosController = new PrestamosController();   
+if(isset($_POST['del'])){
+
+    if(isset($_POST['eliminar']) && is_array($_POST['eliminar'])) {
+        foreach($_POST['eliminar'] as $idprestamos) {
+            $prestamosController->delete(intval($idprestamos)); 
+            
+        }
+    }
+
+}
 
 ?>
 
@@ -12,9 +22,13 @@ $prestamosController = new PrestamosController();
         
         <div class="card-body">
             <form method="post">
+            <td colspan="8">
+                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
+            </td>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>ID prestamos</th>
                             <th>Nombre Alumno</th>
                             <th>Nombre Libro</th>
@@ -28,6 +42,7 @@ $prestamosController = new PrestamosController();
                          foreach ($prestamosController->listar() as $prestamo) {
                             echo "
                                 <tr>
+                                <td><input type='checkbox'  name='eliminar[]' value='".$prestamo->getIdPrestamos()."' title=' ' > </td>
                                     <td>" . $prestamo->getIdPrestamos() . "</td>
                                     <td>" . $prestamo->getIdAlumno() . "</td>
                                     <td>" . $prestamo->getIdLibros() . "</td>

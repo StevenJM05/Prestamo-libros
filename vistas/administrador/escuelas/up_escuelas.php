@@ -35,7 +35,7 @@ if(isset($_POST['ok1'])){
                 <label>Director:</label>
                 <input type="text" class="form-control" name="director" placeholder="Ingrese el director" value="<?php echo $filtrar_libro['director'];?>">       
                  </div>
-        </div>
+        </div><br>
         <table>
     <button type="submit" class="btn btn-outline-dark" name="ok1">Actualizar</button>
            <!-- <a href="escuelas" class="btn btn-outline-dark m-4">Regresar</a>-->

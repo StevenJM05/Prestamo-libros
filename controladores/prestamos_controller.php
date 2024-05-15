@@ -190,6 +190,12 @@ while ($fila = $rs->fetch_assoc()) {
 return $resultado;
 }
 
+public function delete($id) {
+    $sql = "DELETE FROM prestamos WHERE id_prestamos = $id";
+    $rs = $this->ejecutarSQL($sql);
+}   
+
+
 }
     
 
