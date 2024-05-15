@@ -32,15 +32,12 @@ if (isset($_POST['ok1'])) {
                                     <?php foreach ($alumnos_controller->buscarAlumnos($_POST['busquedaAlumnos']) as $alumno) : ?>
                                         <li class="list-group-item mt-2">
                                             <?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?>
-                                            <button 
-                                                type="button"
-                                                class="btn btn-primary btn-sm"
-                                                onclick="seleccionarAlumno(
+                                            <button type="button" class="btn btn-primary btn-sm" onclick="seleccionarAlumno(
                                                     <?php echo $alumno->getIdalumno(); ?>,
                                                     '<?php echo $alumno->getNombres(); ?>',
                                                     '<?php echo $alumno->getApellidos(); ?>'
                                                 )">
-                                            >
+                                                >
                                                 Seleccionar
                                             </button>
                                         </li>
@@ -48,16 +45,16 @@ if (isset($_POST['ok1'])) {
                                 </ul>
                             </div>
                         </div>
-                    <?php  endif; ?>
+                    <?php endif; ?>
 
                     <div class="mb-3 row" style="display: flex; align-items: center;">
                         <label for="alumno" class="col-sm-4 col-form-label">Alumno Seleccionado: </label>
                         <div class="col-sm-8">
                             <input disabled id="nombreAlumno" type="text" class="form-control">
-                            <input type="hidden"id="idAlumno" name="id_alumno">
+                            <input type="hidden" id="idAlumno" name="id_alumno">
                         </div>
                     </div>
-                 
+
                     <!--Libros-->
                     <div class="mb-3 row" style="display: felx; align-items: center;">
                         <label for="inputLibro" class="col-sm-4 col-form-label">Seleccione el Libro:</label>
@@ -75,11 +72,8 @@ if (isset($_POST['ok1'])) {
                                     <?php foreach ($LibrosController->buscarLibros($_POST['busquedaLibros']) as $libros) : ?>
                                         <li class="list-group-item mt-2">
                                             <?php echo $libros->getTitulo(); ?>
-                                            <button 
-                                                type="button"
-                                                class="btn btn-primary btn-sm" 
-                                                onclick="seleccionarLibro(<?php echo $libros->getIdLibros(); ?>, '<?php echo $libros->getTitulo(); ?>')">
-                                                    Seleccionar
+                                            <button type="button" class="btn btn-primary btn-sm" onclick="seleccionarLibro(<?php echo $libros->getIdLibros(); ?>, '<?php echo $libros->getTitulo(); ?>')">
+                                                Seleccionar
                                             </button>
                                         </li>
                                     <?php endforeach; ?>
@@ -101,7 +95,7 @@ if (isset($_POST['ok1'])) {
                     <div class="mb-3 row" style="display: flex; align-items: center;">
                         <label for="inputFechaPrestamo" class="col-sm-4 col-form-label">Fecha de Préstamo</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" name="fecha_prestamo" id="inputFechaPrestamo" value="<?php echo date('Y-m-d'); ?>" readonly>
+                            <input type="text" class="form-control" name="fecha_prestamo" id="inputFechaPrestamo" value="<?php echo date('Y-m-d'); ?>" readonly>
                         </div>
                     </div>
                     <div class="mb-3 row" style="display: flex; align-items: center;">
@@ -111,12 +105,6 @@ if (isset($_POST['ok1'])) {
                         </div>
                     </div>
 
-                    <script>
-                        var fechaActual = new Date();
-                        fechaActual.setDate(fechaActual.getDate() + 3);
-                        var fechaFormateada = fechaActual.toISOString().split('T')[0];
-                        document.getElementById('inputFechaDevolucion').value = fechaFormateada;
-                    </script>
 
                     <div class="mb-3 row" style="display: flex; align-items: center;">
                         <div class="offset-sm-4 col-sm-8">
@@ -131,67 +119,71 @@ if (isset($_POST['ok1'])) {
 </form>
 
 <script>
-window.onload = (event) => {
-    validarGuardados()
+    window.onload = (event) => {
+        validarGuardados()
 
-    document.getElementById("btnGuardar").addEventListener("click", function(event){
-      localStorage.removeItem('alumnoSeleccionado')
-      localStorage.removeItem('libroSeleccionado')
-    });
-};
+        document.getElementById("btnGuardar").addEventListener("click", function(event) {
+            localStorage.removeItem('alumnoSeleccionado')
+            localStorage.removeItem('libroSeleccionado')
+        });
+    };
 
 
-function validarGuardados() {
-    let alumnoSeleccionado = localStorage.getItem('alumnoSeleccionado')
-    let libroSeleccionado = localStorage.getItem('libroSeleccionado')
+    function validarGuardados() {
+        let alumnoSeleccionado = localStorage.getItem('alumnoSeleccionado')
+        let libroSeleccionado = localStorage.getItem('libroSeleccionado')
 
-    if (alumnoSeleccionado) {
-        alumnoSeleccionado = JSON.parse(alumnoSeleccionado)
+        if (alumnoSeleccionado) {
+            alumnoSeleccionado = JSON.parse(alumnoSeleccionado)
 
-        document.getElementById('nombreAlumno').value = alumnoSeleccionado.nombreAlumno
-        document.getElementById('idAlumno').value = alumnoSeleccionado.idAlumno
+            document.getElementById('nombreAlumno').value = alumnoSeleccionado.nombreAlumno
+            document.getElementById('idAlumno').value = alumnoSeleccionado.idAlumno
+        }
+
+        if (libroSeleccionado) {
+            libroSeleccionado = JSON.parse(libroSeleccionado)
+
+            document.getElementById('nombreLibro').value = libroSeleccionado.nombreLibro
+            document.getElementById('idLibro').value = libroSeleccionado.idLibro
+        }
     }
 
-    if (libroSeleccionado) {
-        libroSeleccionado = JSON.parse(libroSeleccionado)
+    function seleccionarLibro(idLibro, nombrelibro) {
+        const resultados = document.getElementById('resultadosLibros')
+        if (resultados) {
+            resultados.innerHTML = '';
+            const inputIdLibro = document.getElementById('idLibro')
+            inputIdLibro.value = idLibro;
+            const inputNombreLibro = document.getElementById('nombreLibro')
+            inputNombreLibro.value = nombrelibro;
 
-        document.getElementById('nombreLibro').value = libroSeleccionado.nombreLibro
-        document.getElementById('idLibro').value = libroSeleccionado.idLibro
-    }
-}
-
-function seleccionarLibro(idLibro, nombrelibro) {
-    const resultados = document.getElementById('resultadosLibros')
-    if(resultados){
-        resultados.innerHTML = '';
-        const inputIdLibro = document.getElementById('idLibro')
-        inputIdLibro.value = idLibro;
-        const inputNombreLibro = document.getElementById('nombreLibro')
-        inputNombreLibro.value = nombrelibro;
-
-        localStorage.setItem('libroSeleccionado', JSON.stringify({
-            idLibro: idLibro,
-            nombreLibro: nombrelibro
-        }))
-    }
-}
-
-function seleccionarAlumno(idAlumno, nombreAlumno, apellidosAlumno) {
-    
-    const resultados = document.getElementById('resultadosAlumnos')
-
-    if (resultados) {
-        resultados.innerHTML = ''
-        const inputIdAlumno = document.getElementById('idAlumno')
-        inputIdAlumno.value = idAlumno
-        const inputNombreAlumno = document.getElementById('nombreAlumno')
-        inputNombreAlumno.value = `${nombreAlumno} ${apellidosAlumno}`
-
-        localStorage.setItem('alumnoSeleccionado', JSON.stringify({
-            idAlumno: idAlumno,
-            nombreAlumno: `${nombreAlumno} ${apellidosAlumno}`,
-        }))
+            localStorage.setItem('libroSeleccionado', JSON.stringify({
+                idLibro: idLibro,
+                nombreLibro: nombrelibro
+            }))
+        }
     }
 
-}
+    function seleccionarAlumno(idAlumno, nombreAlumno, apellidosAlumno) {
+
+        const resultados = document.getElementById('resultadosAlumnos')
+
+        if (resultados) {
+            resultados.innerHTML = ''
+            const inputIdAlumno = document.getElementById('idAlumno')
+            inputIdAlumno.value = idAlumno
+            const inputNombreAlumno = document.getElementById('nombreAlumno')
+            inputNombreAlumno.value = `${nombreAlumno} ${apellidosAlumno}`
+
+            localStorage.setItem('alumnoSeleccionado', JSON.stringify({
+                idAlumno: idAlumno,
+                nombreAlumno: `${nombreAlumno} ${apellidosAlumno}`,
+            }))
+        }
+
+    }
+    var fechaActual = new Date();
+    fechaActual.setDate(fechaActual.getDate() + 3);
+    var fechaFormateada = fechaActual.toISOString().split('T')[0];
+    document.getElementById('inputFechaDevolucion').value = fechaFormateada;
 </script>

@@ -2,13 +2,21 @@
 $prestamosController = new PrestamosController();   
 if(isset($_POST['del'])){
 
-    if(isset($_POST['eliminar']) && is_array($_POST['eliminar'])) {
-        foreach($_POST['eliminar'] as $idprestamos) {
+    if(isset($_POST['elementos']) && is_array($_POST['elementos'])) {
+        foreach($_POST['elementos'] as $idprestamos) {
             $prestamosController->delete(intval($idprestamos)); 
             
         }
     }
+}
 
+if(isset($_POST["finalizado"])){
+    if(isset($_POST['elementos']) && is_array($_POST['elementos'])) {
+        foreach($_POST['elementos'] as $idprestamos) {
+            $prestamosController->finalizar(intval($idprestamos)); 
+            
+        }
+    }
 }
 
 ?>
@@ -22,9 +30,7 @@ if(isset($_POST['del'])){
         
         <div class="card-body">
             <form method="post">
-            <td colspan="8">
-                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
-            </td>
+            
                 <table class="table">
                     <thead>
                         <tr>
@@ -42,15 +48,13 @@ if(isset($_POST['del'])){
                          foreach ($prestamosController->listar() as $prestamo) {
                             echo "
                                 <tr>
-                                <td><input type='checkbox'  name='eliminar[]' value='".$prestamo->getIdPrestamos()."' title=' ' > </td>
+                                <td><input type='checkbox'  name='elementos[]' value='".$prestamo->getIdPrestamos()."' title=' ' > </td>
                                     <td>" . $prestamo->getIdPrestamos() . "</td>
                                     <td>" . $prestamo->getIdAlumno() . "</td>
                                     <td>" . $prestamo->getIdLibros() . "</td>
                                     <td>" . $prestamo->getFechaPrestamo() . "</td>
                                     <td>" . $prestamo->getFechaDevolucion() . "</td>
                                     <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
-                                    <td><a href='up_prestamo/" . $prestamo->getIdPrestamos() . "' class='btn btn-success'>Actualizar</a></td>
-
                                 </tr>
                             ";
                         }
@@ -59,6 +63,13 @@ if(isset($_POST['del'])){
                         
                     </tbody>
                 </table>
+            <div class="contaniner m-3">
+            <td colspan="8">
+                <input class='btn btn-danger' type="submit" value="Eliminar" name="del">
+                <input class="btn btn-warning" type="submit" value="finalizar" name="finalizado">
+            </td>
+            </div>
+
                <a href="addprestamo" class="btn btn-outline-dark">Agregar</a>
                <a href="pres_alumnos" class="btn btn-outline-dark">Historial por alumno</a>
                <a href="pres_fecha" class="btn btn-outline-dark">Libros por fecha</a>
