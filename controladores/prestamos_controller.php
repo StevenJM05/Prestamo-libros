@@ -89,7 +89,7 @@ class PrestamosController extends Conexion
     
        
         while ($fila = $rs->fetch_assoc()) {
-            $prestamo = new Prestamos();
+            $prestamo = new Prestamos($fila["id_prestamos"],);
             $prestamo->setIdPrestamos($fila["id_prestamos"]);
             $prestamo->setIdAlumno($fila["nombre_alumno"]); 
             $prestamo->setIdLibros($fila["titulo_libro"]);  
@@ -192,8 +192,5 @@ public function delete($id) {
 }   
 
 
-}
-    
-
-
+}    
 ?>
