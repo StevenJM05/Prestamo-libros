@@ -18,7 +18,7 @@
                        <thead class="table">
                         <tr>
                             <th>ID</th>
-                            <th>ID Carrera</th>
+                           
                             <th>Carrera</th>
                             <th>Nombres</th>
                             <th>Apellido</th>
@@ -32,7 +32,7 @@
                        foreach($alumnos_controller->listar() as $item){
                         echo "<tr>";
                         echo "<td> {$item['id_alumno']} </td>";
-                        echo "<td> {$item['id_carrera']} </td>";
+                        
                         echo "<td> {$item['nombre_carrera']} </td>";
                         echo "<td> {$item['nombres']} </td>";
                         echo "<td> {$item['apellidos']} </td>";
