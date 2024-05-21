@@ -1,74 +1,84 @@
 <?php
 $alumnos_controller  = new alumnos_controller();
 $prestamosController = new PrestamosController();
-
 ?>
 
-<div class="container mt-5" style="margin-left: 100px;">
+<div class="container mt-5">
     <div class="card">
         <div class="card-header bg-dark text-white">
             <h5 class="card-title mb-0">Buscar Préstamos por Nombre de Alumno</h5>
         </div>
         <div class="card-body">
             <form method="post" class="mb-4">
-                <label for="busquedaAlumnos" class="col-sm-4 col-form-label">Buscar Alumno:</label>
-                <div class="col-sm-8">
+                <div class="input-group">
                     <input type="text" class="form-control" id="busquedaAlumnos" name="busquedaAlumnos" placeholder="Ingrese el nombre del alumno">
-                    <button type="submit" name="buscar" class="btn btn-primary mt-2">Buscar</button>
+                    <div class="input-group-append">
+                        <button type="submit" name="buscar" class="btn btn-primary">Buscar</button>
+                    </div>
                 </div>
             </form>
 
             <?php if (isset($_POST['buscar'])) : ?>
                 <!-- Resultados de la búsqueda -->
-                <div class="mb-3 row" style="display: flex; align-items: center;" id="resultadosAlumnos">
-                    <label for="id_alumno" class="col-sm-4 col-form-label">Resultados:</label>
-                    <div class="col-sm-8">
-                        <form method="post"> <!-- Nueva etiqueta form aquí -->
-                            <ul class="list-group">
-                                <?php foreach ($alumnos_controller->buscarAlumnos($_POST['busquedaAlumnos']) as $alumno) : ?>
-                                    <li class="list-group-item mt-2">
-                                        <?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?>
-                                        <input type="hidden" name="id_alumno" value="<?php echo $alumno->getIdalumno() ?>">
-                                        <button type="submit" class="btn btn-primary btn-sm" name="filtrar">Seleccionar</button>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </form>
-                    </div>
+                <div class="list-group">
+                    <?php foreach ($alumnos_controller->buscarAlumnos($_POST['busquedaAlumnos']) as $alumno) : ?>
+                        <a href="?id_alumno=<?php echo $alumno->getIdalumno(); ?>" class="list-group-item list-group-item-action">
+                            <?php echo $alumno->getNombres() . ' ' . $alumno->getApellidos(); ?>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             <?php endif; ?>
         </div>
     </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID préstamos</th>
-                <th>Nombre Alumno</th>
-                <th>Nombre Libro</th>
-                <th>Fecha de Préstamo</th>
-                <th>Fecha de Devolución</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if (isset($_POST['filtrar'])) {
-                foreach ($prestamosController->historial($_POST['id_alumno']) as $prestamo) {
-                    echo "
-                        <tr>
-                            <td>" . $prestamo->getIdPrestamos() . "</td>
-                            <td>" . $prestamo->getIdAlumno() . "</td>
-                            <td>" . $prestamo->getIdLibros() . "</td>
-                            <td>" . $prestamo->getFechaPrestamo() . "</td>
-                            <td>" . $prestamo->getFechaDevolucion() . "</td>
-                            <td>" . ($prestamo->getEstado() == 1 ? 'Activo' : 'Finalizado') . "</td>
-                        </tr>
-                    ";
-                }
-            }
-            ?>
-        </tbody>
-    </table>
-    <a href="prestamos" class="btn btn-dark">Regresar</a>
+    <?php if (isset($_GET['id_alumno'])) : ?>
+        <div class="card mt-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">Préstamos del alumno</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Préstamos Activos:</h6>
+                        <hr>
+                        <?php foreach ($prestamosController->historial($_GET['id_alumno']) as $prestamo) : ?>
+                            <?php if ($prestamo->getEstado() == 1) : ?>
+                                <div class="card mb-3">
+                                    <div class="card-header bg-secondary text-white">
+                                        <h6 class="card-title mb-0"><strong> ID: <?php echo $prestamo->getIdPrestamos() ?><<strong></h6>
+
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Título del libro:</strong> <?php echo $prestamo->getIdLibros() ?></p>
+                                        <p class="card-text"><strong>Fecha de préstamo:</strong> <?php echo $prestamo->getFechaPrestamo() ?></p>
+                                        <p class="card-text"><strong>Fecha de devolución:</strong> <?php echo $prestamo->getFechaDevolucion() ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Préstamos Finalizados:</h6>
+                        <hr>
+                        <?php foreach ($prestamosController->historial($_GET['id_alumno']) as $prestamo) : ?>
+                            <?php if ($prestamo->getEstado() == 0) : ?>
+                                <div class="card mb-3">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h6 class="card-title mb-0"><strong>ID: <?php echo $prestamo->getIdPrestamos() ?></strong></h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Título del libro:</strong> <?php echo $prestamo->getIdLibros() ?></p>
+                                        <p class="card-text"><strong>Fecha de préstamo:</strong> <?php echo $prestamo->getFechaPrestamo() ?></p>
+                                        <p class="card-text"><strong>Fecha de devolución:</strong> <?php echo $prestamo->getFechaDevolucion() ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <a href="prestamos" class="btn btn-dark mt-3">Regresar</a>
 </div>
