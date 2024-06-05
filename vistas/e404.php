@@ -1,1 +1,0 @@
-<img src="dogs.jpg" alt="" srcset="">
